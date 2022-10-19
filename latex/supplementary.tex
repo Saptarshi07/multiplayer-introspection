@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage{times}
+\usepackage{amsmath,amsthm,amssymb,mathtools,setspace,enumitem,epsfig,titlesec,verbatim,color,array,multirow,comment,graphicx,hyperref,blkarray}
+%\usepackage[sort&compress]{natbib} % ProcB
+\usepackage[super,sort&compress,comma]{natbib} % NComms
+\usepackage[bf,small]{caption}
+\usepackage[export]{adjustbox}
+\usepackage[top=2.5cm,left=2.8cm,right=2.8cm,bottom=3.2cm]{geometry} 
+\smallskip 
+
+\definecolor{darkred}{rgb}{0.6,0,0}
+\definecolor{darkblue}{rgb}{0,0.3,0.8}
+
+\newcommand{\christian}[1]{\textcolor{blue}{{\bf CH:} #1}} 
+
+\titleformat{\section}{\sffamily \fontsize{12}{20}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\sffamily \fontsize{11}{20}\bfseries}{\thesubsection}{1em}{}
+
+\renewcommand{\figurename}{Supplementary Figure}
+
+
+\newcommand{\FigIllustration}{{\bf Fig.~1}}
+
+\newtheoremstyle{plainCl1}% name
+{9pt}%      Space above, empty = 'usual value'
+{15pt}%      Space below
+{\it}% 	   Body font
+{}%         Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}% Thm head font
+{.}%        Punctuation after thm head
+{2mm}% Space after thm head: \newline = linebreak
+{}%         Thm head spec
+
+\newtheoremstyle{plainCl2}% name
+{9pt}%      Space above, empty = 'usual value'
+{15pt}%      Space below
+{\it}% 	   Body font
+{}%         Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}% Thm head font
+{.}%        Punctuation after thm head
+{4mm}% Space after thm head: \newline = linebreak
+{}%         Thm head spec
+
+\theoremstyle{plainCl1}
+\newtheorem{theorem}{Theorem}
+\newtheorem{Prop}{Proposition}
+
+\theoremstyle{plainCl2}
+\newtheorem{lemma}{Lemma}
+\newtheorem{Cor}{Corollary}
+
+
+\newcommand{\ALLD}{\emph{D}}
+
+\newcommand{\ai}{\mathbf{A}^i}
+
+\title{\sffamily \Large Supplementary Information\\[0.1cm] {\bfseries Introspection dynamics in asymmetric multiplayers games}}
+\date{\empty}
+\author{\parbox[c]{16cm}{\centering \onehalfspacing \fontsize{11}{12}\selectfont Marta Couto$^1$ and Saptarshi Pal$^1$\\[0.2cm]
+$^1$Max Planck Research Group Dynamics of Social Behavior, Max Planck Institute for Evolutionary Biology, 24306~Ploen, Germany}}
+
+
+\begin{document}
+\maketitle
+\onehalfspacing
+\section*{The general model for introspection dynamics}
+We consider an asymmetric normal form game with $N (>2)$ players. Each player, $i$, has access to their action set, $\ai$, in which there are $m_i$ possible actions that they can play, $\ai = \{a^i_i, a^i_2, ..., a^i_{m_i}\}$. The payoff for an individual $i$ depends on what everyone plays and is represented by $\pi^i(a^1, a^2, ..., a^N)$, where $(a^1, a^2,...,a^N) \in \mathbf{A}^1 \times \mathbf{A}^2 \times ... \times \mathbf{A}^N$. In this model we only consider pure strategies for players. So, player $i$ has only $m_i$ possible strategies. 
+
+\noindent The players update their strategies over time using the introspection dynamics \cite{couto2022introspection}. 
+
+\section*{Examples of multiplayer games and results} 
+
+\section*{Supplementary References}
+\bibliographystyle{unsrt}
+\bibliography{bibliography.bib }
+\end{document}
