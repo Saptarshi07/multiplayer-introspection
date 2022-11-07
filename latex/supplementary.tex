@@ -44,15 +44,20 @@
 \theoremstyle{plainCl1}
 \newtheorem{theorem}{Theorem}
 \newtheorem{Prop}{Proposition}
+\newtheorem{definition}{Definition}
 
 \theoremstyle{plainCl2}
 \newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
 \newtheorem{Cor}{Corollary}
 
 
 \newcommand{\ALLD}{\emph{D}}
 
-\newcommand{\ai}{\mathbf{A}^i}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\abf}{\mathbf{a}}
+\newcommand{\T}{\mathbf{T}}
+\newcommand{\ubf}{\mathbf{u}}
 
 \title{\sffamily \Large Supplementary Information\\[0.1cm] {\bfseries Introspection dynamics in asymmetric multiplayers games}}
 \date{\empty}
@@ -64,11 +69,134 @@ $^1$Max Planck Research Group Dynamics of Social Behavior, Max Planck Institute 
 \maketitle
 \onehalfspacing
 \section*{The general model for introspection dynamics}
-We consider an asymmetric normal form game with $N (>2)$ players. Each player, $i$, has access to their action set, $\ai$, in which there are $m_i$ possible actions that they can play, $\ai = \{a^i_i, a^i_2, ..., a^i_{m_i}\}$. The payoff for an individual $i$ depends on what everyone plays and is represented by $\pi^i(a^1, a^2, ..., a^N)$, where $(a^1, a^2,...,a^N) \in \mathbf{A}^1 \times \mathbf{A}^2 \times ... \times \mathbf{A}^N$. In this model we only consider pure strategies for players. So, player $i$ has only $m_i$ possible strategies. 
+We consider an asymmetric normal form game with $N (>2)$ players. Each player, $i$, has access to their action set, $\A^i$, in which there are $m_i$ possible actions that they can play, $\A^i = \{a^i_i, a^i_2, ..., a^i_{m_i}\}$. The payoff for an individual $i$ depends on what everyone plays and is represented by $\pi^i(\abf^1, \abf^2, ..., \abf^N)$, where $\abf := (\abf^1, \abf^2,...,\abf^N) \in \A^1 \times \A^2 \times ... \times \A^N$ represents a state of the game. In this model we only consider pure strategies for players. So, player $i$ has only $m_i$ possible strategies. Therefore, the total number of states possible for the game is the product of all $m_i$. 
+\\ \\
+\noindent We represent a state of the game, $\abf$, from the perspective of player $j$ as $\abf =: (\abf^j, \abf^{-j})$. In the state $(\abf^j, \abf^{-j})$, player $j$ plays the action $\abf^j \in \A^j$ and all the other co-players of $j$ play $\abf^{-j} \in \Pi_{k \neq j} \A^k$. The payoff of player $j$ in this state is also represented as $\pi^j(\abf^j, \abf^{-j})$.
+\\ \\
+\noindent The players update their strategies over time using the introspection dynamics \cite{couto2022introspection}. At every time step, one randomly chosen player can update their strategy. The randomly chosen player, say $j$, currently playing strategy $a^j_k$, compares their current payoff to all the payoffs they can achieve if they played an alternate action from their action set $\A^j$. This comparison is done while assuming that the co-players do not change from $\abf^{-j}$. Then, they adopt a new strategy $a^j_l \neq a^j_k$ with the probability: 
 
-\noindent The players update their strategies over time using the introspection dynamics \cite{couto2022introspection}. 
+\begin{equation}
+ p^j_{a^j_k \to a^j_l} (\abf^{-j})= \frac{1}{1 + e^{\displaystyle -\beta(\pi^j(a^j_l, \abf^{-j}) - \pi^j(a^j_k, \abf^{-j}))}}
+ \label{Eq:introspection-update}
+\end{equation}
+\\
+\noindent Where $\beta$ is the selection parameter. The probability that no update is made by the randomly chosen player is given by the normalization condition: 
+
+\begin{equation}
+ p^j_{a^j_k \to a^j_k} (\abf^{-j}) = 1 - \sum_{k \neq l} p^j_{a^j_k \to a^j_l} (\abf^{-j})
+ \label{Eq:introspection-normalization}
+\end{equation}
+\\ 
+\noindent Now, with the help of Eq. \ref{Eq:introspection-update} and \ref{Eq:introspection-normalization}, we can define the transition matrix $\T$ of the process. The transition matrix is a square matrix of size $\Pi_i m_i$. The element $\T_{\abf_p, \abf_q}$ of the matrix represents the probability that the game will go to state $\abf_q$ from state $\abf_p$ in a time step. Before defining the transition matrix, we define the notion of neighbouring states. 
+
+\begin{definition}
+\textbf{Neighbouring states}: \\ The state $\abf_q \in \mathit{Neb}(\abf_p)$, the neighbourhood of state $\abf_p$, if and only if $\exists j$ such that $\abf_p^{-j} = \abf_q^{-j}$ and $\abf_p^{j} \neq \abf_q^{j}$. 
+\label{Def:neighbourhood-states}
+\end{definition}
+\noindent Note that if $\abf_q \in \mathit{Neb}(\abf_p)$ then by definition $\abf_p \in \mathit{Neb}(\abf_q)$. We give an example to explain the notion of neighbourhood. Consider three players, player $1,2$ and $3$. Each of these players choose actions from an identical binary action set $\{\mathit{0},\mathit{1}\}$. In this example, the state $(\mathit{0}, \mathit{0}, \mathit{0})$ is a neighbour of $(\mathit{0}, \mathit{0}, \mathit{1})$ and vice versa. The index of difference between the two states is player $3$. The states  $(\mathit{0}, \mathit{0}, \mathit{0})$ and $(\mathit{0}, \mathit{1}, \mathit{1})$ are not neighbouring states because more than one player's action are changed. 
+
+\begin{definition}
+\textbf{Index of difference for neighbouring states}: \\ \\ If the states $\abf_p$ and $\abf_q$ are neighbours then, the unique $j$ for which $\abf_p^{j} \neq \abf_q^{j}$, is called the index of difference. Or $I(\abf_p,\abf_q) := j$
+\label{Def:index-of-difference}
+\end{definition}
+\noindent For the earlier example, let $\abf_p = (\mathit{0}, \mathit{0}, \mathit{0})$ and $\abf_q = (\mathit{0}, \mathit{0}, \mathit{1})$. Then, $I(\abf_p,\abf_q) = 3$. 
+\\ \\ 
+Using the above definitions of neighbourhood and index of difference, we can define the transition matrix $\T$ for the process as the follows: 
+\begin{align}
+\T_{\abf_p,\abf_q} = 
+\begin{cases}
+\frac{1}{N}  \cdot p^j_{\abf^j_p \to \abf^j_q} (\abf_p^{-j}) \quad  \quad &\abf_p \in \mathit{Neb}(\abf_q) \quad \text{and,} \quad j = I(\abf_p,\abf_q)\\ \\ 
+0 \quad & \abf_{p} \notin \mathit{Neb}(\abf_q) \\ \\
+1 - \sum_{\forall \abf_k \neq \abf_p} \T_{\abf_p,\abf_k} \quad &\abf_p = \abf_q
+\end{cases}
+\label{Eq:transition-matrix}
+\end{align}
+\noindent The stochastic transition matrix $\T$ is row-stochastic. This implies that its stationary distribution is a left eigenvector of $\T$ corresponding to eigenvalue $1$. We denote the stationary distribution of $\T$ as $\ubf$. Furthermore, since no state of the process is isolated (i.e., every state has atleast one neighbour), a finite $\beta$ assures that a state is reachable from any other state with positive probability in a finite number of steps. Therefore, $\T$ is also primitive. The stationary distribution $\ubf$ is unique and strictly positive (from the Perron-Frobenius Theorem). The following conditions are satisfied by the stationary distribution $\ubf$ when it is additionally also a probability distribution. 
+
+\begin{eqnarray}
+\label{Eq:lefteigenvector}
+\ubf \T = \ubf \\ 
+\label{Eq:normalizationcondition}
+\ubf \cdot \mathbf{1} = 1
+\end{eqnarray}
 
 \section*{Examples of multiplayer games and results} 
+\subsection*{Linear public goods game}
+We consider the linear public goods game with $N$ asymmetric players. Each player has two possible actions, to contribute ($a=1$), or to not contribute ($a=0$). The players differ in their cost of cooperation and their productivities. The cost of cooperation and the productivity of a player $i$ are denoted by $c_i$ and $r_i$.  The payoff for player $i$ when the state of the game is $\abf$ is given by: 
+
+\begin{equation}
+\pi^i(\abf) = \sum_{j=1}^N \frac{\displaystyle r_j a_j c_j}{N} - a_i c_i
+\label{Eq:linear-pgg-payoff}
+\end{equation}
+
+\noindent The difference in payoffs between playing the two actions in a linear public goods game is independent of what the other co-players play in the game. That is, 
+
+\begin{equation}
+\pi^i(\abf^i = 0, \abf^{-i}) - \pi^i(\abf^i = 1, \abf^{-i}) = c_i \left(1 - \frac{r_i}{N} \right) =: f(c_i, r_i) 
+\label{Eq:difference-payoffs-lpgg}
+\end{equation}
+
+\noindent is independent of $\abf^{-i}$. This property of the game results in dominated strategies for player $i$ depending on the relationship between their productivity $r_i$ and number of players $N$. When $r_i < N$, the action of not contributing ($a = 0$) dominates the action of contributing ($a = 1$) and vice-versa. 
+
+\begin{proposition}
+\label{prop:stationary-dist-lpgg}
+When $\beta$ is finite, the unique stationary distribution of an asymmetric linear public goods game under introspection dynamics is given by: 
+
+\begin{equation}
+\ubf_\abf = \prod_{j = 1}^{N} \frac{1}{1 + \displaystyle e^{\mathit{sign}(\abf^j)\beta f(c_j, r_j )}} \quad ,\forall \abf \in \{0,1\}^N
+\label{Eq:stationary_dist_lpgg}
+\end{equation}
+where, 
+\begin{equation}
+\mathit{sign}(a) = 2a - 1
+\end{equation}
+\end{proposition}
+
+\section*{Appendix: Proofs}
+\begin{proof}
+\textbf{Proof of Proposition} \ref{prop:stationary-dist-lpgg} \\ 
+The stationary transition matrix $\T$ for the linear public goods game is primitive when $\beta$ is finite (i.e., there is a positive power $k$ such that $\T^k$ is a strictly positive matrix). Therefore, the stationary distribution of $\T$ will always be unique. We define the following short cut notations for the ease of the proof: 
+\begin{eqnarray}
+&\bar{\abf}^j := \{0,1\} \setminus \abf^j  \\ 
+&p^j := \frac{1}{1 + \displaystyle e^{\beta f(c_j, r_j)}}
+\end{eqnarray}
+Using these notations and Eq. \ref{Eq:introspection-update} and \ref{Eq:difference-payoffs-lpgg} we can write the probability that a player $j$ updates from $\abf^j$ to $\bar{\abf}^j$ while their co-players play $\abf^{-j}$ as:
+\begin{equation}
+p^j_{\displaystyle \bar{\abf}^j  \to \abf^j} (\abf^{-j}) = p^j \mathit{sign}(\abf^j) + \bar{\abf}^j \\ \\
+\end{equation}
+The candidate stationary distribution $\ubf$ given in Eq \ref{Eq:stationary_dist_lpgg} can be written down using our shortcut notation as: 
+\begin{equation}
+\label{Eq:stationary-dist-shortcut}
+\ubf_\abf = \prod_{k = 1}^{N}  p^k \mathit{sign}(\abf^k) + \bar{\abf}^k \quad ,\forall \abf \in \{0,1\}^N
+\end{equation}
+This stationary distribution must satisfy the following properties, which are also given in Eq  \ref{Eq:lefteigenvector} and \ref{Eq:normalizationcondition}:
+\begin{align}
+\label{Eq:transition-in-proof}
+&\ubf_a = \T_{\abf,\abf} \ubf_a  + \sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} \ubf_{\abf_q}  \\ 
+\label{Eq:normalization-in-proof}
+&\sum_{\forall \abf_q} u_{\abf_q}= 1
+\end{align}
+Where, the terms in the right hand side of Eq. \ref{Eq:transition-in-proof} can be simplified using Eq \ref{Eq:introspection-update} and \ref{Eq:transition-matrix} as follows:
+\begin{eqnarray}
+\T_{\abf,\abf} = 1 - \sum_{k=1}^{N} \T_{(\abf^k, \abf^{-k}), (\bar{\abf}^k,\abf^{-k})} = 1 - \frac{1}{N} \sum_{k=1}^{N} p^k \textit{sign}(\bar{\abf}^k) + \abf^k 
+\label{Eq:first-term-rhs-proof}
+\end{eqnarray} 
+and additionally, also using Eq. \ref{Eq:stationary-dist-shortcut} the second term can be simplified too:
+\begin{align}
+\sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} \ubf_{\abf_q} &= \sum_{k = 1}^N \T_{(\bar{\abf}^k,\abf^{-k}), (\abf^k, \abf^{-k})} \ubf_{(\bar{\abf}^k,\abf^{-k})} \\
+&= \frac{1}{N} \sum_{k = 1}^N \left(p^k \textit{sign}(\abf^k) + \bar{\abf}^k \right) \ubf_{(\bar{\abf}^k,\abf^{-k})} \\ 
+\label{Eq:second-term-rhs-proof}
+&= \frac{\ubf_\abf}{N} \sum_{k=1}^{N} p^k \textit{sign}(\bar{\abf}^k) + \abf^k 
+\end{align}
+Now, using Eq. \ref{Eq:first-term-rhs-proof}, \ref{Eq:second-term-rhs-proof} one can show that the right hand side of Eq. \ref{Eq:transition-in-proof} is the element of the stationary distribution, corresponding to the state $\abf$, $\ubf_a$.  Now, to complete the proof, we must show that Eq. \ref{Eq:normalization-in-proof} is also true for our candidate stationary distribution. This can be done by decomposing the sum of the elements of the stationary distribution as follows:
+\begin{eqnarray}
+\sum_{\forall \abf_q} u_{\abf_q} =& \displaystyle \sum_{\forall \abf_q} \prod_{k=1}^N p^k \mathit{sign}(\abf_q^k) + \bar{\abf}_q^k \\
+=& \displaystyle \displaystyle \sum_{\forall \abf_q} (1-p^N)  \prod_{k=1}^{N-1} p^k \mathit{sign}(\abf_q^k) + \bar{\abf}_q^k  + p^N  \prod_{k=1}^{N-1} p^k \mathit{sign}(\abf_q^k) + \bar{\abf}_q^k \\ 
+=& \displaystyle \sum_{\forall \abf_q} \prod_{k=1}^{N-1} p^k \mathit{sign}(\abf_q^k) + \bar{\abf}_q^k
+\end{eqnarray}
+When the above decomposition is perfomed $N-1$ more times, the sum of the right hand side becomes 1. This prooves that the candidate stationary distribution is also normalized. 
+\end{proof}
+
 
 \section*{Supplementary References}
 \bibliographystyle{unsrt}
