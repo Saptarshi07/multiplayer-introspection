@@ -69,7 +69,7 @@ $^1$Max Planck Research Group Dynamics of Social Behavior, Max Planck Institute 
 \maketitle
 \onehalfspacing
 \section*{The general model for introspection dynamics}
-We consider an asymmetric normal form game with $N (>2)$ players. Each player, $i$, has access to their action set, $\A^i$, in which there are $m_i$ possible actions that they can play, $\A^i = \{a^i_i, a^i_2, ..., a^i_{m_i}\}$. The payoff for an individual $i$ depends on what everyone plays and is represented by $\pi^i(\abf^1, \abf^2, ..., \abf^N)$, where $\abf := (\abf^1, \abf^2,...,\abf^N) \in \A^1 \times \A^2 \times ... \times \A^N$ represents a state of the game. In this model we only consider pure strategies for players. So, player $i$ has only $m_i$ possible strategies. Therefore, the total number of states possible for the game is the product of all $m_i$. 
+We consider an asymmetric normal form game with $N (>2)$ players. Each player, $i$, has access to their action set, $\A^i$, in which there are $m_i$ possible actions that they can play, $\A^i = \{a^i_i, a^i_2, ..., a^i_{m_i}\}$. The payoff for an individual $i$ depends on what everyone plays and is represented by $\pi^i(\abf^1, \abf^2, ..., \abf^N)$, where $\abf := (\abf^1, \abf^2,...,\abf^N) \in \A^1 \times \A^2 \times ... \times \A^N =: \A$ represents a state of the game. In this model we only consider pure strategies for players. So, player $i$ has only $m_i$ possible strategies. Therefore, the total number of states possible for the game is the product of all $m_i$. 
 \\ \\
 \noindent We represent a state of the game, $\abf$, from the perspective of player $j$ as $\abf =: (\abf^j, \abf^{-j})$. In the state $(\abf^j, \abf^{-j})$, player $j$ plays the action $\abf^j \in \A^j$ and all the other co-players of $j$ play $\abf^{-j} \in \Pi_{k \neq j} \A^k$. The payoff of player $j$ in this state is also represented as $\pi^j(\abf^j, \abf^{-j})$.
 \\ \\
@@ -111,7 +111,7 @@ Using the above definitions of neighbourhood and index of difference, we can def
 \end{cases}
 \label{Eq:transition-matrix}
 \end{align}
-\noindent The stochastic transition matrix $\T$ is row-stochastic. This implies that its stationary distribution is a left eigenvector of $\T$ corresponding to eigenvalue $1$. We denote the stationary distribution of $\T$ as $\ubf$. Furthermore, since no state of the process is isolated (i.e., every state has atleast one neighbour), a finite $\beta$ assures that a state is reachable from any other state with positive probability in a finite number of steps. Therefore, $\T$ is also primitive. The stationary distribution $\ubf$ is unique and strictly positive (from the Perron-Frobenius Theorem). The following conditions are satisfied by the stationary distribution $\ubf$ when it is additionally also a probability distribution. 
+\noindent The stochastic transition matrix $\T$ is row-stochastic. This implies that its stationary distribution is a left eigenvector of $\T$ corresponding to eigenvalue $1$. We denote the stationary distribution of $\T$ as $\ubf := (\ubf_{\abf})_{\abf \in \A}$. Furthermore, since no state of the process is isolated (i.e., every state has atleast one neighbour), a finite $\beta$ assures that a state is reachable from any other state with positive probability in a finite number of steps. Therefore, $\T$ is also primitive. The stationary distribution $\ubf$ is unique and strictly positive (from the Perron-Frobenius Theorem). The following conditions are satisfied by the stationary distribution $\ubf$ when it is additionally also a probability distribution. 
 
 \begin{eqnarray}
 \label{Eq:lefteigenvector}
@@ -119,6 +119,78 @@ Using the above definitions of neighbourhood and index of difference, we can def
 \label{Eq:normalizationcondition}
 \ubf \cdot \mathbf{1} = 1
 \end{eqnarray}
+
+\noindent The marginal distribution over the strategies of a player $j$ at the stationary distribution is given by $\mathbf{\xi}^j := (\mathbf{\xi}^j_{a^j_1}, \mathbf{\xi}^j_{a^j_2}, ..., \mathbf{\xi}^j_{a^j_{m_j}})$. This distribution indicates the probability with which player $j$ plays strategies from their action set $\A^j$ at the stationary distribution. The relationship between the marginal distribution and the stationary distribution is given by:
+
+\begin{equation}
+\mathbf{\xi}^j_{a^j_k} := \sum_{\mathbf{b} \in \A^{-j}} \ubf_{(a^j_k, \mathbf{b})}
+\label{Eq:marginal-definition}
+\end{equation}
+
+\noindent Where, $\A^{-j} = \prod_{l \neq j} \A^l$. One can note that the marginal distribution is also a probability distribution. That is, for all $j$:
+
+\begin{equation}
+\sum_{a' \in \A^j} \xi^j_{a'}= 1
+\label{Eq:marginal-prob-dist}
+\end{equation}
+
+\subsection*{Additive games and their properties under introspection dynamics}
+
+In this subsection we discuss a special class of general multiplayer games: additive games \cite{mcavoy2015asymmetric} and some of their properties under the introspection dynamics. Additive games are games where the payoff earned by a player $j$ in the state $\abf$ can be broken down into two-components - one which is only dependent on what player $j$ played in the state: $\abf^j$ and the other which only depends on what their co-players $-j$ played in the state: $\abf^{-j}$ . That is, for all players $j$,
+
+\begin{equation}
+\pi^j(\abf) = \pi^j_{\abf^j} + \pi^j_{\abf^{-j}}
+\label{Eq:additive games}
+\end{equation}
+
+\noindent holds. In additive games, the payoff difference earned by a player when they switch between two strategies in their action set is independent of what other co-players are playing (given all other co-players do not change their strategies). That is, for all $j$ and any pair of strategies $a^j_p, a^j_q\in \A^j$,
+
+\begin{equation}
+\pi^j(a^j_p, \mathbf{b}) - \pi^j(a^j_q, \mathbf{b}) = \pi^j_{a^j_p} - \pi^j_{a^j_q}
+\label{Eq:additive games property}
+\end{equation}
+
+\noindent holds for any $\mathbf{b} \in \prod_{l \neq j} \A^l$. 
+\\ \\
+We see an example of additive game in the next section. Under introspection dynamics, stationary distribution and marginal distributions from additive games show interesting properties. They are discussed in the theorems below: 
+
+\begin{theorem}
+When $\beta$ is finite, the unique stationary distribution, $\ubf = (\ubf_\abf)_{\abf \in \A}$, of an N-player additive game under the introspection dynamics is given by: 
+\begin{equation}
+\ubf_a = \prod_{j=1}^N \frac{1}{\displaystyle \sum_{a' \in \A^j} e^{\beta \left( \pi^j_{a'} -  \pi^j_{\abf^j} \right) }} 
+\label{Eq:additive-game-stationary-distribution}
+\end{equation}
+where, $\pi^j_{a'} - \pi^j_{\abf^j}$ is the co-player independent payoff difference that $j$  earns in an additive game when they switch their play to $a'$ from $\abf^j$ while their co-players do not change their respective plays.
+\label{Th:additive-games-stationary-dist}
+\end{theorem}
+
+\begin{theorem}
+Let $\ubf = (\ubf_\abf)_{\abf \in \A}$ be the unique stationary distribution of an N-player additive game under the introspection dynamics with finite $\beta$. Then, $\ubf_\abf$ is the product of elements of the marginal distributions that correspond to the actions that the players play in state $\abf$. That is, 
+
+\begin{equation}
+\ubf_\abf = \prod_{j = 1}^N \xi^j_{\abf^j}
+\label{Eq:additive-game-products}
+\end{equation}
+
+\noindent and, the marginal $\xi^j_{\abf^j}$ is given by: 
+
+\begin{equation}
+\xi^j_{\abf_j} = \frac{1}{\displaystyle \sum_{a' \in \A^j} e^{\beta \left( \pi^j_{a'} -  \pi^j_{\abf^j} \right) }} 
+\label{Eq:marginal-at-additive-game}
+\end{equation}
+\noindent where, $\pi^j_{a'} - \pi^j_{\abf^j}$ is the co-player independent payoff difference that $j$  earns in an additive game when they switch their play to $a'$ from $\abf^j$ while their co-players do not change their respective plays.
+\label{Th:additive-game-product-of-marginals}
+\end{theorem}
+
+\noindent In other words, the above theorem states that for additive games, the frequency that the game will be in state $\abf = (\abf^1, \abf^2, ...,\abf^N)$ under the finite selection introspection dynamics, is the product of the probabilities that the players respectively adopt the action $\abf^j$ which appear in this state $\abf$. \\ \\
+\noindent To elucidate this result further, we use an example of a 2-player additive game where each player has three possible actions from the action set $\{\mathit{0},\mathit{1},\mathit{2}\}$. The result says that the expected frequency of the state $(\mathit{0,2})$, say, where player 1 and player 2 simultaneously play $\mathit{0}$ and $\mathit{2}$ respectively: $\ubf_{(\mathit{0,2})}$, is the product of the marginal probabilities that the first player plays $\mathit{0}$ and the second player plays $\mathit{2}$ in the game. That is, 
+
+\begin{equation}
+\ubf_{(\mathit{0,2})} = \xi^1_{\mathit{0}}  \xi^2_{\mathit{2}} = (\ubf_{(\mathit{0,0})} + \ubf_{(\mathit{0,1})} + \ubf_{(\mathit{0,2})})(\ubf_{(\mathit{0,2})} + \ubf_{(\mathit{1,2})} + \ubf_{(\mathit{2,2})}) 
+\label{Eq:additive-stationary-dist-example}
+\end{equation}
+\\
+\noindent As stated in the theorem above, this result holds for any additive game with arbitrary number of players and each player having arbitrary action sets.
 
 \section*{Examples of multiplayer games and results} 
 \subsection*{Linear public goods game}
@@ -136,9 +208,9 @@ We consider the linear public goods game with $N$ asymmetric players. Each playe
 \label{Eq:difference-payoffs-lpgg}
 \end{equation}
 
-\noindent is independent of $\abf^{-i}$. This property of the game results in dominated strategies for player $i$ depending on the relationship between their productivity $r_i$ and number of players $N$. When $r_i < N$, the action of not contributing ($a = 0$) dominates the action of contributing ($a = 1$) and vice-versa. 
+\noindent is independent of $\abf^{-i}$. The linear public goods game is therefore an example of an additive game. This property of the game results in dominated strategies for player $i$ depending on the relationship between their productivity $r_i$ and number of players $N$. When $r_i < N$, the action of not contributing ($a = 0$) dominates the action of contributing ($a = 1$) and vice-versa. 
 
-\begin{proposition}
+\begin{lemma}
 \label{prop:stationary-dist-lpgg}
 When $\beta$ is finite, the unique stationary distribution of an asymmetric linear public goods game under introspection dynamics is given by: 
 
@@ -150,11 +222,64 @@ where,
 \begin{equation}
 \mathit{sign}(a) = 2a - 1
 \end{equation}
-\end{proposition}
+\end{lemma}
 
 \section*{Appendix: Proofs}
+
 \begin{proof}
-\textbf{Proof of Proposition} \ref{prop:stationary-dist-lpgg} \\ 
+\textbf{Proof of Theorem} \ref{Th:additive-games-stationary-dist} \\ \\ 
+Since $\beta$ is finite, the transition matrix of the process $\T$ given by Eq. \ref{Eq:transition-matrix} is primitive and therefore, the stationary distribution $\ubf = (\ubf_\abf)_{\abf \in \A}$ of the row-stochastic transition matrix is unique and satisfies the conditions laid out in Eq. \ref{Eq:lefteigenvector} and \ref{Eq:normalizationcondition}. To continue for the rest of the proof, we introduce some short-cut notation that will be of use later in the proof:\\
+\begin{align}
+I_{q} &:= I(\abf_q,\abf), \quad \mathit{iff} \quad \abf_q \in \mathit{Neb}(\abf) \\ \notag \\ 
+\label{Eq:shortcut-tau}
+\tau^j_{\abf^j} &:= \frac{1}{\displaystyle \sum_{a' \in \A^j} e^{\beta \left( \pi^j_{a'} -  \pi^j_{\abf^j} \right) }} 
+\end{align}
+\noindent In order to show that the candidate stationary distribution, as proposed in Eq. \ref{Eq:additive-game-stationary-distribution} is the stationary distribution of the process, we need to show that the following are true:
+\begin{eqnarray}
+\label{step-one}
+\T_{\abf,\abf} \ubf_a  + \sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} = \ubf_a \quad \forall \abf \in \A \\ 
+\label{step-two}
+\sum_{\abf \in \A} \ubf_\abf  = 1
+\end{eqnarray}
+The Eq \ref{step-one} can be simplified further with the steps: 
+\begin{align}
+&\T_{\abf,\abf} \ubf_a  + \sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} = \\
+& \left( 1 - \frac{1}{N} \sum_{\abf_q \in \mathit{Neb}(\abf)} p^{I_q}_{\abf^{I_q} \to \abf^{I_q}_q} \cdot \ubf_{\abf} \right) + \sum_{\abf_q \in \mathit{Neb}(\abf)} p^{I_q}_{\abf^{I_q}_q \to \abf^{I_q}} \cdot \ubf_{\abf_q} = \\ \notag \\
+\label{eq:important-step}
+& \ubf_\abf +  \frac{1}{N} \sum_{\abf_q \in \mathit{Neb}(\abf)} \left( \prod_{k \neq I_q} \tau^k_{\abf^k} \right) \left( p^{I_q}_{\abf^{I_q}_q \to \abf^{I_q}} \cdot \tau^{I_q}_{\abf^{I_q}} -  p^{I_q}_{\abf^{I_q} \to \abf^{I_q}_q} \cdot \tau^{I_q}_{\abf^{I_q}_q} \right)
+\end{align}
+\\ Using the definition of probability of update of the introspection dynamics, as given by Eq. \ref{Eq:introspection-update} and Eq. \ref{Eq:shortcut-tau}, it can be shown that: 
+\begin{equation}
+p^{I_q}_{\abf^{I_q}_q \to \abf^{I_q}} \cdot \tau^{I_q}_{\abf^{I_q}} -  p^{I_q}_{\abf^{I_q} \to \abf^{I_q}_q} \cdot \tau^{I_q}_{\abf^{I_q}_q} = 0
+\label{important-step-is-zero}
+\end{equation}
+\\ \noindent Plugging the equality in Eq. \ref{important-step-is-zero} into Eq. \ref{eq:important-step}, we can see that the left hand side of Eq. \ref{step-one} indeed simplifies to $\ubf_{\abf}$. Now, to confirm that the candidate $\ubf$ is the unique stationary distribution we need to check if Eq. \ref{step-two} holds. Simplifying the left hand side of this equation shows that:
+\begin{align}
+\sum_{\abf \in \A} \ubf_\abf &= \sum_{\abf \in \A} \prod_{k=1}^N \tau^k_{\abf^k} \\ \notag \\
+\label{step-prod-sum-sum-prod}
+&= \left( \prod_{k=1}^N \sum_{\abf' \in \A} \displaystyle e^{\beta \pi^k_{\abf'}}\right)^{-1} \cdot \left( \sum_{\abf \in \A} \prod_{k=1}^N \displaystyle e^{\beta \pi^k_{\abf^k}} \right) \\ \notag \\
+\label{step-prod-is-one}
+&= 1
+\end{align}
+\noindent The step from Eq. \ref{step-prod-sum-sum-prod} to Eq \ref{step-prod-is-one} is possible because the sum and product in Eq. \ref{step-prod-sum-sum-prod} are interchangeable for both the terms. Therefore, condition Eq. \ref{step-two} is satisfied too. 
+\end{proof}
+
+\begin{proof}
+\textbf{Proof of Theorem} \ref{Th:additive-game-product-of-marginals} \\ \\ 
+If $\ubf$ is the unique stationary distribution of the additive game with $N-$players under finite selection introspection dynamics, it is given by the expression in Eq. \ref{Eq:additive-game-stationary-distribution}. We calculate the marginal distribution of any arbitrary state $\abf$, $\xi_{\abf} = (\xi^j_{\abf^j})_{j = 1,2,...,N}$ by using the definition of marginal distribution in Eq. \ref{Eq:marginal-definition}. It follows that: 
+\begin{align}
+\xi^j_{\abf^j} &= \sum_{\mathbf{b} \in \A^{-j}} \ubf_{(\abf^j,\mathbf{b})} \\ \notag \\
+&= \left( \prod_{k=1}^N \sum_{\abf' \in \A^k} \displaystyle e^{\beta \pi^k_{\abf'}}\right)^{-1} \cdot \displaystyle e^{\beta \pi^j_{\abf^j}} \cdot \left( \sum_{\mathbf{b} \in \A^{-j}} \prod_{k \neq j} e^{\beta \pi^k_{\mathbf{b}^k}} \right) \\ \notag \\
+&= \left( \sum_{\abf' \in \A^j} \displaystyle e^{\beta \pi^j_{\abf'}}\right)^{-1} \cdot \displaystyle e^{\beta \pi^j_{\abf^j}} \cdot \left( \prod_{k\neq j} \sum_{\abf' \in \A^k} \displaystyle e^{\beta \pi^k_{\abf'}}\right)^{-1} \cdot \left( \sum_{\mathbf{b} \in \A^{-j}} \prod_{k \neq j} e^{\beta \pi^k_{\mathbf{b}^k}} \right) \\ \notag \\ 
+&= \left( \sum_{\abf' \in \A^j} \displaystyle e^{\beta \pi^j_{\abf'}}\right)^{-1} \cdot \displaystyle e^{\beta \pi^j_{\abf^j}} \cdot \left( \sum_{\abf' \in \A^{-j}} \prod_{k\neq j}  \displaystyle e^{\beta \pi^k_{\abf'}}\right)^{-1} \cdot \left( \sum_{\mathbf{b} \in \A^{-j}} \prod_{k \neq j} e^{\beta \pi^k_{\mathbf{b}^k}} \right) \\ \notag \\ 
+&= \left( \sum_{\abf' \in \A^j} \displaystyle e^{\beta \left( \pi^j_{\abf'} - \pi^j_{\abf^j}\right)}\right)^{-1}
+\end{align}
+\noindent Therefore, the marginal distribution follows Eq.  \ref{Eq:marginal-at-additive-game}. Now since we also additionally know that the stationary distribution follows the form Eq. \ref{Eq:additive-game-stationary-distribution}, we can conclude that for additive games, under introspection dynamics with finite selection, Eq. \ref{Eq:additive-game-products} holds. 
+\end{proof}
+\clearpage
+\newpage
+\begin{proof}
+\textbf{Proof of lemma} \ref{prop:stationary-dist-lpgg} \\ 
 The stationary transition matrix $\T$ for the linear public goods game is primitive when $\beta$ is finite (i.e., there is a positive power $k$ such that $\T^k$ is a strictly positive matrix). Therefore, the stationary distribution of $\T$ will always be unique. We define the following short cut notations for the ease of the proof: 
 \begin{eqnarray}
 &\bar{\abf}^j := \{0,1\} \setminus \abf^j  \\ 
