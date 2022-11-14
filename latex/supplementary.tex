@@ -73,7 +73,7 @@ We consider an asymmetric normal form game with $N (>2)$ players. Each player, $
 \\ \\
 \noindent We represent a state of the game, $\abf$, from the perspective of player $j$ as $\abf =: (\abf^j, \abf^{-j})$. In the state $(\abf^j, \abf^{-j})$, player $j$ plays the action $\abf^j \in \A^j$ and all the other co-players of $j$ play $\abf^{-j} \in \Pi_{k \neq j} \A^k$. The payoff of player $j$ in this state is also represented as $\pi^j(\abf^j, \abf^{-j})$.
 \\ \\
-\noindent The players update their strategies over time using the introspection dynamics \cite{couto2022introspection}. At every time step, one randomly chosen player can update their strategy. The randomly chosen player, say $j$, currently playing strategy $a^j_k$, compares their current payoff to all the payoffs they can achieve if they played an alternate action from their action set $\A^j$. This comparison is done while assuming that the co-players do not change from $\abf^{-j}$. Then, they adopt a new strategy $a^j_l \neq a^j_k$ with the probability: 
+\noindent The players update their strategies over time using the introspection dynamics \cite{couto2022introspection}. At every time step, one randomly chosen player can update their strategy. The randomly chosen player, say $j$, currently playing strategy $a^j_k$, compares their current payoff to the payoff that they would obtain if they played a randomly selected strategy,  $a^j_l \neq a^j_k$, from their action set $\A^j$. This comparison is done while assuming that the co-players do not change from $\abf^{-j}$. Then, they adopt this new strategy  with the probability: 
 
 \begin{equation}
  p^j_{a^j_k \to a^j_l} (\abf^{-j})= \frac{1}{1 + e^{\displaystyle -\beta(\pi^j(a^j_l, \abf^{-j}) - \pi^j(a^j_k, \abf^{-j}))}}
@@ -105,7 +105,7 @@ Using the above definitions of neighbourhood and index of difference, we can def
 \begin{align}
 \T_{\abf_p,\abf_q} = 
 \begin{cases}
-\frac{1}{N}  \cdot p^j_{\abf^j_p \to \abf^j_q} (\abf_p^{-j}) \quad  \quad &\abf_p \in \mathit{Neb}(\abf_q) \quad \text{and,} \quad j = I(\abf_p,\abf_q)\\ \\ 
+\frac{1}{N(m_j-1)}  \cdot p^j_{\abf^j_p \to \abf^j_q} (\abf_p^{-j}) \quad  \quad &\abf_p \in \mathit{Neb}(\abf_q) \quad \text{and,} \quad j = I(\abf_p,\abf_q)\\ \\ 
 0 \quad & \abf_{p} \notin \mathit{Neb}(\abf_q) \\ \\
 1 - \sum_{\forall \abf_k \neq \abf_p} \T_{\abf_p,\abf_k} \quad &\abf_p = \abf_q
 \end{cases}
@@ -244,9 +244,9 @@ I_{q} &:= I(\abf_q,\abf), \quad \mathit{iff} \quad \abf_q \in \mathit{Neb}(\abf)
 The Eq \ref{step-one} can be simplified further with the steps: 
 \begin{align}
 &\T_{\abf,\abf} \ubf_a  + \sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} = \\
-& \left( 1 - \frac{1}{N} \sum_{\abf_q \in \mathit{Neb}(\abf)} p^{I_q}_{\abf^{I_q} \to \abf^{I_q}_q} \cdot \ubf_{\abf} \right) + \sum_{\abf_q \in \mathit{Neb}(\abf)} p^{I_q}_{\abf^{I_q}_q \to \abf^{I_q}} \cdot \ubf_{\abf_q} = \\ \notag \\
+& \left( 1 - \frac{1}{N} \sum_{\abf_q \in \mathit{Neb}(\abf)} \frac{1}{m^{I_q}-1} \cdot p^{I_q}_{\abf^{I_q} \to \abf^{I_q}_q} \cdot \ubf_{\abf} \right) + \sum_{\abf_q \in \mathit{Neb}(\abf)}  \frac{1}{m^{I_q}-1} \cdot p^{I_q}_{\abf^{I_q}_q \to \abf^{I_q}} \cdot \ubf_{\abf_q} = \\ \notag \\
 \label{eq:important-step}
-& \ubf_\abf +  \frac{1}{N} \sum_{\abf_q \in \mathit{Neb}(\abf)} \left( \prod_{k \neq I_q} \tau^k_{\abf^k} \right) \left( p^{I_q}_{\abf^{I_q}_q \to \abf^{I_q}} \cdot \tau^{I_q}_{\abf^{I_q}} -  p^{I_q}_{\abf^{I_q} \to \abf^{I_q}_q} \cdot \tau^{I_q}_{\abf^{I_q}_q} \right)
+& \ubf_\abf +  \frac{1}{N} \sum_{\abf_q \in \mathit{Neb}(\abf)} \left( \prod_{k \neq I_q} \tau^k_{\abf^k} \right) \left( p^{I_q}_{\abf^{I_q}_q \to \abf^{I_q}} \cdot \tau^{I_q}_{\abf^{I_q}} -  p^{I_q}_{\abf^{I_q} \to \abf^{I_q}_q} \cdot \tau^{I_q}_{\abf^{I_q}_q} \right) \cdot \left(  \frac{1}{m^{I_q}-1} \right)
 \end{align}
 \\ Using the definition of probability of update of the introspection dynamics, as given by Eq. \ref{Eq:introspection-update} and Eq. \ref{Eq:shortcut-tau}, it can be shown that: 
 \begin{equation}
@@ -276,11 +276,11 @@ If $\ubf$ is the unique stationary distribution of the additive game with $N-$pl
 \end{align}
 \noindent Therefore, the marginal distribution follows Eq.  \ref{Eq:marginal-at-additive-game}. Now since we also additionally know that the stationary distribution follows the form Eq. \ref{Eq:additive-game-stationary-distribution}, we can conclude that for additive games, under introspection dynamics with finite selection, Eq. \ref{Eq:additive-game-products} holds. 
 \end{proof}
-\clearpage
-\newpage
+
 \begin{proof}
-\textbf{Proof of lemma} \ref{prop:stationary-dist-lpgg} \\ 
-The stationary transition matrix $\T$ for the linear public goods game is primitive when $\beta$ is finite (i.e., there is a positive power $k$ such that $\T^k$ is a strictly positive matrix). Therefore, the stationary distribution of $\T$ will always be unique. We define the following short cut notations for the ease of the proof: 
+\textbf{Proof of lemma} \ref{prop:stationary-dist-lpgg} \\ \\
+Since we have demonstrated that the linear public goods game is an additive game, the proof of this theorem can be performed by directly using Theorem \ref{Th:additive-games-stationary-dist}. Here, we provide an independent proof. The idea behind this proof is identical to the proof of Theorem \ref{Th:additive-games-stationary-dist}. \\ \\
+\noindent The stationary transition matrix $\T$ for the linear public goods game is primitive when $\beta$ is finite (i.e., there is a positive power $k$ such that $\T^k$ is a strictly positive matrix). Therefore, the stationary distribution of $\T$ will always be unique. We define the following short cut notations for the ease of the proof: 
 \begin{eqnarray}
 &\bar{\abf}^j := \{0,1\} \setminus \abf^j  \\ 
 &p^j := \frac{1}{1 + \displaystyle e^{\beta f(c_j, r_j)}}
