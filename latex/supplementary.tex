@@ -291,7 +291,7 @@ When $\beta$ is finite, the unique stationary distribution, $(\ubf_k)_{k \in \{0
 where, $k$ represents the number of $\C$ players in the state and $f(j) := \pi^\D(j) - \pi^\C(j)$ is the difference in payoffs of playing $\D$ and $\C$ when there are $j$ co-players playing $\C$. The term $\Gamma$ is the normalization factor, given by, \\
 \begin{equation}
 \label{Eq:normalization-Tk}
-\Gamma = \displaystyle \sum_{k=0}^N {N \choose k} \cdot \displaystyle \prod_{j=1}^{k+1  } \displaystyle e^{-\beta f(j-1)}
+\Gamma = \displaystyle \sum_{k=0}^N {N \choose k} \cdot \displaystyle \prod_{j=1}^{k} \displaystyle e^{-\beta f(j-1)}
 \end{equation}
 \end{Corollary}
 \noindent The above lemma follows directly from Proposition \ref{Prop:Symmetric-2-strategies-state}. The key step is to count the number of states in the state space $\mathcal{A}^N$ that corresponds to exactly $k$, $\C$ players and $N-k$, $\D$ players. This count is simply the binomal coefficient $N \choose k$. For details see the proof in the Appendix. 
@@ -396,7 +396,7 @@ When the above decomposition is perfomed $N-1$ more times, the sum of the right 
 
 \begin{proof}
 \textbf{Proof of Proposition} \ref{Prop:Symmetric-2-strategies-state} \\ \\
-By construction, the candidate stationary distribution given by Eq. \ref{Eq:stationary-dist-symm-2-stgs-state} and Eq. \ref{Eq:stationary-dist-normalization-symm-2-stgs-state} is a probability distribution since it satisfies the condition in Eq. \ref{Eq:normalizationcondition} and for any state $\abf'$, $\ubf_{\abf'}$ is between 0 and 1.  Moreover, since $\beta$ is finite, the transition matrix of the process $\T$ is primitive and therefore, it will have a unique stationary distribution. To show that the candidate stationary distribution is the unique stationary distribution, we need to check if for this process, $\ubf \T= \ubf$. That is, the Eq. \ref{Eq:transition-in-proof} must hold. We re-introduce some notations that we will use in this proof: 
+By construction, the candidate stationary distribution given by Eq. \ref{Eq:stationary-dist-symm-2-stgs-state} and Eq. \ref{Eq:stationary-dist-normalization-symm-2-stgs-state} is a probability distribution since it satisfies the condition in Eq. \ref{Eq:normalizationcondition} and for any state $\abf'$, $\ubf_{\abf'}$ is between 0 and 1.  Moreover, since $\beta$ is finite, the transition matrix of the process $\T$ is primitive and therefore, it will have a unique stationary distribution. To show that the candidate stationary distribution is the unique stationary distribution, we need to check if for this process, $\ubf \T= \ubf$. That is, the condition in Eq. \ref{Eq:transition-in-proof} must hold for all states $\abf$. We re-introduce some notations that we will use in this proof: 
 \begin{align}
 \bar{\abf}^j &:= \{\D,\C\} \setminus \abf^j \\[10pt]
 \alpha(a)&:= 
@@ -412,25 +412,24 @@ For this process, the first term in the right hand side of Eq. \ref{Eq:transitio
 &= \ubf_{\abf} - \frac{\ubf_{\abf}}{N} \sum_{k=1}^N \frac{1}{1 + \displaystyle e^{\mathit{sign}(\bar{\abf}^{k}) \beta f(N_k)}}
 \label{Eq:T_aa_u_a term}
 \end{align}
-\\ \noindent Where, the function $\mathit{sign}(.)$ is  defined in Eq. \ref{Eq:sign-function} and$f(j)$ is the difference in payoffs between playing $\D$ and $\C$ when there are $j$ co-players playing $\C$. The term $N_k$ is the number of co-players of $k$ that play $\C$ in state $\abf_\C$. That is,
+\\ \noindent Where, the function $\mathit{sign}(.)$ is  defined as in Eq. \ref{Eq:sign-function} and$f(j)$ is the difference in payoffs between playing $\D$ and $\C$ when there are $j$ co-players playing $\C$. The term $N_k$ is the number of co-players of $k$ that play $\C$ in state $\abf$. That is,
 \begin{equation}
-N_k := \sum_{j \neq k} \alpha(\abf^l)
+N_k := \sum_{j \neq k} \alpha(\abf^j)
 \end{equation}
 The second term in the right hand side of Eq. \ref{Eq:transition-in-proof} can be simplified as, 
 \begin{align}
 \sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} \ubf_{\abf_q} &= \sum_{k=1}^N \T_{(\bar{\abf}^k, \abf^{-k}),(\abf^k, \abf^{-k})} \ubf_{(\bar{\abf}^k, \abf^{-k})} \\[10pt]
 \label{Eq:step-single-product}
 &= \frac{1}{N \Gamma} \sum_{k=1}^N \T_{(\bar{\abf}^k, \abf^{-k}),(\abf^k, \abf^{-k})} \displaystyle \prod_{j=1}^{\mathcal{C}((\bar{\abf}^k, \abf^{-k}))} e^{-\beta f(j-1)}\\[10pt]
-&=  \frac{1}{N \Gamma} \sum_{k=1}^N \T_{(\bar{\abf}^k, \abf^{-k}),(\abf^k, \abf^{-k})} \displaystyle \left( \prod_{j=1}^{\sum_{j \neq k} \alpha(\abf^l)}  e^{-\beta f(j-1)} \right) \cdot e^{-\beta \alpha(\bar{\abf}^k)f(-\alpha(\abf^k)+ \sum_{j \neq k} \abf^l)}
+&=  \frac{1}{N \Gamma} \sum_{k=1}^N \T_{(\bar{\abf}^k, \abf^{-k}),(\abf^k, \abf^{-k})} \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \right) \cdot e^{-\beta \alpha(\bar{\abf}^k)f(-\alpha(\abf^k)+ N_k}
 \label{Eq:step-product-broken}
 \end{align}
-Between the steps, Eq. \ref{Eq:step-single-product} and \ref{Eq:step-product-broken}, we took out one term from the product that is present in our candidate distribution. This term accounts for the $k^{th}$ players action in the state $(\bar{\abf}^k, \abf^{-k})$. For simplicity, we replace $\T_{(\bar{\abf}^k, \abf^{-k}),(\abf^k, \abf^{-k})}$ with just $\T$ in the next steps and also denote the number of co-players of $k$ that play $\C$ in the state $\abf$ as $N_k$. 
-\noindent We continue the simplification of Eq. \ref{Eq:step-product-broken} in the later steps by introducing terms that cancel each other. \\[10pt]
+Between the steps, Eq. \ref{Eq:step-single-product} and \ref{Eq:step-product-broken}, we took out one term from the product that is present in our candidate distribution. This term accounts for the $k^{th}$ players action in the neighbouring state $(\bar{\abf}^k, \abf^{-k})$ of $\abf$. For simplicity, we replace $\T_{(\bar{\abf}^k, \abf^{-k}),(\abf^k, \abf^{-k})}$ with just $\T$ in the next steps. We continue the simplification of Eq. \ref{Eq:step-product-broken} in the later steps by introducing terms that cancel each other. \\[10pt]
 \begin{align}
 \sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} \ubf_{\abf_q} &=  \frac{1}{N \Gamma} \sum_{k=1}^N \T \cdot \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \right) \cdot \frac{e^{-\beta \alpha(\bar{\abf}^k)f(-\alpha(\abf^k)+ N_k)}}{e^{-\beta \alpha(\abf^k)f(-\alpha(\bar{\abf}^k) +N_k)}} \cdot e^{-\beta \alpha(\abf^k)f(-\alpha(\bar{\abf}^k) + N_k)}
 \label{Eq:new-cancelable-term-introduced}
 \end{align}
-\\ \noindent The newly introduced term in Eq. \ref{Eq:new-cancelable-term-introduced} can be taken inside the product. Note that this term is 0 if the $k^{th}$ player plays $\D$ in the state $\abf$. When this term is taken inside the product bracket, products of exponent $e^{-\beta f(j-1)}$ can be performed where $j$ ranges from $1$ to the number of cooperators in state $\abf$, $\mathcal{C}(\abf)$. This product is then the stationary distribution probability $\ubf_\abf$. That is, 
+\\ \noindent The newly introduced term in Eq. \ref{Eq:new-cancelable-term-introduced} can be taken inside the product. Note that this term is 0 if the $k^{th}$ player plays $\D$ in the state $\abf$. When this term is taken inside the product bracket, products of exponent $e^{-\beta f(j-1)}$ can be performed for $j$ ranging from $1$ to the number of cooperators in state $\abf$, $\mathcal{C}(\abf)$. This product is then the stationary distribution probability $\ubf_\abf$. That is, 
 \begin{align}
 \sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} \ubf_{\abf_q} &=  \frac{1}{N \Gamma} \sum_{k=1}^N \T \cdot \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \cdot e^{-\beta \alpha(\abf^k)f(-\alpha(\bar{\abf}^k) + N_k)} \right) \cdot \frac{e^{-\beta \alpha(\bar{\abf}^k)f(-\alpha(\abf^k)+ N_k)}}{e^{-\beta \alpha(\abf^k)f(-\alpha(\bar{\abf}^k) +N_k)}} \\[10pt]
 &= \frac{1}{N} \sum_{k=1}^N  \T \cdot \left( \frac{1}{\Gamma} \prod_{j=1}^{\mathcal{C}(\abf)} e^{-\beta f(j-1)}\right) \cdot \frac{e^{-\beta \alpha(\bar{\abf}^k)f(-\alpha(\abf^k)+ N_k)}}{e^{-\beta \alpha(\abf^k)f(-\alpha(\bar{\abf}^k) +N_k)}} \\[10pt]
@@ -452,13 +451,21 @@ Between the steps, Eq. \ref{Eq:step-single-product} and \ref{Eq:step-product-bro
 &= \frac{\ubf_\abf}{N} \sum_{k=1}^N \frac{1}{1 + \displaystyle e^{\mathit{sign}(\bar{\abf}^k) \beta f(N_k)}}  \\[10pt]
 &= \ubf_\abf - \ubf_\abf \T_{\abf,\abf}
 \end{align}
-\\ \noindent The final step in the previous simplification shows that Eq. \ref{Eq:transition-in-proof} holds for any $\abf \in \{\C,\D\}^N$. Therefore, the candidate distribution we propose in Eq. \ref{Eq:stationary-dist-symm-2-stgs-state} is the unique stationary distribution of the symmetric $N$-player game with two strategies.
+\\ \noindent The final step in the previous simplification shows that Eq. \ref{Eq:transition-in-proof} holds for any $\abf \in \{\C,\D\}^N$. Therefore, the candidate distribution we propose in Eq. \ref{Eq:stationary-dist-symm-2-stgs-state} is the unique stationary distribution of the symmetric $N$-player game with two strategies. 
 \end{proof}
-
- 
+\newpage
 \begin{proof}
 \textbf{Proof of Corollary} \ref{Lemma: Symmetric-2-stg} \\ \\
-
+To show this result we count how many states are identical to a state $\abf \in \{\C,\D\}^N$ in a symmetric game. When players are symmetric in a two-strategy game, states can be enumerated by counting the number of $\C$ players in that state. This can also be confirmed by the expression of the stationary distribution in Eq. \ref{Eq:stationary-dist-symm-2-stgs-state}. Two distinct states $\abf, \abf'$ having the same number of cooperators (i.e., $\mathcal{C}(\abf') = \mathcal{C}(\abf)$), have the same stationary distribution probability (i.e., $\ubf_{\abf'} = \ubf_{\abf}$).
+\\ \\ 
+\noindent In a game with $N$ players, there can be $k$ players playing $\C$ in exactly $N \choose k$ ways. As argued before, all of these states are identical and are also equiprobable in the stationary distribution. Therefore, the stationary distribution probability of having $k$, $\C$ players, $\ubf_{k}$, is,
+\begin{equation}
+\ubf_{k} = \sum_{\forall \abf,  \mathcal{C(\abf)} = k} \ubf_\abf = \frac{1}{\Gamma} {N \choose k} \prod_{j=1}^k e^{-\beta f(j-1)} \\[10pt]
+\end{equation} 
+\noindent Where the normalization factor $\Gamma$ can also be simplified as: 
+\begin{equation}
+\Gamma = \sum_{k=0}^N {N \choose k} \prod_{j=1}^k e^{-\beta f(j-1)}
+\end{equation}
 \end{proof}
 \newpage
 \section*{Supplementary References}
