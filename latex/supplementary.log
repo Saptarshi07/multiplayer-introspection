@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.13)  14 NOV 2022 13:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.13)  31 JAN 2023 10:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -478,9 +478,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \c@definition=\count302
 \c@lemma=\count303
 \c@proposition=\count304
-\c@Cor=\count305
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 6
-8.
+\c@Corollary=\count305
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 7
+0.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -493,24 +493,24 @@ File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 (./supplementary.aux)
 \openout1 = `supplementary.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
 
 (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -534,7 +534,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 68.
+Package hyperref Info: Link coloring OFF on input line 70.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -548,9 +548,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count313
 )
-LaTeX Info: Redefining \ref on input line 68.
-LaTeX Info: Redefining \pageref on input line 68.
-LaTeX Info: Redefining \nameref on input line 68.
+LaTeX Info: Redefining \ref on input line 70.
+LaTeX Info: Redefining \pageref on input line 70.
+LaTeX Info: Redefining \nameref on input line 70.
  (./supplementary.out) (./supplementary.out)
 \@outlinefile=\write4
 \openout4 = `supplementary.out'.
@@ -593,99 +593,153 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 7
-0.
+2.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 72.
 
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 72.
 
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 70.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 72.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 70.
+(Font)              size <5> substituted on input line 72.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 70.
+(Font)              size <5> substituted on input line 72.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 70.
+(Font)              size <5> substituted on input line 72.
 
 
-Overfull \hbox (12.2847pt too wide) in paragraph at lines 70--70
+Overfull \hbox (12.2847pt too wide) in paragraph at lines 72--72
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--77
+Underfull \hbox (badness 10000) in paragraph at lines 74--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--77
+Underfull \hbox (badness 10000) in paragraph at lines 74--79
 
  []
 
 [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 99--101
+Underfull \hbox (badness 10000) in paragraph at lines 101--103
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--105
+Underfull \hbox (badness 10000) in paragraph at lines 104--107
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 153--156
+Underfull \hbox (badness 10000) in paragraph at lines 155--158
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 185--187
+
+Package hyperref Warning: Suppressing empty link on input line 168.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--190
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 230--232
+Underfull \hbox (badness 10000) in paragraph at lines 211--215
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--232
+Underfull \hbox (badness 10000) in paragraph at lines 217--219
 
  []
 
 [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 268--270
+Underfull \hbox (badness 10000) in paragraph at lines 286--287
+
+ []
+
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 289.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--292
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 281--284
+Underfull \hbox (badness 10000) in paragraph at lines 302--304
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--284
+Underfull \hbox (badness 10000) in paragraph at lines 302--304
 
  []
 
-[8] (./supplementary.bbl) [9] (./supplementary.aux)
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 340--342
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 353--356
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--356
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--361
+
+ []
+
+[10] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 398--400
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 426--428
+
+ []
+
+[13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 458--462
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 458--462
+
+ []
+
+[15] (./supplementary.bbl) [16] (./supplementary.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -694,13 +748,13 @@ Package rerunfilecheck Info: File `supplementary.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14720 strings out of 478268
- 238135 string characters out of 5846347
- 542562 words of memory out of 5000000
- 32634 multiletter control sequences out of 15000+600000
+ 14780 strings out of 478268
+ 239121 string characters out of 5846347
+ 541012 words of memory out of 5000000
+ 32651 multiletter control sequences out of 15000+600000
  499529 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,20n,76p,791b,439s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 70i,20n,76p,865b,439s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
 xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texl
@@ -723,10 +777,10 @@ pe1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw
 /times/utmb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utm
 bi8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
 /usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on supplementary.pdf (9 pages, 249672 bytes).
+Output written on supplementary.pdf (16 pages, 272571 bytes).
 PDF statistics:
- 262 PDF objects out of 1000 (max. 8388607)
- 204 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
+ 362 PDF objects out of 1000 (max. 8388607)
+ 297 compressed objects within 3 object streams
+ 101 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
