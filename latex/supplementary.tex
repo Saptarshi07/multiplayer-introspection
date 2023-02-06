@@ -159,13 +159,13 @@ We see an example of additive game in the next section. Under introspection dyna
 \begin{Prop}
 When $\beta$ is finite, the unique stationary distribution, $\ubf = (\ubf_\abf)_{\abf \in \A}$, of the introspection dynamics for the N-player additive game is given by: 
 \begin{equation}
-\ubf_a = \prod_{j=1}^N \frac{1}{\displaystyle \sum_{a' \in \A^j} e^{\beta \left( \pi^j_{a'} -  \pi^j_{\abf^j} \right) }} 
+\ubf_\abf = \prod_{j=1}^N \frac{1}{\displaystyle \sum_{a' \in \A^j} e^{\beta \left( \pi^j_{a'} -  \pi^j_{\abf^j} \right) }} 
 \label{Eq:additive-game-stationary-distribution}
 \end{equation}
 where, $\pi^j_{a'} - \pi^j_{\abf^j}$ is the co-player independent payoff difference that $j$  earns in an additive game when they unilaterally switch their play to $a'$ from $\abf^j$.
 \label{Th:additive-games-stationary-dist}
 \end{Prop}
-\noindent The above theorem gives a closed form expression of the stationary distribution of the introspection dynamics for additive multiplayer games. For any finite value of the selection parameter, $\beta$, the stationary distribution can be analytically calculated using the expression in Eq. (\ref{Eq:additive-game-stationary-distribution}). The expression is derived by assuming that the update process of the introspection dynamics is governed by Eq. (\ref{Eq:introspection-update}) and (\ref{Eq:introspection-normalization}). For proof, see Appendix \ref{Section:Appendix}.
+\noindent The above proposition gives a closed form expression of the stationary distribution of the introspection dynamics for additive multiplayer games. For any finite value of the selection parameter, $\beta$, the stationary distribution can be analytically calculated using the expression in Eq. (\ref{Eq:additive-game-stationary-distribution}). The expression is derived by assuming that the update process of the introspection dynamics is governed by Eq. (\ref{Eq:introspection-update}) and (\ref{Eq:introspection-normalization}). For proof, see Appendix \ref{Section:Appendix}.
 
 \begin{Prop}
 Let $\ubf = (\ubf_\abf)_{\abf \in \A}$ be the unique stationary distribution of the introspection dynamics with finite $\beta$ for the N-player additive game. Then, $\ubf_\abf$ is the product of the marginal probabilities that each player plays their respective actions in $\abf$. That is, 
