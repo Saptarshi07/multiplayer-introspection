@@ -58,6 +58,7 @@
 \newcommand{\abf}{\mathbf{a}}
 \newcommand{\bbf}{\mathbf{b}}
 \newcommand{\cbf}{\mathbf{c}}
+\newcommand{\qbf}{\mathbf{q}}
 \newcommand{\T}{\mathbf{T}}
 \newcommand{\ubf}{\mathbf{u}}
 \newcommand{\C}{\mathrm{C}}
@@ -79,7 +80,7 @@ $^1$Max Planck Research Group Dynamics of Social Behavior, Max Planck Institute 
 We consider the normal form game with $N$ players where $N > 2$. In the game, a player, say player $i$, can play actions from their action set, $\A_i := \{a_{i,1}, a_{i,2}, ..., a_{i,m_i} \}$. The action set of player $i$ has $m_i$ actions. There are, therefore, $m_i \times m_2 \times ... \times m_N$ distinct states of the game. We denote a state of the game by collecting the actions of all the players in the game in a vector, $\abf := (\abf_1, \abf_2, ..., \abf_N)$ where $\abf \in \A := \A_1 \times \A_2 \times ... \times \A_N$. We also use the notation, $\abf := (\abf_i, \abf_{-i})$ to denote the state from the perspective of player $i$. In the state $(\abf_i, \abf_{-i})$, player $i$ plays the action $\abf_i \in \A_i$ and their co-players play the action $\abf_{-i} \in \A_{-i} := \prod_{j \neq i} \A_j$. The payoff of a player depends on the state of the game. We denote the payoff of player $i$ in the state $\abf$ with $\pi_i(\abf)$ or $\pi_i(\abf_i, \abf_{-i})$. \\ \\ 
 \noindent The players update their strategies over time using the introspection dynamics \cite{couto2022introspection}. At every time step, one randomly chosen player can update their strategy. The randomly chosen player, say $i$, currently playing strategy $a_{i,k}$, compares their current payoff to the payoff that they would obtain if they played a randomly selected strategy,  $a_{i,l} \neq a_{i,k}$, from their action set $\A_i$. This comparison is done while assuming that the co-players do not change their respective plays. When the co-players of player $i$ play $\abf_{-i}$, player $i$ changes to the new strategy $a_{i,l}$ from $a_{i,k}$ with the probability, \\
 \begin{equation}
- p_{a_{i,k} \to a_{i,l}} (\abf_{-i})= \frac{1}{1 + e^{\displaystyle -\beta(\pi_i(a_{i,l}, \abf_{-i}) - \pi_i(a_{i,k}, \abf_{i}))}}
+ p_{a_{i,k} \to a_{i,l}} (\abf_{-i})= \frac{1}{1 + e^{\displaystyle -\beta(\pi_i(a_{i,l}, \abf_{-i}) - \pi_i(a_{i,k}, \abf_{-i}))}}
  \label{Eq:introspection-update}
 \end{equation}
 \\ \\ \noindent in the next round. Here $\beta \in [0,\infty)$ is the selection strength parameter that represents the importance that players give to payoff differences while updating their strategies. At $\beta = 0$, players update to a randomly chosen strategy with probablity $0.5$. For $\beta > 0$, players update to new strategy with probablity greater than $0.5$ (or less than $0.5$) if the switch gives them a non-zero increase (or decrease) in the payoffs. The probability that the chosen player makes no-update is then, \\
@@ -134,7 +135,7 @@ Introspection dynamics can be studied by analyzing properties of the resulting t
 \end{equation}
 where $\mathbf{U}$ is a square matrix of size same as $\T$ with all elements 1 and $\mathbb{1}$ is the identity matrix. For all the analytical results in this paper, we consider $\beta$ to be finite so that stationary distribution of the processes are unique. The stationary distribution element $\ubf_\abf$ is the probability that state $\abf$ will be played by the players in the long run. Using the stationary distribution, one can calculate the marginal probabilities corresponding to each player's actions. For example, the probability that player $i$ plays action $a_{i,k}$ in the long run, $\xi_{i:a_{i,k}}$, can be computed as,
 \begin{equation}
-\mathbf{\xi}_{i:a_{i,k}} := \sum_{\mathbf{b} \in \A_{-i}} \ubf_{(a_{i,k}, \bbf)}
+\mathbf{\xi}_{i:a_{i,k}} := \sum_{\qbf \in \A_{-i}} \ubf_{(a_{i,k}, \qbf)}
 \label{Eq:marginal-definition}
 \end{equation}
 \noindent Since the stationary distribution is a probability distribution, marginal distributions also have the same property. That is, for a player $i$, 
@@ -143,9 +144,9 @@ where $\mathbf{U}$ is a square matrix of size same as $\T$ with all elements 1 a
 \label{Eq:marginal-prob-dist}
 \end{equation}
 \section*{Additive games and their properties under introspection dynamics}
-In this section we discuss the stationary properties of introspection dynamics on a special class of games - the additive games \cite{pena2014gains, mcavoy2015asymmetric}. In an additive game, the payoff difference that a player earns by making a switch in their actions is independent of what their co-players play while they make this switch. In other words, if none of the co-players change their strategy, the payoff difference earned by making a particular switch is \emph{only} determined by the switch and not on the co-players' play. This property is sometimes called the \emph{equal gains from switching} \cite{pena2014gains} property of a game. That is, for any player $i$, any pair of actions $x,y \in \A_i$, and any $\bbf \in A_{-i}$,
+In this section we discuss the stationary properties of introspection dynamics on a special class of games - the additive games \cite{pena2014gains, mcavoy2015asymmetric}. In an additive game, the payoff difference that a player earns by making a switch in their actions is independent of what their co-players play while they make this switch. In other words, if none of the co-players change their strategy, the payoff difference earned by making a particular switch is \emph{only} determined by the switch and not on the co-players' play. This property is sometimes called the \emph{equal gains from switching} \cite{pena2014gains} property of a game. That is, for any player $i$, any pair of actions $x,y \in \A_i$, and any $\qbf \in A_{-i}$,
 \begin{equation}
-\pi_i(x, \bbf) - \pi_i(y, \bbf) =: f_i(x,y) 
+\pi_i(x, \qbf) - \pi_i(y, \qbf) =: f_i(x,y) 
 \end{equation}
 \noindent For games with this property, the stationary distribution takes a simple form as shown in the proposition below.
 
@@ -155,7 +156,7 @@ When $\beta$ is finite, the unique stationary distribution, $\ubf = (\ubf_\abf)_
 \ubf_\abf = \prod_{j=1}^N \frac{1}{\displaystyle \sum_{a' \in \A_j} e^{\beta f_j(a', \abf_j)}} 
 \label{Eq:additive-game-stationary-distribution}
 \end{equation}
-where, $f_j(a', \abf_j) = \pi_j(a', \bbf) - \pi_j(\abf_j, \bbf)$ is the co-player independent payoff difference that $j$  earns in an additive game when they unilaterally switch their play to $a'$ from $\abf_j$.
+where, $f_j(a', \abf_j) = \pi_j(a', \qbf) - \pi_j(\abf_j, \qbf)$ is the co-player independent payoff difference that $j$  earns in an additive game when they unilaterally switch their play to $a'$ from $\abf_j$.
 \label{Th:additive-games-stationary-dist}
 \end{Prop}
 \noindent The above proposition gives a closed form expression of the stationary distribution of the introspection dynamics for additive games. For any finite value of the selection parameter, $\beta$, the stationary distribution can be computed using the expression in Eq. (\ref{Eq:additive-game-stationary-distribution}). For proof, see Appendix \ref{Section:Appendix}. Additive games are particularly interesting under the introspection dynamics because of the following relationship between the stationary distribution and marginal distributions,
@@ -175,48 +176,102 @@ Let $\ubf = (\ubf_\abf)_{\abf \in \A}$ be the unique stationary distribution of 
 \xi_{j:\abf_j} = \frac{1}{\displaystyle \sum_{a' \in \A_j} e^{\beta f_j(a', \abf_j)}} 
 \label{Eq:marginal-at-additive-game}
 \end{equation}
-\noindent where, $f_j(a', \abf_j) = \pi_j(a', \bbf) - \pi_j(\abf_j, \bbf)$ is the co-player independent payoff difference that $j$  earns in an additive game when they unilaterally switch their play to $a'$ from $\abf_j$.
+\noindent where, $f_j(a', \abf_j) = \pi_j(a', \qbf) - \pi_j(\abf_j, \qbf)$ is the co-player independent payoff difference that $j$  earns in an additive game when they unilaterally switch their play to $a'$ from $\abf_j$.
 \label{Th:additive-game-product-of-marginals}
 \end{Prop}
 \noindent The above proposition states that for additive games under introspection dynamics, the stationary distribution can be factorized into its corresponding marginals. In the long run, the probability that players simultaneously play ($\abf_1, \abf_2, ...,\abf_N$) is the product of the cumulative probabilities that player 1 plays $\abf_1$, player 2 plays $\abf_2$ and so on. In the following subsection we study a classical additve game - the linear public goods game under the introspection dynamics and discuss the results. 
+
+\subsection*{Example of an additive game: linear public goods game with 2 actions}
+Here, we analyze the linear public goods game with $N$-players. Each player has two possible actions, to contribute (action, $\C$), or to not contribute (action, $\D$). The players differ in their cost of cooperation and the benefit they provide to the public goods. The cost of cooperation for player $i$ and the benefit they provide to the public goods are denoted with $c_i$ and $b_i$ respectively. The payoff of player $i$ when the state of the game is $\abf$ is given by: \\
+\begin{equation}
+\pi_i(\abf) = \sum_{j=1}^N \frac{\displaystyle \abf_j b_j}{N} - \abf_i c_i
+\label{Eq:linear-pgg-payoff}
+\end{equation}
+\\
+\noindent The payoff difference that a player earns by unilaterally switching from $\C$ to $\D$ (or \emph{vice-versa}) in the linear public goods game is independent of what the other co-players play in the game. That is, for every player $i$,
+\begin{equation}
+\pi_i(\D, \qbf) - \pi_i(\C, \qbf) = c_i - \frac{b_i}{N} =: f_i(\D, \C) 
+\label{Eq:difference-payoffs-lpgg}
+\end{equation}\\
+\noindent is independent of any $\qbf \in \A_{-i}$ that the co-players of $i$ play. The linear public goods game is therefore an example of an additive game. This property of the game results in dominated strategies for player $i$ depending on the relationship between the benefits $b_i$, number of players $N$, and cost of cooperation $c_i$. When $c_i > b_i/N$, the action of not contributing ($\D$) dominates the action of contributing ($\C$) and \emph{vice-versa}. Using proposition \ref{Th:additive-games-stationary-dist}, we derive the following closed form expression for the stationary distribution of a $N-$player linear public goods game with two strategies. 
+\begin{Prop}
+\label{prop:stationary-dist-lpgg}
+When $\beta$ is finite, the unique stationary distribution of the introspection dynamics for a $N-$player linear public goods game is given by: 
+\\
+\begin{equation}
+\ubf_\abf = \prod_{j = 1}^{N} \frac{1}{1 + \displaystyle e^{\mathit{sign}(\abf_j)\beta f_j(\D, \C )}} 
+\label{Eq:stationary_dist_lpgg}
+\end{equation}
+where, 
+\begin{equation}
+\label{Eq:sign-function}
+\mathit{sign}(a) =
+\begin{cases}
+1 &\quad \text{if} \quad a = \C \\
+-1 &\quad \text{if} \quad a = \D
+\end{cases}
+\end{equation}
+\end{Prop}
+\newpage
 \section*{Appendix: Proofs}
 \label{Section:Appendix}
 \begin{proof}
 \textbf{Proof of Proposition} \ref{Th:additive-games-stationary-dist} \\ \\ 
-Since $\beta$ is finite, the transition matrix of the process $\T$ given by Eq. (\ref{Eq:transition-matrix}) is primitive and therefore, the stationary distribution $\ubf = (\ubf_\abf)_{\abf \in \A}$ of the row-stochastic transition matrix is unique and satisfies the conditions laid out in Eq. \ref{Eq:lefteigenvector} and \ref{Eq:normalizationcondition}. To continue for the rest of the proof, we introduce some short-cut notation that will be of use later in the proof:\\
+Since $\beta$ is finite,the stationary distribution $\ubf = (\ubf_\abf)_{\abf \in \A}$ of the process is unique by Proposition \ref{Prop:unique-stationary-dist}. The stationary distribution also satisfies the equalities in Eq. (\ref{Eq:lefteigenvector}) and (\ref{Eq:normalizationcondition}). Before continuing through the remainder of the proof, we introduce some short-cut notation that we will be using:\\
 \begin{align}
-I_{q} &:= I(\abf_q,\abf), \quad \mathit{iff} \quad \abf_q \in \mathit{Neb}(\abf) \\ \notag \\ 
+\mathrm{I}_{\bbf} &:= \mathrm{I}(\bbf,\abf), \quad \mathit{iff} \quad \bbf \in \mathrm{Neb}(\abf) \\ \notag \\ 
 \label{Eq:shortcut-tau}
-\tau^j_{\abf^j} &:= \frac{1}{\displaystyle \sum_{a' \in \A^j} e^{\beta \left( \pi^j_{a'} -  \pi^j_{\abf^j} \right) }} 
+\tau_{j:\abf_j} &:= \frac{1}{\displaystyle \sum_{a' \in \A_j} e^{\beta f_j(a',  \abf_j)}} 
 \end{align}
-\noindent In order to show that the candidate stationary distribution, as proposed in Eq. \ref{Eq:additive-game-stationary-distribution} is the stationary distribution of the process, we need to show that the following are true:
-\begin{eqnarray}
-\label{step-one}
-\T_{\abf,\abf} \ubf_\abf  + \sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} \ubf_{\abf_q}= \ubf_a \quad \forall \abf \in \A \\ 
-\label{step-two}
-\sum_{\abf \in \A} \ubf_\abf  = 1
-\end{eqnarray}
-The Eq \ref{step-one} can be simplified further with the steps: 
+\noindent In order to show that the candidate stationary distribution, as proposed in Eq. (\ref{Eq:additive-game-stationary-distribution}) is the stationary distribution of the process, we need to show that the following are true:
 \begin{align}
-&\T_{\abf,\abf} \ubf_\abf  + \sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} \ubf_{\abf_q}= \\
-& \left( 1 - \frac{1}{N} \sum_{\abf_q \in \mathit{Neb}(\abf)} \frac{1}{m^{I_q}-1} \cdot p^{I_q}_{\abf^{I_q} \to \abf^{I_q}_q} \cdot \ubf_{\abf} \right) + \sum_{\abf_q \in \mathit{Neb}(\abf)}  \frac{1}{m^{I_q}-1} \cdot p^{I_q}_{\abf^{I_q}_q \to \abf^{I_q}} \cdot \ubf_{\abf_q} = \\ \notag \\
-\label{eq:important-step}
-& \ubf_\abf +  \frac{1}{N} \sum_{\abf_q \in \mathit{Neb}(\abf)} \left( \prod_{k \neq I_q} \tau^k_{\abf^k} \right) \left( p^{I_q}_{\abf^{I_q}_q \to \abf^{I_q}} \cdot \tau^{I_q}_{\abf^{I_q}} -  p^{I_q}_{\abf^{I_q} \to \abf^{I_q}_q} \cdot \tau^{I_q}_{\abf^{I_q}_q} \right) \cdot \left(  \frac{1}{m^{I_q}-1} \right)
-\end{align}
-\\ Using the definition of probability of update of the introspection dynamics, as given by Eq. \ref{Eq:introspection-update} and Eq. \ref{Eq:shortcut-tau}, it can be shown that: 
+\label{step-one}
+\T_{\abf,\abf} \ubf_\abf  + &\sum_{\bbf \neq \abf} \T_{\bbf, \abf} \ubf_{\bbf} = \ubf_\abf \quad \forall \abf \in \A \\[10pt]
+\label{step-two}
+&\sum_{\abf \in \A} \ubf_\abf  = 1
+\end{align} 
+Using our short-cut notation $\tau$ and the expression for our candidate stationary distribution in Eq. (\ref{Eq:additive-game-stationary-distribution}), we can express the stationary distribution as: 
 \begin{equation}
-p^{I_q}_{\abf^{I_q}_q \to \abf^{I_q}} \cdot \tau^{I_q}_{\abf^{I_q}} -  p^{I_q}_{\abf^{I_q} \to \abf^{I_q}_q} \cdot \tau^{I_q}_{\abf^{I_q}_q} = 0
+\ubf_\abf = \prod_{j=1}^N \tau_{j:\abf_j}
+\label{Eq:additive-stat-shortcut}
+\end{equation} \\ 
+Using this expression, the left hand side of Eq. (\ref{step-one}) can be simplified further with the steps: 
+\begin{align}
+&\T_{\abf,\abf} \ubf_\abf  + \sum_{\bbf \neq \abf} \T_{\bbf, \abf} \ubf_{\bbf}\\
+&= \left( 1 - \frac{1}{N} \sum_{\bbf \in \mathrm{Neb}(\abf)} \frac{1}{m_{\mathrm{I}_\bbf}-1} \cdot p_{\abf_{\mathrm{I}_\bbf} \to \bbf_{\mathrm{I}_\bbf}} \cdot \ubf_{\abf} \right) + \sum_{\bbf \in \mathrm{Neb}(\abf)}  \frac{1}{m_{\mathrm{I}_\bbf}-1} \cdot p_{\bbf_{\mathrm{I}_\bbf} \to \abf_{\mathrm{I}_\bbf}} \cdot \ubf_{\bbf}\\ \notag \\
+\label{eq:important-step}
+&= \ubf_\abf +  \frac{1}{N} \sum_{\bbf \in \mathrm{Neb}(\abf)} \left( \prod_{k \neq I_\bbf} \tau_{k:\abf_k} \right) \left( p_{\bbf_{I_\bbf} \to \abf_{\mathrm{I}_\bbf}} \cdot \tau_{\mathrm{I}_\bbf: \abf_{\mathrm{I}_\bbf}} -  p_{\abf_{\mathrm{I}_\bbf} \to \bbf_{\mathrm{I}_\bbf}} \cdot \tau_{\mathrm{I}_\bbf: \bbf_{\mathrm{I}_\bbf}} \right) \cdot \left(  \frac{1}{m_{\mathrm{I}_\bbf}-1} \right)
+\end{align}
+\noindent For an additive game, the expressions for $p_{\bbf_{I_\bbf} \to \abf_{\mathrm{I}_\bbf}}$ and $p_{\abf_{\mathrm{I}_\bbf} \to \bbf_{\mathrm{I}_\bbf}}$ can be simply written as: 
+\begin{align}
+p_{\bbf_{I_\bbf} \to \abf_{\mathrm{I}_\bbf}} &=\frac{1}{1 + \displaystyle e^{\beta f_{\mathrm{I}_\bbf}(\bbf_{\mathrm{I}_\bbf}, \abf_{\mathrm{I}_\bbf})}} \\[10pt] 
+p_{\abf_{\mathrm{I}_\bbf} \to \bbf_{\mathrm{I}_\bbf}} &= \frac{1}{1 + \displaystyle e^{\beta f_{\mathrm{I}_\bbf}(\abf_{\mathrm{I}_\bbf}, \bbf_{\mathrm{I}_\bbf})}} 
+\end{align} \\
+Using the above expressions and the expression for $\tau$ in Eq. (\ref{Eq:shortcut-tau}), it can be shown that: 
+\begin{equation}
+\left( p_{\bbf_{I_\bbf} \to \abf_{\mathrm{I}_\bbf}} \cdot \tau_{\mathrm{I}_\bbf: \abf_{\mathrm{I}_\bbf}} -  p_{\abf_{\mathrm{I}_\bbf} \to \bbf_{\mathrm{I}_\bbf}} \cdot \tau_{\mathrm{I}_\bbf: \bbf_{\mathrm{I}_\bbf}} \right) = 0 
 \label{important-step-is-zero}
 \end{equation}
-\\ \noindent Plugging the equality in Eq. \ref{important-step-is-zero} into Eq. \ref{eq:important-step}, we can see that the left hand side of Eq. \ref{step-one} indeed simplifies to $\ubf_{\abf}$. Now, to confirm that the candidate $\ubf$ is the unique stationary distribution we need to check if Eq. \ref{step-two} holds. Simplifying the left hand side of this equation shows that:
+\\ \noindent After plugging the equality in Eq. (\ref{important-step-is-zero}) into Eq. (\ref{eq:important-step}), we see that the left hand side of Eq. (\ref{step-one}) simplifies to $\ubf_{\abf}$. Now, to complete the proof we must check if Eq. (\ref{step-two}) holds for our candidate distribution. Summing up the elements of the stationary distribution $\ubf_\abf$ for all states $\abf \in \A$: \\ 
 \begin{align}
-\sum_{\abf \in \A} \ubf_\abf &= \sum_{\abf \in \A} \prod_{k=1}^N \tau^k_{\abf^k} \\ \notag \\
-\label{step-prod-sum-sum-prod}
-&= \left( \prod_{k=1}^N \sum_{\abf' \in \A} \displaystyle e^{\beta \pi^k_{\abf'}}\right)^{-1} \cdot \left( \sum_{\abf \in \A} \prod_{k=1}^N \displaystyle e^{\beta \pi^k_{\abf^k}} \right) \\ \notag \\
-\label{step-prod-is-one}
-&= 1
+\sum_{\abf \in \A} \ubf_\abf &= \sum_{\abf \in \A} \prod_{k=1}^N \tau_{k:\abf_k} = \sum_{\abf \in \A} \frac{\displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})}}{\displaystyle \quad \prod_{k=1}^N \sum_{a' \in \A_k} e^{\beta \pi_k(a',\qbf_{-k})}}
 \end{align}
-\noindent The step from Eq. \ref{step-prod-sum-sum-prod} to Eq. \ref{step-prod-is-one} is possible because the sum and product in Eq. \ref{step-prod-sum-sum-prod} are interchangeable for both the terms. Therefore, condition Eq. \ref{step-two} is satisfied too. 
+%\\ \notag \\
+%\label{step-prod-sum-sum-prod}
+%&= \left( \prod_{k=1}^N \sum_{\abf' \in \A} \displaystyle e^{\beta \pi^k_{\abf'}}\right)^{-1} \cdot \left( \sum_{\abf \in \A} \prod_{k=1}^N \displaystyle e^{\beta \pi^k_{\abf^k}} \right) \\ \notag \\
+%\label{step-prod-is-one}
+%&= 1
+\noindent \\ \\ where $\qbf_{-1}, \qbf_{-2},...,\qbf_{-N}$ are fixed tuples from $\A_{-1}, \A_{-2},...,\A_{-N}$ respectively. The denominator in the above expression can be taken out completely from the first sum. That is, 
+\begin{align}
+\sum_{\abf \in \A} \ubf_\abf = &\sum_{\abf \in \A} \frac{\displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})}}{\displaystyle \quad \prod_{k=1}^N \sum_{a' \in \A_k} e^{\beta \pi_k(a',\qbf_{-k})}} \\[15pt]
+=& \left( \displaystyle \prod_{k=1}^N \left( e^{\beta \pi_k(a_{k,1}, \qbf_{-k})}+... + e^{\beta \pi_k(a_{k,m_k}, \qbf_{-k})} \right) \right)^{-1} \cdot \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})} \right) \\
+\end{align} \\
+\noindent Multiplying out the sums in the denominator of the above expression, we get that:
+\begin{align}
+\sum_{\abf \in \A} \ubf_\abf =& \left( \displaystyle \prod_{k=1}^N \left( e^{\beta \pi_k(a_{k,1}, \qbf_{-k})}+... + e^{\beta \pi_k(a_{k,m_k}, \qbf_{-k})} \right) \right)^{-1} \cdot \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})} \right) \\[10pt]
+=& \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})}  \right)^{-1} \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})}  \right) = 1
+\end{align}
+\noindent Therefore, the stationary distribution sums up to 1. The candidate distribution we propose for the additive game is the unique stationary distribution of the process.
 \end{proof}
 
 \begin{proof}
