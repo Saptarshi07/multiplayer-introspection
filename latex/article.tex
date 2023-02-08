@@ -59,6 +59,7 @@
 \newcommand{\bbf}{\mathbf{b}}
 \newcommand{\cbf}{\mathbf{c}}
 \newcommand{\qbf}{\mathbf{q}}
+\newcommand{\pbf}{\mathbf{p}}
 \newcommand{\T}{\mathbf{T}}
 \newcommand{\ubf}{\mathbf{u}}
 \newcommand{\C}{\mathrm{C}}
@@ -261,7 +262,7 @@ Using the above expressions and the expression for $\tau$ in Eq. (\ref{Eq:shortc
 %&= \left( \prod_{k=1}^N \sum_{\abf' \in \A} \displaystyle e^{\beta \pi^k_{\abf'}}\right)^{-1} \cdot \left( \sum_{\abf \in \A} \prod_{k=1}^N \displaystyle e^{\beta \pi^k_{\abf^k}} \right) \\ \notag \\
 %\label{step-prod-is-one}
 %&= 1
-\noindent \\ \\ where $\qbf_{-1}, \qbf_{-2},...,\qbf_{-N}$ are fixed tuples from $\A_{-1}, \A_{-2},...,\A_{-N}$ respectively. The denominator in the above expression can be taken out completely from the first sum. That is, 
+\noindent \\ \\ where $\qbf_{-1}, \qbf_{-2},...,\qbf_{-N}$ are fixed tuples from $\A_{-1}, \A_{-2},...,\A_{-N}$ respectively. The denominator in the above expression can be taken out completely from the first sum. That is, \\
 \begin{align}
 \sum_{\abf \in \A} \ubf_\abf = &\sum_{\abf \in \A} \frac{\displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})}}{\displaystyle \quad \prod_{k=1}^N \sum_{a' \in \A_k} e^{\beta \pi_k(a',\qbf_{-k})}} \\[15pt]
 =& \left( \displaystyle \prod_{k=1}^N \left( e^{\beta \pi_k(a_{k,1}, \qbf_{-k})}+... + e^{\beta \pi_k(a_{k,m_k}, \qbf_{-k})} \right) \right)^{-1} \cdot \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})} \right) \\
@@ -270,46 +271,55 @@ Using the above expressions and the expression for $\tau$ in Eq. (\ref{Eq:shortc
 \begin{align}
 \sum_{\abf \in \A} \ubf_\abf =& \left( \displaystyle \prod_{k=1}^N \left( e^{\beta \pi_k(a_{k,1}, \qbf_{-k})}+... + e^{\beta \pi_k(a_{k,m_k}, \qbf_{-k})} \right) \right)^{-1} \cdot \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})} \right) \\[10pt]
 =& \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})}  \right)^{-1} \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})}  \right) = 1
-\end{align}
+\end{align} \\ 
 \noindent Therefore, the stationary distribution sums up to 1. The candidate distribution we propose for the additive game is the unique stationary distribution of the process.
 \end{proof}
 
 \begin{proof}
 \textbf{Proof of Proposition} \ref{Th:additive-game-product-of-marginals} \\ \\ 
-If $\ubf$ is the unique stationary distribution of the $N-$player additive game with under the finite selection introspection dynamics, it is given by the expression in Eq. \ref{Eq:additive-game-stationary-distribution}. We calculate the marginal distribution of any arbitrary state $\abf$, $\xi_{\abf} = (\xi^j_{\abf^j})_{j = 1,2,...,N}$ by using the definition of marginal distribution in Eq. \ref{Eq:marginal-definition}. It follows that: 
+Just like the previous proof, we will denote $\pbf_{-1}, \pbf_{-2},...,\pbf_{-N} $ as fixed tuples from $\A_{-1}, \A_{-2},...,\A_{-N}$ respectively. In the steps below, we always decompose the expression $f_j(a,b)$ to $\pi_j(a,\pbf_{-j}) - \pi_j(b,\pbf_{-j})$. When $\ubf = (\ubf_\abf)_{\abf \in \A}$ is the unique stationary distribution of the $N-$player additive game under finite selection introspection dynamics, it is given by the closed form expression in Eq. (\ref{Eq:additive-game-stationary-distribution}). We use this expression to calculate the marginal distribution of actions played at a particular state $\abf$, $(\xi_{j:\abf_j})_{j \in \{1,2,...,N\}}$. 
+\newpage
 \begin{align}
-\xi^j_{\abf^j} &= \sum_{\mathbf{b} \in \A^{-j}} \ubf_{(\abf^j,\mathbf{b})} \\ \notag \\
-&= \left( \prod_{k=1}^N \sum_{\abf' \in \A^k} \displaystyle e^{\beta \pi^k_{\abf'}}\right)^{-1} \cdot \displaystyle e^{\beta \pi^j_{\abf^j}} \cdot \left( \sum_{\mathbf{b} \in \A^{-j}} \prod_{k \neq j} e^{\beta \pi^k_{\mathbf{b}^k}} \right) \\ \notag \\
-&= \left( \sum_{\abf' \in \A^j} \displaystyle e^{\beta \pi^j_{\abf'}}\right)^{-1} \cdot \displaystyle e^{\beta \pi^j_{\abf^j}} \cdot \left( \prod_{k\neq j} \sum_{\abf' \in \A^k} \displaystyle e^{\beta \pi^k_{\abf'}}\right)^{-1} \cdot \left( \sum_{\mathbf{b} \in \A^{-j}} \prod_{k \neq j} e^{\beta \pi^k_{\mathbf{b}^k}} \right) \\ \notag \\ 
-&= \left( \sum_{\abf' \in \A^j} \displaystyle e^{\beta \pi^j_{\abf'}}\right)^{-1} \cdot \displaystyle e^{\beta \pi^j_{\abf^j}} \cdot \left( \sum_{\abf' \in \A^{-j}} \prod_{k\neq j}  \displaystyle e^{\beta \pi^k_{\abf'}}\right)^{-1} \cdot \left( \sum_{\mathbf{b} \in \A^{-j}} \prod_{k \neq j} e^{\beta \pi^k_{\mathbf{b}^k}} \right) \\ \notag \\ 
-&= \left( \sum_{\abf' \in \A^j} \displaystyle e^{\beta \left( \pi^j_{\abf'} - \pi^j_{\abf^j}\right)}\right)^{-1}
-\end{align}
-\noindent Therefore, the marginal distribution follows Eq.  \ref{Eq:marginal-at-additive-game}. Now since we also additionally know that the stationary distribution follows the form Eq. \ref{Eq:additive-game-stationary-distribution}, we can conclude that for additive games, under introspection dynamics with finite selection, Eq. \ref{Eq:additive-game-products} holds. 
+\xi_{j:\abf_j} &= \sum_{\qbf \in \A_{-j}} \ubf_{(\abf_j,\qbf)} \\ \notag \\
+&= \sum_{\qbf \in \A_{-j}} \left( \sum_{a' \in \A_j} \displaystyle e^{\beta f_j(a',\abf_j)}\right)^{-1} \prod_{k \neq j} \left( \sum_{a' \in \A_k} \displaystyle e^{\beta f_k(a',\qbf_k)}\right)^{-1} \\ \notag \\
+&= \left( \prod_{k=1}^N \sum_{a' \in \A_k} \displaystyle e^{\beta \pi_k (a', \pbf_{-k})}\right)^{-1} \cdot \displaystyle e^{\beta \pi_j(\abf_j, \pbf_{-j})} \cdot \left( \sum_{\qbf \in \A_{-j}} \prod_{k \neq j} e^{\beta \pi_k(\qbf_k, l_{-k})} \right) \\ \notag \\
+\label{step-prod-sum}
+&= \left( \sum_{a' \in \A_j} \displaystyle e^{\beta \pi_j(a',\pbf_{-j})}\right)^{-1} \cdot \displaystyle e^{\beta \pi_j(\abf_j, \pbf_{-j})}\cdot \left( \prod_{k\neq j} \sum_{a' \in \A_k} \displaystyle e^{\beta \pi_k(a',\pbf_{-k})}\right)^{-1} \cdot \left( \sum_{\qbf \in \A_{-j}} \prod_{k \neq j} e^{\beta \pi_k(\qbf_k,\pbf_{-k})} \right) \\ \notag \\ 
+\label{step-sum-prod}
+&= \left( \sum_{a' \in \A_j} \displaystyle e^{\beta \pi_j(a',\pbf_{-j})}\right)^{-1} \cdot \displaystyle e^{\beta \pi_j(\abf_j, \pbf_{-j})}\cdot \left( \sum_{\qbf \in \A_{-j}} \prod_{k\neq j}  \displaystyle e^{\beta \pi_k(\qbf_k,\pbf_{-k})} \right)^{-1} \cdot \left( \sum_{\qbf \in \A_{-j}} \prod_{k \neq j} e^{\beta \pi_k(\qbf_k,\pbf_{-k})}  \right) \\ \notag \\ 
+&= \left( \sum_{a' \in \A_j} \displaystyle e^{\beta \left( \pi_j(a',\pbf_{-j}) - \pi_j(\abf_j,\pbf_{-j})\right)} \right)^{-1}\\ \notag \\
+\label{final-expression}
+&= \sum_{a' \in \A_j} \displaystyle e^{\beta f_j(a',\abf_j)}
+\end{align} \\
+\noindent The interchange of the sum and the product between the expressions in Eq. (\ref{step-prod-sum}) and Eq. (\ref{step-sum-prod}) can be carried out by observing that when all the sums are multiplied out, one is left with sums of terms, each of which is a exponential with power equal to sum of payoffs that co-players of $j$ (here $k$) receive when they play their respective strategies from $\qbf$ (that is $\qbf_k$) against co-players that play $\pbf_{-k}$. Using the expression in Eq. (\ref{final-expression}), we can confirm that for additive games, the product of the marginals is the stationary distribution,  
+\begin{equation}
+\prod_{j=1}^N \xi_{j:\abf_j} = \ubf_\abf
+\end{equation} 
 \end{proof}
 
 \begin{proof}
 \textbf{Proof of Proposition} \ref{prop:stationary-dist-lpgg} \\ \\
-Since we have demonstrated that the linear public goods game is an additive game, the proof of this theorem can be performed by directly using Theorem \ref{Th:additive-games-stationary-dist}. Here, we provide an independent proof. The idea behind this proof is identical to the proof of Theorem \ref{Th:additive-games-stationary-dist}. \\ \\
-\noindent The stationary transition matrix $\T$ for the linear public goods game is primitive when $\beta$ is finite (i.e., there is a positive power $k$ such that $\T^k$ is a strictly positive matrix). Therefore, the stationary distribution of $\T$ will always be unique. We define the following short cut notations for the ease of the proof: 
-\begin{eqnarray}
-\bar{\abf}^j &:= \{\D,\C\} \setminus \abf^j  \\ 
-p^j &:= \frac{1}{1 + \displaystyle e^{\beta f(c^j, r^j)}} 
-\end{eqnarray}
-In addition we introduce a mapping function $\alpha(.)$ which maps the action $\C$ to 1 and the action $\D$ to 0. That is $\alpha(\C) := 1$ and $\alpha(\D) := 0$. Using these notations and Eq. \ref{Eq:introspection-update} and \ref{Eq:difference-payoffs-lpgg} we can write the probability that a player $j$ updates from $\abf^j$ to $\bar{\abf}^j$ while their co-players play $\abf^{-j}$ as: \\
+Since we have demonstrated that the linear public goods game is an additive game, the proof of this theorem can be performed by directly using proposition \ref{Th:additive-games-stationary-dist}. Here, we provide an independent proof. The idea behind this proof is identical to the proof of proof\ref{Th:additive-games-stationary-dist}. \\ \\
+\noindent Using proposition \ref{Prop:unique-stationary-dist}, we can confirm that since $\beta$ is finite, the process will have a unique stationary distribution. Before continuing with the rest of the proof where we show that our candidate stationary distribution is \emph{the} unique stationary distribution, we define the following short-cut notations for the ease of the proof: 
+\begin{align}
+\bar{\abf}_j &:= \{\D,\C\} \setminus \{\abf_j\}  \\ \notag \\ 
+p_j &:= \frac{1}{1 + \displaystyle e^{\beta f_j(\D, \C)}} 
+\end{align} \\
+In addition we introduce a mapping function $\alpha(.)$ which maps the action $\C$ to 1 and the action $\D$ to 0. That is $\alpha(\C) := 1$ and $\alpha(\D) := 0$. Using these notations and Eq. (\ref{Eq:introspection-update}) and (\ref{Eq:difference-payoffs-lpgg}) and utilizing our shortcut notation from above, we can write the probability that a player $j$ updates to $\abf_j$ from $\bar{\abf}_j$ while their co-players play $\abf_{-j}$ as: \\
 \begin{equation}
-p^j_{\displaystyle \bar{\abf}^j  \to \abf^j} (\abf^{-j}) = p^j \mathit{sign}(\abf^j) + \alpha(\bar{\abf}^j) \\ \\
-\end{equation}
-The candidate stationary distribution $\ubf$ given in Eq \ref{Eq:stationary_dist_lpgg} can be written down using our shortcut notation as: 
+p_{\displaystyle \bar{\abf}_j  \to \abf_j} (\abf_{-j}) = p_j \mathit{sign}(\abf_j) + \alpha(\bar{\abf}_j) 
+\end{equation}\\
+The candidate stationary distribution $\ubf$ given in Eq. (\ref{Eq:stationary_dist_lpgg}) can be written down using our short-cut notation as: \\
 \begin{equation}
 \label{Eq:stationary-dist-shortcut}
-\ubf_\abf = \prod_{k = 1}^{N}  p^k \mathit{sign}(\abf^k) + \alpha(\bar{\abf}^k) \quad ,\forall \abf \in \{0,1\}^N
-\end{equation}
-This stationary distribution must satisfy the following properties, which are also given in Eq  \ref{Eq:lefteigenvector} and \ref{Eq:normalizationcondition}:
+\ubf_\abf = \prod_{k = 1}^{N}  p_k \mathit{sign}(\abf_k) + \alpha(\bar{\abf}_k)
+\end{equation}\\
+This stationary distribution must satisfy the following properties, which are also given in Eq  (\ref{Eq:lefteigenvector}) and (\ref{Eq:normalizationcondition}):
 \begin{align}
 \label{Eq:transition-in-proof}
-&\ubf_\abf = \T_{\abf,\abf} \ubf_\abf  + \sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} \ubf_{\abf_q}  \\[10pt] 
+&\ubf_\abf = \T_{\abf,\abf} \ubf_\abf  + \sum_{\bbf \neq \abf} \T_{\bbf, \abf} \ubf_{\bbf}  \\[10pt] 
 \label{Eq:normalization-in-proof}
-&\sum_{\forall \abf_q} \ubf_{\abf_q}= 1
+&\sum_{\abf \in \A} \ubf_{\abf}= 1
 \end{align}
 Where, the terms in the right hand side of Eq. \ref{Eq:transition-in-proof} can be simplified using Eq \ref{Eq:introspection-update} and \ref{Eq:transition-matrix} as follows:
 \begin{eqnarray}
