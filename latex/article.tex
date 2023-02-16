@@ -75,8 +75,124 @@ $^1$Max Planck Research Group Dynamics of Social Behavior, Max Planck Institute 
 \maketitle
 \onehalfspacing
 \section*{Abstract}
+
+% 150 to 250 words
+% 4 to 6 keywords: multiplayer games, asymmetric games, non-linear interactions, learning model, introspection dynamics, strategy abundance  
+
+The simplest form of social interaction occurs between two nearly similar individuals. This scenario can be stylized in a pairwise symmetric game. 
+More complex behavior emerges when instead we consider multiple interacting individuals, and they may differ significantly among themselves. This case can be captured by a multiplayer asymmetric game. The complexity of these games increases both with the number and diversity of players.
+From evolutionary dynamics to learning models, game theoretic frameworks have been widely used to study strategic behavior. 
+Introspection dynamics has proven to be a useful learning model for tackling complex games. 
+It provides a simple way to compute the average abundance of each combination of strategies (or actions), that is, the stationary distribution of strategies.
+Here, our aim is to analyse multiplayer and (a)symmetric games.
+We extend previous analytical results on pairwise games under introspection dynamics to multiplayer games. 
+For general games, we obtain the analytical stationary distribution for 2 strategies, symmetric games.
+Moreover, we consider a particular class of games -- additive games. 
+In additive games, for any player, the difference between the payoffs provided by any two actions is constant, regardless of the co-players' actions. 
+For these games, we derive the stationary distribution analytically, for any number of players and strategies, with no restriction to symmetric games. 
+To illustrate our theoretical results, we analyse various multiplayer asymmetric social dilemmas. 
+In general, players that have a lower cost or a higher benefit of cooperation learn to cooperate more frequently.
+% 244 words
+
+%In addition, we find that the frequency of a state (a combination of actions played by each player) corresponds to the product of the frequencies of each player playing their respective strategy.
+
+
+\begin{comment}
+The simplest form of social interaction occurs between two nearly similar individuals. This scenario can be stylized in a pairwise symmetric game. 
+More complex behavior emerges when instead we consider multiple interacting individuals, and they may differ significantly among themselves. This case, in turn, can be captured by a multiplayer asymmetric game. The complexity of these games increases both with the number and diversity of players.
+From evolutionary dynamics to learning models, game theoretic frameworks have been widely used to study strategic behavior. 
+Introspection dynamics has proven to be a useful learning model to tackle complex games.
+%To analyse more complex games, reserachers typically use approximations, e.g. weak selection, small mutation. 
+Here, our aim is to analyse multiplayer and (a)symmetric games. We extend previous analytical results of pairwise games under introspection dynamics to multiplayer games. 
+We divide games in two main categories: additive and non-additive (or general) games.
+In additive games, for any player, the difference between the payoffs provided by any two actions (or strategies) is constant, regardless of the co-players' actions. 
+Non-additive are all games that do not hold this property; hence, general games.
+For additive games, we derive the stationary distribution of strategies analitically, for any number of players and strategies. 
+%Additionally, we find that the joint distribution of strategies factorizes over the marginal distribution of strategies.
+Additionally, we find that the frequency of a state (a combination of actions played by each player) corresponds to the product of the frequencies of each player playing their respective strategy.
+For non-additive games, we obtain the analytical stationary distribution for 2-strategies symmetric games. For other cases, we provide numerical results. 
+To illustrate our theoretical results, we analyse various multiplayer asymmetric social dilemmas. 
+In general, players that have a lower cost or a higher benefit of cooperation learn to cooperate more frequently.
+%add rewarding game
+\end{comment}
 \newpage
 \section*{Introduction}
+
+%[Multiplayer games]
+
+% Pairwise vs Multiplayer Games
+The simplest form of social interaction occurs between two individuals. These pairwise interactions have been studied extensively \cite{bibid}. Despite their simplicity, they provide important insights, e.g., on how social species can maintain cooperation \cite{bibid}. An ubiquitous example of a model game for two players is the prisoner's dilemma. There, the two individuals have a temptation to cheat on each other, while both would be better off by offering mutual help. Solving this apparent paradox has been the focus of many studies, where various explanations were proposed \cite{bibid}. 
+%some references
+\\ \\
+% non-linearity
+\noindent Yet, many interesting collective behavior occur when multiple individuals interact simultaneously \cite{Palm:JMB:1984, Skyrms:book:2003, Pacheco:PRSB:2009, Archetti:EL:2011, Archetti:JTB:2012, Gokhale:DGAA:2014, Hilbe:JTB:2015, Venkateswaran:PRSB:2019}.  % + refs!
+Notably, most of these situations cannot be captured by the sum of several pairwise interactions. Thus, to account for such non-linearities we need to consider multiplayer games \cite{Gokhale:DGAA:2014}. One well-known effect that only emerges when more than two players are present is the second-order free riding problem \cite{Pal:NatCom:2022}. A natural solution to maintain pro-social behavior in a community is to monitor and punish defectors (and/or reward cooperators). However, most forms of sanctioning are considerably costly \cite{bibid}. Therefore, an additional (second-order) dilemma is at stake: deterring defection is beneficial for all, but an individual that does not pay the associated cost has an advantage over the ones that do. As such, peer-punishment and sanctioning institutions can be hard to sustain without additional mechanisms or a suitable design \cite{Couto:JTB:2020}. %refs 
+\\ \\
+\noindent 
+% size
+Another interesting aspect of multiplayer games is the scale or size of the interaction itself. Are many-player social dilemmas harder to solve than small-groups'? \cite{Skyrms:book:2003}. Indeed, in situations that require some sort of coordination and expectations on others play an important role in one's decisions (like in stag-hunt games), it is easy to see how a growing group size might hinder the optimal outcome -- it is hard to cooperate in large groups \cite{bibid}. % need ref here! \cite{Hilbe:JTB:2015}
+This is not a general effect, though. It can happen that adding more players actually promotes cooperation. As a biological example, consider a task allocation problem in a bacterial system. A strain of bacteria can do any of three actions: to specialize in producing one of two kinds of enzymes (at some personal cost) or not to produce any enzyme. The bacteria need the two different types of enzymes at the same time to obtain resources from the environment. In \cite{gokhale:JTB:2011}, authors investigate both the 2-player and 3-player cases of this scenario. Although the underlying rules defining the interactions are the same for the two cases, simply introducing a third player changes the overall game, and hence the outcomes. With three players, the production of one of the enzymes increases while freeloading decreases, comparing to the 2-player case.
+Additionally, not only the average group size can have an important effect, but also the variance of the group size distribution \cite{Pena:Evolution:2011, Broom:BMB:2019}.
+\\ \\ 
+%[Asymmetric (multiplayer) games]
+\noindent Complexity further increases when players differ significantly among themselves. This diversity can be captured by asymmetric games \cite{Taylor:JAP:1979, Schuster:AB:1981, Gaunersdorfer:TPB:1991, Hofbauer:JMB:1996, Hofbauer:GEB:2005, Ohtsuki:JTB:2010, McAvoy:PlosCB:2015, Veller:JET:2016, Hauser:Nature:2019}. In symmetric games, all players are indistinguishable. Thus, to fully characterise a state of the game, we only require to know the number of players playing each strategy. Conversely, in asymmetric games, players can be different in several ways. We say they are of different types or roles, which can differ in payoffs and strategies. Therefore, they can have uneven effects on others' payoffs too. For example, in a public goods game, even if every player chooses to cooperate, their contributions to the common good or, alternatively, the cost they pay might be diverse \cite{Hauser:Nature:2019}. Hence, to fully describe a state of the game, we need to know which of the players is doing what. This greatly increases the size of the game's state space; even more so, for more than two players. \\ \\ 
+%meta communication; lit gap; our aim
+\noindent From this, we see how the mathematical analysis of multiplayer asymmetric games can become cumbersome, the extreme cases being many-player games where all individuals are different. Perhaps for that reason, there are not many studies on multiplayer asymmetric games, compared to their simpler counterparts. Some exceptions are \cite{Hauser:Nature:2019}. %refs
+Still, we believe a general approach is lacking. As such, our aim here is to narrow that gap, by studying multiplayer, (a)symmetric games. In the following, we discuss several canonical frameworks from the literature that have been used to study both multiplayer and asymmetric games.%, pointing out the gaps.
+
+%possibly new section \section*{Background} but then where to put "proposal"?
+
+\section*{Related Work}
+
+%[Frameworks]
+
+% deterministic EGT
+From evolutionary game theory \cite{Maynard-Smith:Nature:1973, Maynard-Smith:book:1982, Hofbauer:book:1998, Nowak:book:2006} to learning models \cite{Sandholm:BioSys:1996, Fudenberg:book:1998b, Macy:PNAS:2002, Pangallo:GEB:2022}, game theoretic frameworks have been widely used to study strategic behavior. 
+In evolutionary game theory, we assume a population of players and a mechanism by which strategies evolve over time. More successfull strategies tend to persist in the population, either by genetic or cultural inheritance. The first key concept in evolutionary game theory is ``evolutionary stable strategy" (ESS),  introduced in 1973, in the seminal paper of John Maynard Smith and George Price \cite{Maynard-Smith:Nature:1973}. A monomorphic population playing an ESS cannot be invaded by mutants. The concept of ESS, originally proposed for parwise encounters, was already extended for multiplayer games in \cite{Palm:JMB:1984, Broom:BMB:1997, Bukowski:IJGT:2004}. Although suggestive of an evolutionary process, ESS does not really describe a dynamical system. In the more classical infinite population models, ordinary differential equations are the central mathematical tools \cite{Hofbauer:book:1998}. One of the most famous of these dynamics is the replicator equation \cite{Taylor:MB:1978, Hofbauer:book:1998}. Replicator equation has been widely used and easily comprises multiplayer games \cite{Hauert:JTB:2006a, gokhale:PNAS:2010, Pena:Evolution:2011, Cressman:PNAS:2014, Pena:JTB:2014}. More recently, also the replicator-mutator equation was applied to study the dynamics of multiplayer games \cite{Duong:DGAA:2020}. As for asymmetric games, a few additional assumptions are needed. For example, if there are two different types of players, typically, either there are two populations co-evolving (``bimatrix games" \cite{Hofbauer:book:1998, Tuyls:SciRep:2018}) or there is a single population of players where each can play the two types or roles (``role games") \cite{Hofbauer:book:1998}. In the latter kind of model, a strategy must include the action played in each of the two roles. 
+% asymmetric multiplayer replicator dynamics?
+% 1+ paper for role games
+\\ \\
+% stochastic EGT
+\noindent To account for stochastic effects naturally present in finite populations, another set of tools was developed, known as stochastic evolutionary game dynamics.  \cite{Nowak:Nature:2004, Traulsen:bookchapter:2009}. Besides the finiteness of population sizes, it also considers random mutations. Here, the quantitites of interest are fixation probabilities and fixation times (i.e., the probability and average time that a single mutant overtakes an initially monomorphic population) for when mutations are rare \cite{bibid}, or average strategy abundance (i.e., the stationary distribution of strategy frequencies) for when mutation rates take intermediate values \cite{antal:JTB:2009a, antal:JTB:2009b}. 
+\\ \\
+%When deriving fixation probabilities and times, it is assumed that mutations are rare, such that, no new mutant arises between the very first and its eventual fixation \cite{}. 
+%\cite{Chalub:BMB:2019}
+\noindent 
+These frameworks have been applied to asymmetric games assuming co-evolving (finite) subpopulations of different player types. Fixation probabilities for asymmetric 2-player \cite{Sekiguchi:DGA:2017} and 3-player games \cite{Sekiguchi:DGA:2022} were recently derived. Whereas with intermediate mutation, strategy abundances were obtained only for 2-player asymmetric games \cite{ohtsuki:JTB:2010, Sekiguchi:PA:2013} or multiplayer symmetric games \cite{gokhale:PNAS:2010, gokhale:JTB:2011, Wu:Games:2013}. For a review on evolutionary multiplayer games both in infinitely large populations as well as in finite populations, we refer to \cite{Gokhale:DGAA:2014}.\\ 
+%comment on pervasiveness of weak selection
+%strategy abundance papers (intermediate mutation or mutation-selection equilibrium)
+%2-player symmetric and asymmetric games, any number of strategies, Birth-death process \cite{ohtsuki:JTB:2010}
+%2-player symmetric and asymmetric games, any number of strategies, Death-birth process \cite{Sekiguchi:PA:2013}
+
+% multiplayer 
+%\cite{gokhale:PNAS:2010}
+%\cite{gokhale:JTB:2011} extends the approach in \cite{antal:JTB:2009b} for 2-player to multiplayer (symmetric) games. 
+%\cite{Wu:Games:2013} symmetric, any number of strategies, Birth-death process (equations connections?)
+%\cite{Gokhale:DGAA:2014} review on evolutionary multiplayer games both for infinitely large populations as well as finite population
+
+% nice multiplayer applications
+
+%[Learning models]
+%learning models in general
+\noindent Different from evolutionary game theory, learning models (of strategic behavior) take another approach \cite{Sandholm:BioSys:1996, Fudenberg:book:1998b, Macy:PNAS:2002, Hofbauer:GEB:2005, Tuyls:bookchapter:2005, Galla:PNAS:2013, Barfuss:PRE:2019, Barfuss:PNAS:2020, Pangallo:GEB:2022}. There is no evolution of strategies in a population necessarily, but a process by which individuals learn strategies dynamically. 
+Despite of the conceptual disparities, there have been some efforts in unifying the two lines of research of evolutionary game theory and multiagent reinforcement learning \cite{Macy:PNAS:2002, Tuyls:bookchapter:2005}. 
+\\ \\
+\noindent Clearly, we can distinguish two different pathways that led to ``learning in games": one which stemmed from the broad field of reinforcement learning \cite{Sandholm:BioSys:1996} and the other from classical game theory itself \cite{fudenberg:book:1998b}. The ``theory of learning in games" was proposed as a refinement of classical equilibrium concepts, like Nash equilibrium, where strict assumptions of common knowledge of rationality are made. Instead, learning consists of ``\textit{an alternative explanation that equilibrium arises as the long-run outcome of a process in which less than fully rational players grope for optimality over time}" \cite{fudenberg:book:1998b}. In this context, several learning models were introduced, such as fictitious play \cite{bibid}.
+\\  \\
+%learning models for asymmetric and multiplayer games? fictious play for multiplayer games \cite{fudenberg:book:1998b} 
+%can we say most of learning models have no analytical or exact results?
+%quantal response equilibrium
+%introspection dynamics
+\noindent Introspection dynamics has proven to be a useful learning model for tackling 2-player, asymmetric games \cite{Couto:NJP:2022}.
+This feature comes from the fact that players update their strategies by exploring their own set of strategies in the following simple way: at each time, after a round of the game, a player considers a random alternative strategy; they compare the payoff that it would have given them to their current payoff; if the new strategy would provide a higher payoff, the player more likely adopts it on the next round. While in \cite{Couto:NJP:2022} only 2-player games were considered, this framework is general enough to account for multiple players. Indeed, as each player assumes that all others remain the same when doing the counterfactual comparison, introspection dynamics is an appropriate model to deal with the complexity introduced by multiple players.
+\\ \\
+%[Our proposal]
+\noindent Here, we extend previous analytical results of pairwise games under introspection dynamics to multiplayer games. 
+For general games, we obtain the analytical stationary distribution for 2-strategies symmetric games.
+For a particularly simple class of games -- additive games -- we derive the stationary distribution of strategies analytically, for any number of players and strategies, and with no restriction to symmetric games. 
+To illustrate our theoretical results, we analyse various multiplayer asymmetric social dilemmas, extending the framework in \cite{Hauert:JTB:2006a} to asymmetric games. 
+
+
 \section*{Model}
 We consider the normal form game with $N$ players where $N > 2$. In the game, a player, say player $i$, can play actions from their action set, $\A_i := \{a_{i,1}, a_{i,2}, ..., a_{i,m_i} \}$. The action set of player $i$ has $m_i$ actions. There are, therefore, $m_i \times m_2 \times ... \times m_N$ distinct states of the game. We denote a state of the game by collecting the actions of all the players in the game in a vector, $\abf := (\abf_1, \abf_2, ..., \abf_N)$ where $\abf \in \A := \A_1 \times \A_2 \times ... \times \A_N$. We also use the notation, $\abf := (\abf_i, \abf_{-i})$ to denote the state from the perspective of player $i$. In the state $(\abf_i, \abf_{-i})$, player $i$ plays the action $\abf_i \in \A_i$ and their co-players play the action $\abf_{-i} \in \A_{-i} := \prod_{j \neq i} \A_j$. The payoff of a player depends on the state of the game. We denote the payoff of player $i$ in the state $\abf$ with $\pi_i(\abf)$ or $\pi_i(\abf_i, \abf_{-i})$. \\ \\ 
 \noindent The players update their strategies over time using the introspection dynamics \cite{couto2022introspection}. At every time step, one randomly chosen player can update their strategy. The randomly chosen player, say $i$, currently playing strategy $a_{i,k}$, compares their current payoff to the payoff that they would obtain if they played a randomly selected strategy,  $a_{i,l} \neq a_{i,k}$, from their action set $\A_i$. This comparison is done while assuming that the co-players do not change their respective plays. When the co-players of player $i$ play $\abf_{-i}$, player $i$ changes to the new strategy $a_{i,l}$ from $a_{i,k}$ with the probability, \\
@@ -145,11 +261,11 @@ where $\mathbf{U}$ is a square matrix of size same as $\T$ with all elements 1 a
 \label{Eq:marginal-prob-dist}
 \end{equation}
 \section*{Additive games and their properties under introspection dynamics}
-In this section we discuss the stationary properties of introspection dynamics on a special class of games - the additive games \cite{pena2014gains, mcavoy2015asymmetric}. In an additive game, the payoff difference that a player earns by making a switch in their actions is independent of what their co-players play while they make this switch. In other words, if none of the co-players change their strategy, the payoff difference earned by making a particular switch is \emph{only} determined by the switch and not on the co-players' play. This property is sometimes called the \emph{equal gains from switching} \cite{pena2014gains} property of a game. That is, for any player $i$, any pair of actions $x,y \in \A_i$, and any $\qbf \in A_{-i}$,
+In this section we discuss the stationary properties of the introspection dynamics when players learn to play strategies in a special class of games: the additive games \cite{pena2014gains, mcavoy2015asymmetric}. In an additive game, the payoff difference that a player earns by making a unilateral switch in their actions is independent of what their co-players play. In other words, if none of the co-players change their current actions, the payoff difference earned by making a switch in actions is \emph{only} determined by the switch and not on the actions of the co-players'. Formally, in additive games, for any player $i$, any pair of actions $x,y \in \A_i$, and any $\qbf \in \A_{-i}$,
 \begin{equation}
 \pi_i(x, \qbf) - \pi_i(y, \qbf) =: f_i(x,y) 
 \end{equation}
-\noindent For games with this property, the stationary distribution takes a simple form as shown in the proposition below.
+\noindent is independent of $\qbf$ and only dependent on $x$ and $y$. In the literature, this property is sometimes called the property of \emph{equal gains from switching} \cite{pena2014gains}. For games with this property, the stationary distribution of introspection dynamics takes a simple form;
 
  \begin{Prop}
 When $\beta$ is finite, the unique stationary distribution, $\ubf = (\ubf_\abf)_{\abf \in \A}$, of the introspection dynamics for the N-player additive game is given by: 
@@ -157,11 +273,10 @@ When $\beta$ is finite, the unique stationary distribution, $\ubf = (\ubf_\abf)_
 \ubf_\abf = \prod_{j=1}^N \frac{1}{\displaystyle \sum_{a' \in \A_j} e^{\beta f_j(a', \abf_j)}} 
 \label{Eq:additive-game-stationary-distribution}
 \end{equation}
-where, $f_j(a', \abf_j) = \pi_j(a', \qbf) - \pi_j(\abf_j, \qbf)$ is the co-player independent payoff difference that $j$  earns in an additive game when they unilaterally switch their play to $a'$ from $\abf_j$.
+where, $f_j(a', \abf_j) = \pi_j(a', \qbf) - \pi_j(\abf_j, \qbf)$ is the co-player independent payoff difference that $j$  earns in an additive game when they unilaterally switch their play from $\abf_j$  to $a'$.
 \label{Th:additive-games-stationary-dist}
 \end{Prop}
-\noindent The above proposition gives a closed form expression of the stationary distribution of the introspection dynamics for additive games. For any finite value of the selection parameter, $\beta$, the stationary distribution can be computed using the expression in Eq. (\ref{Eq:additive-game-stationary-distribution}). For proof, see Appendix \ref{Section:Appendix}. Additive games are particularly interesting under the introspection dynamics because of the following relationship between the stationary distribution and marginal distributions,
-
+\noindent For any finite value of the selection strength parameter, $\beta$, the stationary distribution of the process for an additive game can be exactly computed using the expression in Eq. (\ref{Eq:additive-game-stationary-distribution}). For a proof, see Appendix. Using the stationary distribution, one can also exactly compute the cumulative probabilities with which players play their actions in the long run (i.e., the marginal distribution) using Eq. (\ref{Eq:marginal-definition}). In this regard, introspection learning in additive games is particularly interesting. The stationary distribution and the marginal distributions of introspection learning in additive games are related in a special way, 
 
 \begin{Prop}
 Let $\ubf = (\ubf_\abf)_{\abf \in \A}$ be the unique stationary distribution of the introspection dynamics with finite $\beta$ for the N-player additive game. Then, $\ubf_\abf$ is the product of the marginal probabilities that each player plays their respective actions in $\abf$. That is, 
@@ -171,21 +286,21 @@ Let $\ubf = (\ubf_\abf)_{\abf \in \A}$ be the unique stationary distribution of 
 \label{Eq:additive-game-products}
 \end{equation}
 
-\noindent where the marginal probability, $\xi_{j:\abf_j}$, is the cumulative probability that player $j$ plays $\abf_j$ at the stationary distribution. The marginal probability is given by: 
+\noindent where the marginal probability, $\xi_{j:\abf_j}$, is the cumulative probability that player $j$ plays $\abf_j$ at the stationary distribution. The marginal probability for the $N$-player additive game is given by: 
 
 \begin{equation}
 \xi_{j:\abf_j} = \frac{1}{\displaystyle \sum_{a' \in \A_j} e^{\beta f_j(a', \abf_j)}} 
 \label{Eq:marginal-at-additive-game}
 \end{equation}
-\noindent where, $f_j(a', \abf_j) = \pi_j(a', \qbf) - \pi_j(\abf_j, \qbf)$ is the co-player independent payoff difference that $j$  earns in an additive game when they unilaterally switch their play to $a'$ from $\abf_j$.
+\noindent where, $f_j(a', \abf_j) = \pi_j(a', \qbf) - \pi_j(\abf_j, \qbf)$ is the co-player independent payoff difference that $j$  earns in an additive game when they unilaterally switch their play from $\abf_j$ to $a'$.
 \label{Th:additive-game-product-of-marginals}
 \end{Prop}
-\noindent The above proposition states that for additive games under introspection dynamics, the stationary distribution can be factorized into its corresponding marginals. In the long run, the probability that players simultaneously play ($\abf_1, \abf_2, ...,\abf_N$) is the product of the cumulative probabilities that player 1 plays $\abf_1$, player 2 plays $\abf_2$ and so on. In the following subsection we study a classical additve game - the linear public goods game under the introspection dynamics and discuss the results. 
+\noindent The above proposition states that for additive games, the stationary distribution of the introspection dynamics can be factorized into its corresponding marginals. In the long run, the probability that players simultaneously play the state ($\abf_1, \abf_2, ...,\abf_N$) is the product of the cumulative probabilities that player 1 plays $\abf_1$, player 2 plays $\abf_2$ and so on. While this factorizing property of the stationary distribution appears for additive games, we do not show that this property is unique to additive games. We use the well-studied example of the linear public goods game to demonstrate the stationary properties of the introspection dynamics in additive games. 
 
 \subsection*{Example of an additive game: linear public goods game with 2 actions}
-Here, we analyze the linear public goods game with $N$-players. Each player has two possible actions, to contribute (action, $\C$), or to not contribute (action, $\D$). The players differ in their cost of cooperation and the benefit they provide to the public goods. The cost of cooperation for player $i$ and the benefit they provide to the public goods are denoted with $c_i$ and $b_i$ respectively. The payoff of player $i$ when the state of the game is $\abf$ is given by: \\
+In the simplest version of the linear public goods game with $N-$players, each player has two possible actions, to contribute (action, $\C$, to cooperate), or to not contribute (action, $\D$, to defect) to the public good. The players differ in their cost of cooperation and the benefit they provide by contributing to the public good. We denote the cost of cooperation for player $i$ and the benefit that they provide to the public good with $c_i$ and $b_i$ respectively. In addition, we define a mapping function $\alpha(.)$ to map the action of cooperation to 1 and the action of defection to 0. That is $\alpha(\C) = 1$ and $\alpha(\D) = 0$.  The payoff of player $i$ when the state of the game is $\abf$ is given by: \\
 \begin{equation}
-\pi_i(\abf) = \sum_{j=1}^N \frac{\displaystyle \abf_j b_j}{N} - \abf_i c_i
+\pi_i(\abf) = \sum_{j=1}^N \frac{\displaystyle \alpha(\abf_j) b_j}{N} - \alpha(\abf_i) c_i
 \label{Eq:linear-pgg-payoff}
 \end{equation}
 \\
@@ -194,7 +309,7 @@ Here, we analyze the linear public goods game with $N$-players. Each player has 
 \pi_i(\D, \qbf) - \pi_i(\C, \qbf) = c_i - \frac{b_i}{N} =: f_i(\D, \C) 
 \label{Eq:difference-payoffs-lpgg}
 \end{equation}\\
-\noindent is independent of any $\qbf \in \A_{-i}$ that the co-players of $i$ play. The linear public goods game is therefore an example of an additive game. This property of the game results in dominated strategies for player $i$ depending on the relationship between the benefits $b_i$, number of players $N$, and cost of cooperation $c_i$. When $c_i > b_i/N$, the action of not contributing ($\D$) dominates the action of contributing ($\C$) and \emph{vice-versa}. Using proposition \ref{Th:additive-games-stationary-dist}, we derive the following closed form expression for the stationary distribution of a $N-$player linear public goods game with two strategies. 
+\noindent is independent of co-players' actions $\qbf$. The linear public goods game is therefore an example of an additive game. This property of the game results in dominated strategies for players. Defection dominates cooperation when $c_i > b_i/N$ while cooperation dominates defection when $c_i < b_i/N$. Using proposition \ref{Th:additive-games-stationary-dist}, one can derive the closed form expression for the stationary distribution of a $N-$player linear public goods game with two strategies. 
 \begin{Prop}
 \label{prop:stationary-dist-lpgg}
 When $\beta$ is finite, the unique stationary distribution of the introspection dynamics for a $N-$player linear public goods game is given by: 
@@ -208,12 +323,126 @@ where,
 \label{Eq:sign-function}
 \mathit{sign}(a) =
 \begin{cases}
-1 &\quad \text{if} \quad a = \C \\
--1 &\quad \text{if} \quad a = \D
+&1 \quad \text{if} \quad a = \C \\
+-&1 \quad \text{if} \quad a = \D
 \end{cases}
 \end{equation}
 \end{Prop}
-\newpage
+\noindent We use a simple example to demonstrate the above result. Consider a 3-player linear public goods game. All players provide a benefit of 2 units when they contribute to the public good ($b_1 = b_2 = b_3 = 2$). They differ however in their cost of cooperation. For player 1 and 2, the cost of cooperation is 1 unit ($c_1 = c_2 = 1$) while for the third player, the cost is slightly higher at 1.5 units ($c_3 = 1.5$). In the stationary distribution of the process with selection strength $\beta = 1$, the state where player 1 and 2 play $\C$ and player 3 plays $\D$, $\ubf_{\C\C\D}$, occurs with probability $\approx 0.112$ (rounded up to three decimal places). We calculate this probability exactly with Eq. (\ref{Eq:stationary_dist_lpgg}). The marginal probabilities that in the long run player 1 (or player 2) plays cooperation and player 3 plays defection are 0.4 and 0.7 respectively. That is, $\xi_{1:\C} = \xi_{2:\C} \approx 0.4$ and $\xi_{3:\D} \approx 0.7$ (rounded upto a single decimal place). With the exact values (and also with the approximations here), one can confirm the factorizing property of the stationary distribution for additive games in this example (i.e., proposition \ref{Th:additive-game-product-of-marginals}). That is, $\ubf_{\C\C\D} = \xi_{1:\C} \cdot \xi_{2:\C} \cdot \xi_{3:\D}$. \\ \\
+\noindent First, we systematically the linear public goods game in which all players are symmetric. We consider a game with 4 players. All players have the same cost of cooperation ($c_i = c$) and they all provide the same benefit to the public goods ($b_i = b$). Since all players are identical, the states of the game can be enumerated by counting the number of cooperators in the state. There can only be 5 distinct states of the game (from 0 to 4 contributors). When the parameters of the game are such that defection dominates cooperation ($b = 2, c = 1$, Fig. \ref{}a), the stationary distribution of the process at high $\beta$ ($\beta = 5$), indicates an exponential decrease in the probability of a state with increase in the number of cooperators in the state. However, for intermediate and low $\beta$, the long-run outcomes of the introspection dynamics are qualitatively different to the outcomes at high $\beta$. Here, the state with $1$ cooperator (or even $2$ cooperators, depending on how small $\beta$ is) is the most probable state in the long-run (Fig. \ref{}b).  Naturally, $\beta$ plays an important role determining the overall cooperation frequncy in the public goods game. When $\beta$ is low, the average cooperation frequency varies weakly with the strength of the dilemma, $b/N - c$ (Fig. \ref{}c). Even when the temptation to defect is high ($b/N - c \approx -2$), players cooperate with a non-zero probability in the long run ($\approx 0.1$). Similarly, when cooperation is highly beneficial ($b/N - c \approx 2$), players defect with some probability ($\approx 0.2$). At higher values of $\beta$, the stationary behaviour of the players is more responsive to the payoffs of the game and thus reflect an abrupt change around the parameter region where the game transitions from defection-dominating to cooperation-dominating ($b/N - c = 0$).  \\ \\
+\noindent 
+For studying the linear public goods game with asymmetric players, we consider a setup with 3 players. All the players differ in their cost of cooperation and the benefit they provide to the public goods. In this setup, the reference player's (player 2) cost and benefit values are $1$ and $2$ units respectively. Player 1 and player 3 differ from the reference player in opposite directions. For player 1, the cost and benefit are $1 + \delta_c$ and $2 + \delta_b$ respectively while for player 3, the cost and benefit are $1 - \delta_c$ and $2 - \delta_b$, respectively. First, we study a simple case in which players only vary in their cost of cooperation ($\delta_b = 0$ and $\delta_c = 0.5$, Fig \ref{}a). In the long run, the relative cooperation frequency of players reflect their relative ability to cooperate. The player with the lowest cooperation cost (player 3), cooperates with the highest probability (and \emph{vice-versa}). Similarly, when players only differ in their ability to produce the public good ($\delta_b = 1$ and $\delta_c = 0$, Fig \ref{}b), their relative cooperation in the long run reflects the relative benefits they provide with their cooperation. The player with the highest benefit value (player 1) cooperates with the highest probability. For this particular setup with three asymmetric players, defection dominates cooperation for player 1 if and only if $\delta_b < 1 + 3\delta_c$ . For player 3, defection dominates cooperation only when $\delta_b > 3\delta_c - 1$. For the parameter values $b = 2, c = 1$, defection always dominates cooperation for the reference player. These regions in the $\delta_b-\delta_c$ parameter plane that correspond to defection dominating cooperation are circumscribed by white dashed lines in Fig. \ref{}c. When players learn to play at high selection strength, $\beta$, their cooperation frequency in the long-run reflect the rational play (Fig. \ref{}c). In the long run, the average cooperation frequency of the group is low if the asymmetry in the benefit value is bounded, $3\delta_c - 1 < \delta_b < 3\delta_c + 1$. This includes the case where players are symmetric ($\delta_b = \delta_c = 0$). A relatively high cooperation frequency is only assured if players are aligned in their asymmetries (i.e., either $\delta_b < 3\delta_c +1$ or $\delta_b > 3\delta_c - 1$).
+
+\section*{Games with two actions and their properties under introspection dynamics}
+
+In this section, we study the stationary properties of games with two actions. These games are not necessarily additive. First, we study the simplest case in which all players are symmetric. A $N$-player symmetric normal form game with two actions has the following properties:
+
+\begin{enumerate}
+\item  $\A_1 = \A_2 = ... = \A_N := \mathcal{A} := \{\C,\D\}$
+\item For any $i,j \in \{1,2,...,N\}$, $a \in \mathcal{A}$ and $\bbf \in \displaystyle \prod_{j=1}^{N} \mathcal{A}$:
+\begin{equation}
+\pi_i(a,\bbf) = \pi_j(a,\bbf)
+\end{equation} 
+\end{enumerate}
+
+\noindent Since players are symmetric, states can again be enumerated by counting the number of $\C$ players in the state. We denote the payoff of a $\C$ and $\D$ player in a state where there are $j$ $\C$ players with $\pi_\C(j)$ and $\pi_\D(j)$ respectively. From the previous section, we adopt the mapping function $\alpha(.)$ that maps the action $\C$ to 1 and the action $\D$ to 0. We use the notation $\mathcal{C}(\abf)$ to denote the number of cooperators in the state $\abf$. That is,
+
+\begin{equation}
+\mathcal{C}(\abf) := \sum_{j=1}^N \alpha(\abf_j)
+\end{equation}
+
+\noindent 
+The stationary distribution of a two-action symmetric game under introspection dynamics can be explictly computed using the following proposition, 
+
+\begin{Prop}
+\label{Prop:Symmetric-2-strategies-state}
+When $\beta$ is finite, the unique stationary distribution of the introspection dynamics for the $N-$player symmetric normal form game with two actions, $\mathcal{A} = \{\C, \D \}$, $(\ubf_{\abf})_{\abf \in \mathcal{A}^N}$, is given by:
+\begin{equation}
+\label{Eq:stationary-dist-symm-2-stgs-state}
+\ubf_\abf = \frac{1}{\Gamma} \displaystyle \prod_{j=1}^{\mathcal{C}(\abf)} \displaystyle e^{-\beta f(j-1)}
+\end{equation}
+where $f(j) := \pi^\D(j) - \pi^\C(j)$ is the payoff difference earned by switching the play from $\D$ and $\C$ when there are $j$ co-players playing $\C$. The term $\Gamma$ is the normalization factor given by:
+\begin{equation}
+\label{Eq:stationary-dist-normalization-symm-2-stgs-state}
+\Gamma = \displaystyle \sum_{\forall \abf' \in \mathcal{A}^N} \prod_{j = 1}^{\mathcal{C}(\abf')} \displaystyle e^{-\beta f(j-1)}
+\end{equation}
+\end{Prop}
+
+
+\noindent The number of unique states of the game can be reduced to $N+1$ from $2^N$ due to symmetry. In the reduced state space, the state $k$ corresponds to $k$ players playing $\C$ and $N-k$ players playing $\D$. Then, Proposition \ref{Prop:Symmetric-2-strategies-state} can be reformulated by relabelling the states as follows,
+
+
+\begin{Corollary}
+\label{Lemma: Symmetric-2-stg}
+When $\beta$ is finite, the unique stationary distribution, $(\ubf_k)_{k \in \{0,1,...,N\}}$, of the introspection dynamics for the $N-$player symmetric normal form game with two actions, $\mathcal{A} = \{\C, \D \}$, is given by \\
+\begin{equation}
+\label{Eq:stationary-dist-symm-2-stgs}
+\ubf_k = \frac{1}{\Gamma} \cdot {N \choose k} \cdot \displaystyle \prod_{j=1}^{k} \displaystyle e^{-\beta f(j-1)}
+\end{equation} \\ 
+where, $k$ represents the number of $\C$ players in the state and $f(j) := \pi^\D(j) - \pi^\C(j)$ is the payoff difference earned by switching the play $\D$ and $\C$ when there are $j$ co-players playing $\C$. The term $\Gamma$ is the normalization factor, given by, \\
+\begin{equation}
+\label{Eq:normalization-Tk}
+\Gamma = \displaystyle \sum_{k=0}^N {N \choose k} \cdot \displaystyle \prod_{j=1}^{k} \displaystyle e^{-\beta f(j-1)}
+\end{equation}
+\end{Corollary}
+\noindent The above lemma follows directly from Proposition \ref{Prop:Symmetric-2-strategies-state}. The key step is to count the number of states in the state space $\mathcal{A}^N$ that corresponds to exactly $k$, $\C$ players (and therefore $N-k$, $\D$ players). This count is simply the binomal coefficient $N \choose k$. For details, see the proof in the Appendix. In this paper, we do not derive a closed form expression for the stationary distribution of introspection dynamics in asymmetric games with two actions. Instead, we compute it numerically using the explicit formula in Eq. (\ref{Eq:explicit-stationary-dist-representation}). In the next section, we study the stationary behaviour of the introspection dynamics in the general public goods game (symmetric and asymmetric).
+
+\subsection*{An example of a  game with two actions: the general public goods game}
+
+To study general public goods game we adopt the framework of general social dilemmas from Hauert et al. \cite{Hauert:JTB:2006a}. This framework introduces a parametric normal form game with symmetric players. The players have two actions: cooperation, $\C$ and defection, $\D$. Here, we extend their framework to account for players with asymmetric payoffs. For player $i$, the cost of cooperation is $c_i$. The benefit that they can generate for the public good is $b_i$. However, in the general public goods game, the benefit of cooperation generated by a player is either synergized (or discounted) by a factor depending on the number of cooperators already in the group and the synergy/discount factor, $w$. If there are already $k-1$ cooperators in the group, the effective benefit provided to the public good by the $k^{th}$ cooperating player (say $i$), is $w^{k-1} b_i$. In this setup, we assume that all the orders in which cooperators' benefits can be synergized (or discounted) are equally likely. We clarify with an example. Consider that there are three cooperators in the group: player $i, j$ and $k$. The total benefit that they provide to the public good can be one of the six possibilities from $x + y w + z w^2$, where $x,y$ and $z$ are permutations  of $b_i, b_j$ and $b_k$. We assume that all the six possibilities are equally likely, and therefore, the expected benefit is given by $\bar{b}(1 + w + w^2)$ where $\bar{b} = (b_i + b_j + b_k)/3$. \\ 
+
+\noindent The complete state space of the game is $\A = \{\C,\D\}^N$. The payoff of a defector in a state $(\D, \abf_{-i})$ and that of a cooperator in state $(\C,\abf_{-i})$ where $\abf_{-i} \in \{\C,\D\}^{N-1}$ are respectively given by:
+
+\begin{align}
+\pi^{\D}_i(\D, \abf_{-i})&= \displaystyle \sum_{i=1}^N b_i \alpha(\abf_i) \cdot \frac{1}{N} \cdot \left(1 + w + w^2 + ...w^{\mathcal{C}(\D,\abf_{-i}) - 1} \right)\\[15pt]
+\pi^{\C}_i(\C, \abf_{-i}) &= \displaystyle \sum_{i=1}^N b_i \alpha(\abf_i) \cdot \frac{1}{N} \cdot \left(1 + w + w^2 + ...w^{\mathcal{C}(\C,\abf_{-i}) - 1} \right) - c_i
+\label{Eq:payoff-synergistic-asymmetric}
+\end{align} \\
+\noindent where $\mathcal{C}(a,\abf_{-i})$ is the number of cooperators in the state $(a,\abf_{-i})$ and $\alpha(.)$ is the mapping function that maps the actions $\C$ and $\D$ to 1 and 0 respectively. Note that the number of cooperators in the two states are related as: $\mathcal{C}(\D,\abf_{-i}) = \mathcal{C}(\C,\abf_{-i}) - 1$. In the symmetric case, were every player has the same cost and benefit values, the payoffs of a defector and a cooperator in a group with $k$ cooperators can be simply written as:
+
+\begin{align}
+\pi^{\D}_i(k) &= \frac{b}{N}(1 + w + w^2 + ... + w^{k-1}) \\[15pt]
+\pi^{\C}_i(k) &= \pi^{\D}_i(k) - c
+\label{Eq:payoff-synergistic-symmetric}
+\end{align} 
+
+\noindent The parameter $w$ represents the nature of the public goods. The nature is linear when $w = 1$. Every additional cooperator's contribution is as valuable as the benefit that they can generate. When $w < 1$, the effective value of every new cooperator goes down by a factor of $w$ (compared to the last cooperator). The public goods is said to be discounting in that case. On the other hand when $w > 1$, every new contributor is more valuable than the previous one. These public goods are called synergistic. For the symmetric case, the relationship between the cost to benefit ration $cN/b$ and the discount/synergy factor determines the type of social dilemma arising from this general public goods game. In principle, this framework can produce generalizations of the prisoner's dilemma (defection dominating cooperation), the snowdrift game (no dominance but coexistence under the replicator dynamics), the stag-hunt game (no dominance but existence of an internal equilibrium that is unstable under the replicator dynamics) and the harmony game (cooperation dominating defection) with respect to its evolutionary trajectories. For more details see Hauert et al. \cite{Hauert:JTB:2006a}. We study the long term stationary behaviour of players when they learn through introspection dynamics. First we focus on only the symmetric version of this game. 
+\\ \\ 
+\noindent To compute the stationary distribution of the symmetric general public goods game (PG), we use the closed for expression in Eq. (\ref{Eq:stationary-dist-symm-2-stgs}). We consider that every player in a 4-player game can generate a benefit $b$ of value $2$. We study an introspection process with selection strength $\beta = 5$. Before exploring the $c-w-N$ parameter space, we study four specific cases.  In two of these cases, the public goods is discounted ($w = 0.5$) and in two other cases, the public goods is synergistic ($w = 1.5$). For each case we consider two sub-cases: one, in which cost is high ($c = 1$) and two, when cost is low ($c = 0.2$). The four parameter combinations are chosen such that each of them represents a unique social dilemma under the replicator dynamics.  When the PG is discounted ($w = 0.5$) and costs are high ($c = 1$) defection dominates cooperation (the prisoner's dilemma). When the PG is discounted ($w = 0.5$) but costs are low ($c = 0.2$), the coexistence behaviour similar to the snowdrift game appears from the replicator equation. When the PG is synergistic ($w = 1.5$) and costs are high ($c = 1$), both cooperation and defection are locally stable equilibria. In addition there is also an internal equilibrium which is unstable. This represents the stag-hunt game. And finally when both the PG is synergistic and costs are low, cooperation dominates defection. This situation represents the harmony game. The stationary behaviour of the players from the introspection dynamics in these games reflect the outcomes from the replicator dynamics (Fig. \ref{}a). Since selection strength is chosen to be intermediate, in some of these cases, players play actions that are not optimal for the dilemma with positive probability in the long run. For example, even when the parameters of the game make cooperation to be the dominated strategy, there is a single cooperator in the group with a sizeable chance ($\approx 20\%$) in the long run. When the parameters of the game reflect the stag-hunt dilemma, players are more likely to coordinate their actions in the long run. The probabilities that the whole group plays $\C$ or $\D$ is higher than the probability that there is a group with mixed play. In contrast, when the parameters reflect the snowdrift game, we get the opposite effect. In the long run, mixed groups are more likely than homogeneous groups. In fact, the group with exactly 2 cooperators and 2 defectors is the most likely outcome in the long run. Finally, when the parameters of the game make defection the dominated action, all players in the group learn to play cooperation in the long run. \\ \\ 
+\noindent The average cooperation frequency of the group in the long run are shown in the $c-w$ and $N-w$ parameter planes in Fig \ref{}b. First, let us consider the case when the group size is fixed at 4 players (the $c-w$ plane in Fig\ref{}b). In that case if the cost of cooperation is too high, the average cooperation rate is negligible and does not change with the change in the nature of the public good. When the cost is not restrictively high, the discount/synergy parameter, $w$, determines the frequency with which players cooperate in the long run. A high $w$ for the public good would result in high cooperation in the long run (and \emph{vice-versa}). Next we consider the case where the cost of cooperation is fixed (the $N-w$ plane in Fig. \ref{}b). It is fixed to a value such that there is full cooperation in the long run in a group of arbitrary size when $w > 1$. In this case, when the public good is discounted, group size $N$ and the discounting factor $w$ jointly determine the cooperation frequency in the long run. For a fixed value of $w (< 1)$, cooperation rates fall with larger group sizes. 
+
+\section*{Discussions and conclusion}
+
+%[Short summary]
+
+%[Comparison to other models]
+
+%[What we didn't do, limitations, further work]
+Introspection dynamics is a rather broad model. Here, we mainly focused on general cases to the detriment of more realistic, complex examples. Nevertheless, in the last section, we give one step forward in that direction, by studying a 2-stage game, where individuals are allowed to reward their co-players condition on previous actions. Clearly, there are a number of ways in which we can further employ our model. For example, other researchers recently studied multiplayer games considering multiple games played concurrentlyin \cite{Venkateswaran:PRSB:2019}, fluctuating environments \cite{Baron:JRSOP:2018}, continuous strategies \cite{Molina:JMB:2017}, or repeated interactions \cite{Hilbe:JTB:2015}. \\ \\ 
+\noindent
+Finally, for the sake of mathematical tractability, introspection dynamics, as we present it here, does not consider a population, not to mention complex population structures \cite{Broom:JTB:2012, Wu:Games:2013, Pena:JTB:2015, Pena:JRSI:2016, Pattni:JTB:2017, Su:PNAS:2022}. However, it can be equally applicable to population models. In that case, players obtain payoffs either from well-mixed or network-bounded interactions, as usual, but update their strategies introspectively.
+
+% examples
+%\cite{Baron:JRSOP:2018} multiplayer games with fluctuating environments
+%\cite{Molina:JMB:2017} multiplayer games continuous strategies
+%\cite{Venkateswaran:PRSB:2019} multiplayer in multiple games
+%\cite{Hilbe:JTB:2015} explore the evolution of direct reciprocity in groups of multiple players; in small groups, generosity allows the evolution of cooperation, whereas, in large groups, cooperation is unlikely to evolve.
+
+%networks/structure
+%\cite{Broom:JTB:2012, Wu:Games:2013, Pena:JTB:2015, Pena:JRSI:2016, Pattni:JTB:2017, Su:PNAS:2022}
+% broom territorial
+
+
+%\newpage
+%\begin{figure}[t!]
+%\centering
+%\includegraphics[width =  0.95\textwidth]{figures/figure1.eps}~\\[-0.4cm]
+%\caption{\onehalfspacing
+%\textbf{Symmetric linear public goods game,}
+%a) Frequency of each state in the stationary distribution of introspection dynamics. As players are indistinguishable here, each state can be fully defined by the number of cooperators. Parameters: $N = 4$, $b = 2$, $c = 1$ and $\beta = 5$. b) For the same game parameters ($N = 4$, $b = 2$ and $c = 1$), we now show the frequency of each state (same color code as in panel a) for varying selection strength $\beta$. Comparing neutrality ($\beta = 0$) with low to intermediate $\beta$ values, we see that selection favors states other than 0 cooperators. Indeed, up to $\beta \approx 3$, state $0$ is not even the most frequent. c) Average cooperation frequency for varying dilemma strength. We use as a measure of the dilemma strength the marginal gain by choosing to cooperate over choosing to defect, $b/N - c$. When this quantity is low, we say there is a ``strong dilemma”, where there is no individual advantage to cooperate, whereas when the marginal gain is high, we say there is a ``weak dilemma” (or no dilemma), where to cooperate becomes advantageous. Typically, a linear public goods dilemma is defined as having a negative marginal gain (see conditions above). Here, we show the whole parameter range for completeness and a full grasp of this game. We also show the result for different values of selection strength, $\beta = 1, 5$ and $100$. For high $\beta$, we confirm the classical prediction that, assuming a negative marginal gain, defection is dominant. For low $\beta$, however, we see again that some cooperation is possible. }
+%\end{figure}
+
+
 \section*{Appendix: Proofs}
 \label{Section:Appendix}
 \begin{proof}
@@ -321,87 +550,87 @@ This stationary distribution must satisfy the following properties, which are al
 \label{Eq:normalization-in-proof}
 &\sum_{\abf \in \A} \ubf_{\abf}= 1
 \end{align}
-Where, the terms in the right hand side of Eq. \ref{Eq:transition-in-proof} can be simplified using Eq \ref{Eq:introspection-update} and \ref{Eq:transition-matrix} as follows:
+Where, the terms in the right hand side of Eq. \ref{Eq:transition-in-proof} can be simplified using Eq. (\ref{Eq:introspection-update}) and (\ref{Eq:transition-matrix}) as follows:
 \begin{eqnarray}
-\T_{\abf,\abf} = 1 - \sum_{k=1}^{N} \T_{(\abf^k, \abf^{-k}), (\bar{\abf}^k,\abf^{-k})} = 1 - \frac{1}{N} \sum_{k=1}^{N} p^k \textit{sign}(\bar{\abf}^k) + \alpha(\abf^k)
+\T_{\abf,\abf} = 1 - \sum_{k=1}^{N} \T_{(\abf_k, \abf_{-k}), (\bar{\abf}_k,\abf_{-k})} = 1 - \frac{1}{N} \sum_{k=1}^{N} p_k \textit{sign}(\bar{\abf}_k) + \alpha(\abf_k)
 \label{Eq:first-term-rhs-proof}
 \end{eqnarray} 
-and additionally, also using Eq. \ref{Eq:stationary-dist-shortcut} the second term can be simplified too:
+and additionally, also using Eq. (\ref{Eq:stationary-dist-shortcut}) the second term can be simplified too:
 \begin{align}
-\sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} \ubf_{\abf_q} &= \sum_{k = 1}^N \T_{(\bar{\abf}^k,\abf^{-k}), (\abf^k, \abf^{-k})} \ubf_{(\bar{\abf}^k,\abf^{-k})} \\[10pt]
-&= \frac{1}{N} \sum_{k = 1}^N \left(p^k \textit{sign}(\abf^k) +\alpha(\bar{\abf}^k) \right) \ubf_{(\bar{\abf}^k,\abf^{-k})} \\[10pt] 
+\sum_{\bbf \neq \abf} \T_{\bbf, \abf} \ubf_{\bbf} &= \sum_{k = 1}^N \T_{(\bar{\abf}_k,\abf_{-k}), (\abf_k, \abf_{-k})} \ubf_{(\bar{\abf}_k,\abf_{-k})} \\[10pt]
+&= \frac{1}{N} \sum_{k = 1}^N \left(p_k \textit{sign}(\abf_k) +\alpha(\bar{\abf}_k) \right) \ubf_{(\bar{\abf}_k,\abf_{-k})} \\[10pt] 
 \label{Eq:second-term-rhs-proof}
-&= \frac{\ubf_\abf}{N} \sum_{k=1}^{N} p^k \textit{sign}(\bar{\abf}^k) + \alpha(\abf^k) 
+&= \frac{\ubf_\abf}{N} \sum_{k=1}^{N} p_k \textit{sign}(\bar{\abf}_k) + \alpha(\abf_k) 
 \end{align}
-Now, using Eq. \ref{Eq:first-term-rhs-proof}, \ref{Eq:second-term-rhs-proof} one can show that the right hand side of Eq. \ref{Eq:transition-in-proof} is the element of the stationary distribution, corresponding to the state $\abf$, $\ubf_a$.  Now, to complete the proof, we must show that Eq. \ref{Eq:normalization-in-proof} is also true for our candidate stationary distribution. This can be done by decomposing the sum of the elements of the stationary distribution as follows:
+Now, using Eq. (\ref{Eq:first-term-rhs-proof}) and (\ref{Eq:second-term-rhs-proof}) one can show that the right hand side of Eq. (\ref{Eq:transition-in-proof}) is the element of the stationary distribution, corresponding to the state $\abf$, $\ubf_a$.  Now, to complete the proof, we must show that Eq. (\ref{Eq:normalization-in-proof}) is also true for our candidate stationary distribution. This can be done by decomposing the sum of the elements of the stationary distribution as follows:
 \begin{align}
-\sum_{\forall \abf_q} u_{\abf_q} =& \displaystyle \sum_{\forall \abf_q} \prod_{k=1}^N p^k \mathit{sign}(\abf_q^k) + \alpha(\bar{\abf}_q^k) \\[10pt]
-=& \displaystyle \displaystyle \sum_{\forall \abf_q} (1-p^N)  \prod_{k=1}^{N-1} p^k \mathit{sign}(\abf_q^k) + \alpha(\bar{\abf}_q^k)  + p^N  \prod_{k=1}^{N-1} p^k \mathit{sign}(\abf_q^k) + \alpha(\bar{\abf}_q^k) \\[10pt]
-=& \displaystyle \sum_{\forall \abf_q} \prod_{k=1}^{N-1} p^k \mathit{sign}(\abf_q^k) + \alpha(\bar{\abf}_q^k)
+\sum_{\abf \in \A} u_{\abf} =& \displaystyle \sum_{\abf \in \A} \prod_{k=1}^N p_k \mathit{sign}(\abf_k) + \alpha(\bar{\abf}_k) \\[10pt]
+=& \displaystyle \displaystyle \sum_{\abf \in \A_{-\!N}} (1-p_N)  \prod_{k=1}^{N-1} p_k \mathit{sign}(\abf_k) + \alpha(\bar{\abf}_k)  + p_N  \prod_{k=1}^{N-1} p_k \mathit{sign}(\abf_k) + \alpha(\bar{\abf}_k) \\[10pt]
+=& \displaystyle \sum_{\abf \in \A_{-\!N}} \prod_{k=1}^{N-1} p_k \mathit{sign}(\abf_k) + \alpha(\bar{\abf}_k)
 \end{align}
 When the above decomposition is perfomed $N-1$ more times, the sum of the right hand side becomes 1. This prooves that the candidate stationary distribution is also a probability distribution.
 \end{proof}
 
 \begin{proof}
 \textbf{Proof of Proposition} \ref{Prop:Symmetric-2-strategies-state} \\ \\
-By construction, the candidate stationary distribution given by Eq. \ref{Eq:stationary-dist-symm-2-stgs-state} and Eq. \ref{Eq:stationary-dist-normalization-symm-2-stgs-state} is a probability distribution since it satisfies the condition in Eq. \ref{Eq:normalizationcondition} and for any state $\abf'$, $\ubf_{\abf'}$ is between 0 and 1.  Moreover, since $\beta$ is finite, the transition matrix of the process $\T$ is primitive and therefore, it will have a unique stationary distribution. To show that the candidate stationary distribution is the unique stationary distribution, we need to check if for this process, $\ubf \T= \ubf$. That is, the condition in Eq. \ref{Eq:transition-in-proof} must hold for all states $\abf$. We re-introduce some notations that we will use in this proof: 
+By construction, the candidate stationary distribution given by Eq. (\ref{Eq:stationary-dist-symm-2-stgs-state}) and Eq. (\ref{Eq:stationary-dist-normalization-symm-2-stgs-state}) is a probability distribution since it satisfies the condition in Eq. (\ref{Eq:normalizationcondition}) and for any state $\abf$, $\ubf_{\abf}$ is between 0 and 1.  Moreover, since $\beta$ is finite, by proposition \ref{Prop:unique-stationary-dist}, the process will have a unique stationary distribution. To show that the candidate stationary distribution is the unique stationary distribution, we need to check if for this process, $\ubf \T= \ubf$. That is, the condition in Eq. (\ref{Eq:transition-in-proof}) must hold for all states $\abf$. We re-introduce some notations that we will use in this proof: 
 \begin{align}
-\bar{\abf}^j &:= \{\D,\C\} \setminus \abf^j \\[10pt]
+\bar{\abf}^j &:= \{\D,\C\} \setminus \{\abf_j\} \\[10pt]
 \alpha(a)&:= 
 \begin{cases}
 1 \quad \text{if} \quad a = \C \\[10pt]
 0 \quad \text{if} \quad a = \D 
 \end{cases}\\[10pt]
-\mathcal{C}(\abf) &= \sum_{j=1}^N \alpha(\abf^j)
+\mathcal{C}(\abf) &= \sum_{j=1}^N \alpha(\abf_j)
 \end{align}
-For this process, the first term in the right hand side of Eq. \ref{Eq:transition-in-proof} can be simplified as: 
+For this process, the first term in the right hand side of Eq. (\ref{Eq:transition-in-proof}) can be simplified as: 
 \begin{align}
-\ubf_{\abf} \T_{\abf,\abf}  &= \ubf_\abf - \ubf_{\abf} \sum_{k=1}^{N} \T_{(\abf^k, \abf^{-k}),(\bar{\abf}^{k}, \abf^{-k})} \\[10pt]
-&= \ubf_{\abf} - \frac{\ubf_{\abf}}{N} \sum_{k=1}^N \frac{1}{1 + \displaystyle e^{\mathit{sign}(\bar{\abf}^{k}) \beta f(N_k)}}
+\ubf_{\abf} \T_{\abf,\abf}  &= \ubf_\abf - \ubf_{\abf} \sum_{k=1}^{N} \T_{(\abf_k, \abf_{-k}),(\bar{\abf}_{k}, \abf_{-k})} \\[10pt]
+&= \ubf_{\abf} - \frac{\ubf_{\abf}}{N} \sum_{k=1}^N \frac{1}{1 + \displaystyle e^{\mathit{sign}(\bar{\abf}_{k}) \beta f(N_k)}}
 \label{Eq:T_aa_u_a term}
 \end{align}
-\\ \noindent Where, the function $\mathit{sign}(.)$ is  defined as in Eq. \ref{Eq:sign-function} and$f(j)$ is the difference in payoffs between playing $\D$ and $\C$ when there are $j$ co-players playing $\C$. The term $N_k$ is the number of co-players of $k$ that play $\C$ in state $\abf$. That is,
+\\ \noindent Where, the function $\mathit{sign}(.)$ is  defined as in Eq. (\ref{Eq:sign-function}) and$f(j)$ is the difference in payoffs between playing $\D$ and $\C$ when there are $j$ co-players playing $\C$. The term $N_k$ represents the number of co-players of $k$ that play $\C$ in state $\abf$. That is,
 \begin{equation}
-N_k := \sum_{j \neq k} \alpha(\abf^j)
-\end{equation}
+N_k := \sum_{j \neq k} \alpha(\abf_j)
+\end{equation} \\
 The second term in the right hand side of Eq. \ref{Eq:transition-in-proof} can be simplified as, 
 \begin{align}
-\sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} \ubf_{\abf_q} &= \sum_{k=1}^N \T_{(\bar{\abf}^k, \abf^{-k}),(\abf^k, \abf^{-k})} \ubf_{(\bar{\abf}^k, \abf^{-k})} \\[10pt]
+\sum_{\bbf \neq \abf} \T_{\bbf, \abf} \ubf_{\bbf} &= \sum_{k=1}^N \T_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})} \ubf_{(\bar{\abf}_k, \abf_{-k})} \\[10pt]
 \label{Eq:step-single-product}
-&= \frac{1}{N \Gamma} \sum_{k=1}^N \T_{(\bar{\abf}^k, \abf^{-k}),(\abf^k, \abf^{-k})} \displaystyle \prod_{j=1}^{\mathcal{C}((\bar{\abf}^k, \abf^{-k}))} e^{-\beta f(j-1)}\\[10pt]
-&=  \frac{1}{N \Gamma} \sum_{k=1}^N \T_{(\bar{\abf}^k, \abf^{-k}),(\abf^k, \abf^{-k})} \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \right) \cdot e^{-\beta \alpha(\bar{\abf}^k)f(-\alpha(\abf^k)+ N_k}
+&= \frac{1}{N \Gamma} \sum_{k=1}^N \T_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})} \displaystyle \prod_{j=1}^{\mathcal{C}((\bar{\abf}_k, \abf_{-k}))} e^{-\beta f(j-1)}\\[10pt]
+&=  \frac{1}{N \Gamma} \sum_{k=1}^N \T_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})} \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \right) \cdot e^{-\beta \alpha(\bar{\abf}_k)f(-\alpha(\abf_k)+ N_k})
 \label{Eq:step-product-broken}
 \end{align}
-Between the steps, Eq. \ref{Eq:step-single-product} and \ref{Eq:step-product-broken}, we took out one term from the product that is present in our candidate distribution. This term accounts for the $k^{th}$ players action in the neighbouring state $(\bar{\abf}^k, \abf^{-k})$ of $\abf$. For simplicity, we replace $\T_{(\bar{\abf}^k, \abf^{-k}),(\abf^k, \abf^{-k})}$ with just $\T$ in the next steps. We continue the simplification of Eq. \ref{Eq:step-product-broken} in the later steps by introducing terms that cancel each other. \\[10pt]
+Between the steps, Eq. \ref{Eq:step-single-product} and \ref{Eq:step-product-broken}, we took out one term from the product that is present in our candidate distribution. This term accounts for the $k^{th}$ players action in the neighbouring state $(\bar{\abf}_k, \abf_{-k})$ of $\abf$. For simplicity, we replace $\T_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})}$ with just $\T$ in the next steps. We continue the simplification of Eq. (\ref{Eq:step-product-broken})in the later steps by introducing terms that cancel each other. \\[10pt]
 \begin{align}
-\sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} \ubf_{\abf_q} &=  \frac{1}{N \Gamma} \sum_{k=1}^N \T \cdot \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \right) \cdot \frac{e^{-\beta \alpha(\bar{\abf}^k)f(-\alpha(\abf^k)+ N_k)}}{e^{-\beta \alpha(\abf^k)f(-\alpha(\bar{\abf}^k) +N_k)}} \cdot e^{-\beta \alpha(\abf^k)f(-\alpha(\bar{\abf}^k) + N_k)}
+\sum_{\bbf \neq \abf} \T_{\bbf, \abf} \ubf_{\bbf} &=  \frac{1}{N \Gamma} \sum_{k=1}^N \T \cdot \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \right) \cdot \frac{e^{-\beta \alpha(\bar{\abf}_k)f(-\alpha(\abf_k)+ N_k)}}{e^{-\beta \alpha(\abf_k)f(-\alpha(\bar{\abf}_k) +N_k)}} \cdot e^{-\beta \alpha(\abf_k)f(-\alpha(\bar{\abf}_k) + N_k)}
 \label{Eq:new-cancelable-term-introduced}
 \end{align}
-\\ \noindent The newly introduced term in Eq. \ref{Eq:new-cancelable-term-introduced} can be taken inside the product. Note that this term is 0 if the $k^{th}$ player plays $\D$ in the state $\abf$. When this term is taken inside the product bracket, products of exponent $e^{-\beta f(j-1)}$ can be performed for $j$ ranging from $1$ to the number of cooperators in state $\abf$, $\mathcal{C}(\abf)$. This product is then the stationary distribution probability $\ubf_\abf$. That is, 
+\\ \noindent The newly introduced term in Eq. (\ref{Eq:new-cancelable-term-introduced}) can be taken inside the product. Note that this term is 0 if the $k^{th}$ player plays $\D$ in the state $\abf$. When this term is taken inside the product bracket, products of exponent $e^{-\beta f(j-1)}$ can be performed for $j$ ranging from $1$ to the number of cooperators in state $\abf$, $\mathcal{C}(\abf)$. This product is then the candidate stationary distribution probability $\ubf_\abf$. That is, 
 \begin{align}
-\sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} \ubf_{\abf_q} &=  \frac{1}{N \Gamma} \sum_{k=1}^N \T \cdot \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \cdot e^{-\beta \alpha(\abf^k)f(-\alpha(\bar{\abf}^k) + N_k)} \right) \cdot \frac{e^{-\beta \alpha(\bar{\abf}^k)f(-\alpha(\abf^k)+ N_k)}}{e^{-\beta \alpha(\abf^k)f(-\alpha(\bar{\abf}^k) +N_k)}} \\[10pt]
-&= \frac{1}{N} \sum_{k=1}^N  \T \cdot \left( \frac{1}{\Gamma} \prod_{j=1}^{\mathcal{C}(\abf)} e^{-\beta f(j-1)}\right) \cdot \frac{e^{-\beta \alpha(\bar{\abf}^k)f(-\alpha(\abf^k)+ N_k)}}{e^{-\beta \alpha(\abf^k)f(-\alpha(\bar{\abf}^k) +N_k)}} \\[10pt]
-&= \frac{1}{N} \sum_{k=1}^N  \T_{(\bar{\abf}^k, \abf^{-k}),(\abf^k, \abf^{-k})} \cdot \ubf_\abf \cdot \frac{e^{-\beta \alpha(\bar{\abf}^k)f(-\alpha(\abf^k)+ N_k)}}{e^{-\beta \alpha(\abf^k)f(-\alpha(\bar{\abf}^k) +N_k)}} \label{Eq: last-step-w-fraction} 
+\sum_{\bbf \neq \abf} \T_{\bbf, \abf} \ubf_{\bbf} &=  \frac{1}{N \Gamma} \sum_{k=1}^N \T \cdot \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \cdot e^{-\beta \alpha(\abf_k)f(-\alpha(\bar{\abf}_k) + N_k)} \right) \cdot \frac{e^{-\beta \alpha(\bar{\abf}_k)f(-\alpha(\abf_k)+ N_k)}}{e^{-\beta \alpha(\abf_k)f(-\alpha(\bar{\abf}_k) +N_k)}} \\[10pt]
+&= \frac{1}{N} \sum_{k=1}^N  \T \cdot \left( \frac{1}{\Gamma} \prod_{j=1}^{\mathcal{C}(\abf)} e^{-\beta f(j-1)}\right) \cdot \frac{e^{-\beta \alpha(\bar{\abf}_k)f(-\alpha(\abf_k)+ N_k)}}{e^{-\beta \alpha(\abf_k)f(-\alpha(\bar{\abf}_k) +N_k)}} \\[10pt]
+&= \frac{1}{N} \sum_{k=1}^N  \T_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})} \cdot \ubf_\abf \cdot \frac{e^{-\beta \alpha(\bar{\abf}_k)f(-\alpha(\abf_k)+ N_k)}}{e^{-\beta \alpha(\abf_k)f(-\alpha(\bar{\abf}_k) +N_k)}} \label{Eq: last-step-w-fraction} 
 \end{align}
-\\ \noindent The fraction inside the sum in  Eq. \ref{Eq: last-step-w-fraction} can be simplified as follows leading to further simplification of Eq. \ref{Eq: last-step-w-fraction}:
+\\ \noindent The fraction inside the sum in  Eq. (\ref{Eq: last-step-w-fraction}) can be simplified as follows leading to further simplification of Eq. (\ref{Eq: last-step-w-fraction}):
 \begin{align}
-\sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} \ubf_{\abf_q} &= \frac{1}{N} \sum_{k=1}^N  \T_{(\bar{\abf}^k, \abf^{-k}),(\abf^k, \abf^{-k})} \cdot \ubf_\abf \cdot e^{sign(\abf^k) \beta f(N_k)} 
+\sum_{\bbf \neq \abf} \T_{\bbf, \abf} \ubf_{\bbf} &= \frac{1}{N} \sum_{k=1}^N  \T_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})} \cdot \ubf_\abf \cdot e^{sign(\abf_k) \beta f(N_k)} 
 \label{Eq:only-need-to-replace-T-now}
 \end{align}
-\\ \noindent In Eq. \ref{Eq:only-need-to-replace-T-now} we can replace the element of the transition matrix $\T_{(\bar{\abf}^k, \abf^{-k}),(\abf^k, \abf^{-k})}$ by using the following: 
+\\ \noindent In Eq. (\ref{Eq:only-need-to-replace-T-now}) we can replace the element of the transition matrix $\T_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})}$ by using the following: 
 \begin{equation}
-\T_{(\bar{\abf}^k, \abf^{-k}),(\abf^k, \abf^{-k})} = \frac{1}{1 + \displaystyle e^{\mathit{sign}(\abf^k) \beta f(N_k)}} 
+\T_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})} = \frac{1}{1 + \displaystyle e^{\mathit{sign}(\abf_k) \beta f(N_k)}} 
 \label{Eq:transition-matrix-T-symm-2-stgs}
 \end{equation}
-\\ \noindent Using the expression for the transition matrix element from Eq. \ref{Eq:transition-matrix-T-symm-2-stgs} into Eq. \ref{Eq:only-need-to-replace-T-now} and by using Eq. \ref{Eq:T_aa_u_a term}, we can simplify further: 
+\\ \noindent Using the expression for the transition matrix element from Eq. (\ref{Eq:transition-matrix-T-symm-2-stgs}) into Eq. (\ref{Eq:only-need-to-replace-T-now}) and by using Eq. (\ref{Eq:T_aa_u_a term}), we can simplify further: 
 \begin{align}
-\sum_{\abf_q \neq \abf} \T_{\abf_q, \abf} \ubf_{\abf_q} &= \frac{\ubf_\abf}{N} \sum_{k=1}^N \frac{1}{1 + \displaystyle e^{\mathit{sign}(\abf^k) \beta f(N_k)}} \cdot  e^{sign(\abf^k) \beta f(N_k)} \\[10pt]
-&= \frac{\ubf_\abf}{N} \sum_{k=1}^N \frac{1}{1 + \displaystyle e^{\mathit{sign}(\bar{\abf}^k) \beta f(N_k)}}  \\[10pt]
+\sum_{\bbf \neq \abf} \T_{\bbf, \abf} \ubf_{\bbf} &= \frac{\ubf_\abf}{N} \sum_{k=1}^N \frac{1}{1 + \displaystyle e^{\mathit{sign}(\abf_k) \beta f(N_k)}} \cdot  e^{sign(\abf_k) \beta f(N_k)} \\[10pt]
+&= \frac{\ubf_\abf}{N} \sum_{k=1}^N \frac{1}{1 + \displaystyle e^{\mathit{sign}(\bar{\abf}_k) \beta f(N_k)}}  \\[10pt]
 &= \ubf_\abf - \ubf_\abf \T_{\abf,\abf}
 \end{align}
-\\ \noindent The final step in the previous simplification shows that Eq. \ref{Eq:transition-in-proof} holds for any $\abf \in \{\C,\D\}^N$. Therefore, the candidate distribution we propose in Eq. \ref{Eq:stationary-dist-symm-2-stgs-state} is the unique stationary distribution of the symmetric $N$-player game with two strategies. 
+\\ \noindent The final step in the previous simplification shows that Eq. (\ref{Eq:transition-in-proof}) holds for any $\abf \in \{\C,\D\}^N$. Therefore, the candidate distribution we propose in Eq. (\ref{Eq:stationary-dist-symm-2-stgs-state}) is the unique stationary distribution of the symmetric $N$-player game with two strategies. 
 \end{proof}
-\newpage
+
 \begin{proof}
 \textbf{Proof of Corollary} \ref{Lemma: Symmetric-2-stg} \\ \\
 To show this result we count how many states are identical to a state $\abf \in \{\C,\D\}^N$ in a symmetric game. When players are symmetric in a two-strategy game, states can be enumerated by counting the number of $\C$ players in that state. This can also be confirmed by the expression of the stationary distribution in Eq. \ref{Eq:stationary-dist-symm-2-stgs-state}. Two distinct states $\abf, \abf'$ having the same number of cooperators (i.e., $\mathcal{C}(\abf') = \mathcal{C}(\abf)$), have the same stationary distribution probability (i.e., $\ubf_{\abf'} = \ubf_{\abf}$).
@@ -418,5 +647,5 @@ To show this result we count how many states are identical to a state $\abf \in 
 \newpage
 \section*{Supplementary References}
 \bibliographystyle{unsrt}
-\bibliography{bibliography.bib }
+\bibliography{bibtex.bib}
 \end{document}
