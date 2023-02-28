@@ -238,7 +238,7 @@ a_{\mathrm{I}(\abf, \bbf)} \neq b_{\mathrm{I}(\abf, \bbf)}
 \end{cases}
 \label{Eq:transition-matrix}
 \end{align} \\ 
-\noindent The transition matrix is a row stochastic matrix (the sums of the rows are 1). This implies that the stationary distribution of $\T$, a left eigenvector of $\T$ corresponding to eigenvalue $1$, always exists. The following proposition introduces a sufficient condition for the stationary distribution of $\T$ to be unique. 
+\noindent The transition matrix is a row stochastic matrix (the sums of the rows are 1). This implies that the stationary distribution of $\T$, a left eigenvector of $\T$ corresponding to eigenvalue $1$, always exists. We introduce a sufficient condition for the stationary distribution of $\T$ to be unique. 
 \\ \\
 \noindent When the selection strength, $\beta$ is finite, the transition matrix of introspection dynamics has a unique stationary distribution. A finite value of $\beta$ results in non-zero probability of transition between neighbouring states. Since no state is isolated (i.e., every state belongs in the neighbourhood set of another state) and there are only finitely many states of the game, every state is reachable in a finite number of steps from any starting point with non-zero probability. The transition matrix, $\T$, is therefore primitive for a finite $\beta$. By the Perron-Frobenius theorem, a primitive matrix, $\T$ will have a unique and strictly positive stationary distribution $\ubf := (\mathrm{u}_\abf)_{\abf \in \A}$ which satisfies the conditions: 
 \begin{eqnarray}
@@ -268,16 +268,16 @@ a_{\mathrm{I}(\abf, \bbf)} \neq b_{\mathrm{I}(\abf, \bbf)}
 \end{equation} \\
 where $\mathbf{U}$ is a square matrix of the same size as $\T$ with all elements equal to 1 and $\mathbb{1}$ is the identity matrix. The matrix $\mathbb{1} + \mathbf{U} - \T$ is invertible when $\T$ is a primitive matrix \cite{Couto:NJP:2022}. Using Eq. (\ref{Eq:explicit-stationary-dist-representation}) one can compute the stationary distribution of introspection dynamics for any normal form game (with arbitrary number of asymmetric players).\\
 
-\noindent The stationary distribution element $\mathrm{u}_\abf$ is the probability that state $\abf$ will be played by the players in the long run. Using the stationary distribution, one can calculate the marginal probabilities corresponding to each player's actions. For example, the probability that player $i$ plays action $a_{i,k}$ in the long run, $\xi_{i:a_{i,k}}$, can be computed as,
+\noindent The stationary distribution element $\mathrm{u}_\abf$ is the probability that state $\abf$ will be played by the players in the long run. Using the stationary distribution, one can calculate the marginal probabilities corresponding to each player's actions. For example, the probability that player $i$ plays action $a \in \A_i$ in the long run, $\xi_{i,a}$, can be computed as,
 \begin{equation}
-\mathbf{\xi}_{i:a_{i,k}} := \sum_{\qbf \in \A_{-i}} \mathrm{u}_{(a_{i,k}, \qbf)}
+\mathbf{\xi}_{i,a} := \sum_{\qbf \in \A_{-i}} \mathrm{u}_{(a, \qbf)}
 \label{Eq:marginal-definition}
 \end{equation}
-\noindent Since the stationary distribution is a probability distribution, marginal distributions also have the same property. That is, for a player $i$, 
-\begin{equation}
-\sum_{k = 1}^{m_i} \xi_{i:a_{i,k}}= 1
-\label{Eq:marginal-prob-dist}
-\end{equation}
+%\noindent Since the stationary distribution is a probability distribution, marginal distributions also have the same property. That is, for a player $i$, 
+%\begin{equation}
+%\sum_{k = 1}^{m_i} \xi_{a_{i,k}}= 1
+%\label{Eq:marginal-prob-dist}
+%\end{equation}
 \section*{Additive games and their properties under introspection dynamics}
 In this section we discuss the stationary properties of introspection dynamics when players learn to play strategies in a special class of games: additive games \cite{McAvoy:PlosCB:2015, Pena:JTB:2014}. In an additive game, the payoff difference that a player earns by making a unilateral switch in their actions is independent of what their co-players play. In other words, if none of the co-players change their current actions, the payoff difference earned by making a switch in actions is \emph{only} determined by the switch and not on the actions of the co-players'. Formally, in additive games, for any player $i$, any pair of actions $x,y \in \A_i$, and any $\qbf \in \A_{-i}$,
 \begin{equation}
@@ -302,20 +302,20 @@ where, $f_j(a', a_j)$ is the co-player independent payoff difference given by Eq
 Let $\ubf = (\mathrm{u}_\abf)_{\abf \in \A}$ be the unique stationary distribution of introspection dynamics with finite $\beta$ for the N-player additive game. Then, $\mathrm{u}_\abf$ is the product of the marginal probabilities that each player plays their respective actions in $\abf$. That is, 
 
 \begin{equation}
-\mathrm{u}_\abf = \prod_{j = 1}^N \xi_{j:a_j}
+\mathrm{u}_\abf = \prod_{j = 1}^N \xi_{j,a_j}
 \label{Eq:additive-game-products}
 \end{equation}
 
-\noindent where the marginal probability, $\xi_{j:a_j}$, is the cumulative probability that player $j$ plays $a_j$ at the stationary distribution. The marginal probability for the $N$-player additive game is given by: 
+\noindent where the marginal probability, $\xi_{j,a_j}$, is the cumulative probability that player $j$ plays $a_j$ at the stationary distribution. The marginal probability for the $N$-player additive game is given by: 
 
 \begin{equation}
-\xi_{j:a_j} = \frac{1}{\displaystyle \sum_{a' \in \A_j} e^{\beta f_j(a',a_j)}} 
+\xi_{j,a_j} = \frac{1}{\displaystyle \sum_{a' \in \A_j} e^{\beta f_j(a',a_j)}} 
 \label{Eq:marginal-at-additive-game}
 \end{equation}
 \noindent where, $f_j(a', a_j)$ is the co-player independent payoff difference given by Eq. (\ref{Eq:coplayer-independent-payoffdiff}).
 \label{Th:additive-game-product-of-marginals}
 \end{Prop}
-\noindent The above proposition states that for additive games, the stationary distribution of introspection dynamics can be factorized into its corresponding marginals. In the long run, the probability that players play the state ($a_1, a_2, ...,a_N$) is the product of the cumulative probabilities that player 1 plays $a_1$, player 2 plays $a_2$ and so on. This property of the additive game was already shown for the simple two-player, two-action donation game in Couto et al. \cite{Couto:NJP:2022}.  Here we extend that result for any number of players, each having an arbitrary number of strategies. While this factorizing property of the stationary distribution appears for additive games, we do not show that this property is unique to additive games. In the next section we use the well-studied example of the linear public goods game to demonstrate the stationary properties of introspection dynamics in additive games. 
+\noindent The above proposition states that for additive games, the stationary distribution of introspection dynamics can be factorized into its corresponding marginals. In the long run, the probability that players play the state $\abf = (a_1, a_2, ...,a_N)$ is the product of the cumulative probabilities that player 1 plays $a_1$, player 2 plays $a_2$ and so on. This property of the additive game was already shown for the simple two-player, two-action donation game in Couto et al. \cite{Couto:NJP:2022}.  Here we extend that result for any number of players, each having an arbitrary number of strategies. In the next section we use the well-studied example of the linear public goods game to demonstrate the stationary properties of introspection dynamics in additive games. 
 
 \subsection*{Example of an additive game: linear public goods game with 2 actions}
 In the simplest version of the linear public goods game with $N-$players, each player has two possible actions, to contribute (action $\C$, to cooperate), or to not contribute (action $\D$, to defect) to the public good. The players differ in their cost of cooperation and the benefit they provide by contributing to the public good. We denote the cost of cooperation for player $i$ and the benefit that they provide to the public good by $c_i$ and $b_i$ respectively. We define an indicator function $\alpha(.)$ to map the action of cooperation to 1 and the action of defection to 0. That is $\alpha(\C) = 1$ and $\alpha(\D) = 0$.  The payoff of player $i$ when the state of the game is $\abf$ is given by: \\
@@ -335,7 +335,7 @@ In the simplest version of the linear public goods game with $N-$players, each p
 When $\beta$ is finite, the unique stationary distribution of introspection dynamics for a $N-$player linear public goods game is given by: 
 \\
 \begin{equation}
-\mathrm{u}_\abf = \prod_{j = 1}^{N} \frac{1}{1 + \displaystyle e^{\mathit{sign}(\abf_j)\beta f_j(\D, \C )}} 
+\mathrm{u}_\abf = \prod_{j = 1}^{N} \frac{1}{1 + \displaystyle e^{\mathit{sign}(a_j)\beta f_j(\D, \C )}} 
 \label{Eq:stationary_dist_lpgg}
 \end{equation}
 where, 
@@ -348,7 +348,7 @@ where,
 \end{cases}
 \end{equation} \\
 \end{Prop}
-\noindent We use a simple example to illustrate the above result. Consider a 3-player linear public goods game. All players provide a benefit of 2 units when they contribute to the public good ($b_1 = b_2 = b_3 = 2$). They differ, however, in their cost of cooperation. For player 1 and 2, the cost of cooperation is 1 unit ($c_1 = c_2 = 1$) while for the third player, the cost is slightly higher at 1.5 units ($c_3 = 1.5$). In the stationary distribution of the process with selection strength $\beta = 1$, the state where player 1 and 2 play $\C$ and player 3 plays $\D$, $\mathrm{u}_{\C\C\D}$, occurs with probability $\approx 0.121$ (rounded up to three decimal places). We calculate this probability exactly with Eq. (\ref{Eq:stationary_dist_lpgg}). The marginal probabilities that in the long run player 1 (or player 2) plays cooperation and player 3 plays defection are 0.417 and 0.697 respectively. That is, $\xi_{1:\C} = \xi_{2:\C} \approx 0.417$ and $\xi_{3:\D} \approx 0.697$ (rounded up to a three decimal places). With the exact values (and also with the approximations here), one can confirm the factorizing property of the stationary distribution for additive games in this example (i.e., Proposition \ref{Th:additive-game-product-of-marginals}). That is, $\mathrm{u}_{\C\C\D} = \xi_{1:\C} \cdot \xi_{2:\C} \cdot \xi_{3:\D}$. \\ \\
+\noindent We use a simple example to illustrate the above result. Consider a 3-player linear public goods game. All players provide a benefit of 2 units when they contribute to the public good ($b_1 = b_2 = b_3 = 2$). They differ, however, in their cost of cooperation. For player 1 and 2, the cost of cooperation is 1 unit ($c_1 = c_2 = 1$) while for the third player, the cost is slightly higher at 1.5 units ($c_3 = 1.5$). In the stationary distribution of the process with selection strength $\beta = 1$, the state where player 1 and 2 play $\C$ and player 3 plays $\D$, $\mathrm{u}_{\C\C\D}$, occurs with probability $\approx 0.121$ (rounded up to three decimal places). We calculate this probability exactly with Eq. (\ref{Eq:stationary_dist_lpgg}). The marginal probabilities that in the long run player 1 (or player 2) plays cooperation and player 3 plays defection are 0.417 and 0.697 respectively. That is, $\xi_{1,\C} = \xi_{2,\C} \approx 0.417$ and $\xi_{3,\D} \approx 0.697$ (rounded up to a three decimal places). With the exact values (and also with the approximations here), one can confirm the factorizing property of the stationary distribution for additive games in this example (i.e., Proposition \ref{Th:additive-game-product-of-marginals}). That is, $\mathrm{u}_{\C\C\D} = \xi_{1,\C} \cdot \xi_{2,\C} \cdot \xi_{3,\D}$. \\ \\
 \noindent First, we analyze the simplest case of the linear public goods game in which all players are symmetric to each other. We consider a game with 4 players. All players have the same cost of cooperation ($c_i = c$) and they all provide the same benefit to the public good ($b_i = b$). Since all players are identical, the states of the game can be enumerated by counting the number of cooperators in the state. There can only be 5 distinct states of the game (from 0 to 4 cooperators).
 In this case, one can show with Eq. (\ref{Eq:stationary_dist_lpgg}) that, between the states with $k$ and $k+1$ cooperators, the stationary distribution changes by a factor of $(k+1)/(4-k) \cdot \mathrm{exp}(\beta f_j(\D,\C))$. When the parameters of the game are such that defection dominates cooperation ($b = 2, c = 1$, Fig. \ref{Fig:LPGG-symmetric}a), the stationary distribution of the process at high $\beta$ indicates that in the long-run, states with higher number of cooperators are less likely than states with lower number of cooperators. However, for intermediate and low $\beta$, stationary results are qualitatively different. Here, the state with $1$ cooperator (or even $2$ cooperators, depending on how small $\beta$ is) is the most probable state in the long-run (Fig. \ref{Fig:LPGG-symmetric}b).  Naturally, $\beta$ plays an important role in determining the overall cooperation frequncy in the game. When $\beta$ is low, the average cooperation frequency varies weakly with the strength of the dilemma, $b/N - c$ (Fig. \ref{Fig:LPGG-symmetric}c). Even when the temptation to defect is high ($b/N - c \approx -2$), players cooperate with a non-zero probability in the long run ($\approx 0.1$). Similarly, when cooperation is highly beneficial and strictly dominates defection ($b/N - c \approx 2$), players defect with a non-zero probability ($\approx 0.1$). At higher values of $\beta$, the stationary behaviour of players is more responsive to the payoffs and thus reflects an abrupt change around the parameter region where the game transitions from defection-dominating to cooperation-dominating ($b/N - c = 0$).  \\ \\
 \noindent 
@@ -376,7 +376,7 @@ f(j) := \pi^\D(j) - \pi^\C(j)
 \noindent From the previous section, we adopt the indicator function $\alpha(.)$ that maps the action $\C$ to 1 and the action $\D$ to 0, and the notation $\mathcal{C}(\abf)$ to denote the number of cooperators in the state $\abf$. That is,
 
 \begin{equation}
-\mathcal{C}(\abf) := \sum_{j=1}^N \alpha(\abf_j)
+\mathcal{C}(\abf) := \sum_{j=1}^N \alpha(a_j)
 \end{equation}
 \\
 \noindent The stationary distribution of a two-action symmetric game under introspection dynamics can be explictly computed using the following proposition, 
@@ -431,20 +431,20 @@ To study general public goods game, we adopt the framework of general social dil
 \noindent The complete state space of the game with asymmetric players is $\A = \{\C,\D\}^N$. The payoff of a defector in a state $(\D, \abf_{-i})$ and that of a cooperator in state $(\C,\abf_{-i})$ where $\abf_{-i} \in \{\C,\D\}^{N-1}$ are respectively given by:
 
 \begin{align}
-\pi^{\D}_i(\D, \abf_{-i})&= 
+\pi_i(\D, \abf_{-i})&= 
 \begin{cases}
-\displaystyle \sum_{i=1}^N b_i \alpha(\abf_i) \cdot \frac{1}{N \cdot \mathcal{C}(\D,\abf_{-i})} \cdot \left(1 + w + w^2 + ...w^{\mathcal{C}(\D,\abf_{-i}) - 1} \right) &\quad  \text{if } \mathcal{C}(\D,\abf_{-i}) \neq 0 \\[15pt]
+\displaystyle \sum_{i=1}^N b_i \alpha(a_i) \cdot \frac{1}{N \cdot \mathcal{C}(\D,\abf_{-i})} \cdot \left(1 + w + w^2 + ...w^{\mathcal{C}(\D,\abf_{-i}) - 1} \right) &\quad  \text{if } \mathcal{C}(\D,\abf_{-i}) \neq 0 \\[15pt]
 0 &\quad  \text{if } \mathcal{C}(\D,\abf_{-i}) = 0
 \end{cases} \\[15pt]
-\pi^{\C}_i(\C, \abf_{-i}) &= \displaystyle \sum_{i=1}^N b_i \alpha(\abf_i) \cdot \frac{1}{N \cdot \mathcal{C}(\C,\abf_{-i})} \cdot \left(1 + w + w^2 + ...w^{\mathcal{C}(\C,\abf_{-i}) - 1} \right) - c_i
+\pi_i(\C, \abf_{-i}) &= \displaystyle \sum_{i=1}^N b_i \alpha(a_i) \cdot \frac{1}{N \cdot \mathcal{C}(\C,\abf_{-i})} \cdot \left(1 + w + w^2 + ...w^{\mathcal{C}(\C,\abf_{-i}) - 1} \right) - c_i
 \label{Eq:payoff-synergistic-asymmetric}
 \end{align} \\
 \noindent where $\mathcal{C}(a,\abf_{-i})$ is the number of cooperators in the state $(a,\abf_{-i})$ and $\alpha(.)$ is the indicator function that maps the actions $\C$ and $\D$ to 1 and 0 respectively. Note that the number of cooperators in the two states are related as: $\mathcal{C}(\D,\abf_{-i}) = \mathcal{C}(\C,\abf_{-i}) - 1$. In the following, we discuss results from the symmetric public goods game and then discuss results for the game with asymmetric players.\\
 
-\noindent To compute the stationary distribution of introspection dynamics in a symmetric (general) public goods game (PG), we use the closed for expression in Eq. (\ref{Eq:stationary-dist-symm-2-stgs}). We consider that every player in a 4-player game can generate a benefit $b$ of value $2$. Before exploring the $c-w-N$ parameter space, we study four specific cases.  In two of these cases, the public goods is discounted ($w = 0.5$, Fig. \ref{Fig:GPGG-symmetric}a left panels) and in two other cases, the public goods is synergistic ($w = 1.5$, Fig. \ref{Fig:GPGG-symmetric}a right panels). For each case, we consider two sub-cases: one, in which cost is high ($c = 1$,  Fig. \ref{Fig:GPGG-symmetric}a top panels) and two, when cost is low ($c = 0.2$, Fig. \ref{Fig:GPGG-symmetric}a bottom panels). The four parameter combinations are chosen such that each of them represents a unique social dilemma under the replicator dynamics.  When the PG is discounted ($w = 0.5$) and costs are high ($c = 1$) defection dominates cooperation (the prisoner's dilemma). When the PG is discounted ($w = 0.5$) but costs are low ($c = 0.2$), the coexistence behaviour similar to the snowdrift game appears from the replicator equation. When the PG is synergistic ($w = 1.5$) and costs are high ($c = 1$), both cooperation and defection are locally stable equilibria under the replicator dynamics. In addition, there is also an internal equilibrium which is unstable. This represents the stag-hunt game. And finally when both the PG is synergistic and costs are low, cooperation dominates defection. This situation represents the harmony game. The stationary behaviour of players in these games reflect the outcomes from the replicator dynamics (Fig. \ref{Fig:GPGG-symmetric}a). As selection strength is intermediate ($\beta = 5$), in some cases, players learn to play actions that are not optimal for the dilemma with non-zero probability. For example, even when the parameters of the game make cooperation to be the dominated strategy, there is a single cooperator in the group with a sizeable chance ($\approx 20\%$) in the long run. When the parameters of the game reflect the stag-hunt dilemma, players are more likely to coordinate their actions in the long run. In the long-run, the probabilities that the whole group plays $\C$ or $\D$ is higher than the probabilities that there is a group with a mixture of $\C$ and $\D$ players. In contrast, when the parameters reflect the snowdrift game, we get the opposite effect. In the long run, mixed groups are more likely than homogeneous groups. In fact, the group with exactly 2 cooperators and 2 defectors is the most likely outcome in the long run. Finally, when the parameters of the game make defection the dominated action, all players in the group learn to cooperate in the long run. \\ \\ 
+\noindent To compute the stationary distribution of introspection dynamics in a symmetric (general) public goods game (PG), we use the closed for expression in Eq. (\ref{Eq:stationary-dist-symm-2-stgs}). We consider that every player in a 4-player game can generate a benefit $b$ of value $2$. Before exploring the $c-w-N$ parameter space, we study four specific cases.  In two of these cases, the public goods is discounted ($w = 0.5$, Fig. \ref{Fig:GPGG-symmetric}a left panels) and in two other cases, the public goods is synergistic ($w = 1.5$, Fig. \ref{Fig:GPGG-symmetric}a right panels). For each case, we consider two sub-cases: one, in which cost is high ($c = 1$,  Fig. \ref{Fig:GPGG-symmetric}a top panels) and two, when cost is low ($c = 0.2$, Fig. \ref{Fig:GPGG-symmetric}a bottom panels). The four parameter combinations are chosen such that each of them represents a unique social dilemma under the replicator dynamics.  When the PG is discounted ($w = 0.5$) and costs are high ($c = 1$) defection dominates cooperation (like the prisoner's dilemma). When the PG is discounted ($w = 0.5$) but costs are low ($c = 0.2$), the there is stable coexistence between cooperators and defectors under the replicator dynamics just like the snowdrift game. When the PG is synergistic ($w = 1.5$) and costs are high ($c = 1$), both cooperation and defection are locally stable equilibria under the replicator dynamics. In addition, there is also an internal equilibrium which is unstable. This is alike the dilemma in the stag-hunt game. And finally when both the PG is synergistic and costs are low, cooperation dominates defection. This situation is similar to the harmony game. The stationary behaviour of players in these games reflect the outcomes from the replicator dynamics (Fig. \ref{Fig:GPGG-symmetric}a). As selection strength is intermediate ($\beta = 5$), in some cases, players learn to play actions that are not optimal for the dilemma with non-zero probability. For example, even when the parameters of the game make cooperation to be the dominated strategy, there is a single cooperator in the group with a sizeable chance ($\approx 20\%$) in the long run. When the parameters of the game reflect the stag-hunt dilemma, players are more likely to coordinate their actions in the long run. In the long-run, the probabilities that the whole group plays $\C$ or $\D$ is higher than the probabilities that there is a group with a mixture of $\C$ and $\D$ players. In contrast, when the parameters reflect the snowdrift game, we get the opposite effect. In the long run, mixed groups are more likely than homogeneous groups. In fact, the group with exactly 2 cooperators and 2 defectors is the most likely outcome in the long run. Finally, when the parameters of the game make defection the dominated action, all players in the group learn to cooperate in the long run. \\ \\ 
 \noindent The average cooperation frequency of the group in the long run are shown in the $c-w$ and $N-w$ parameter planes in Fig \ref{Fig:GPGG-symmetric}b. First, let us consider the case when the group size is fixed at 4 players (the $c-w$ plane in Fig\ref{Fig:GPGG-symmetric}b). In that case if the cost of cooperation is too high, the average cooperation rate is negligible and does not change with the change in the nature of the public good. When the cost is not restrictively high, the discount/synergy parameter, $w$, determines the frequency with which players cooperate in the long run. A high $w$ for the public good would result in high cooperation in the long run (and \emph{vice-versa}). Next we consider the case where the cost of cooperation is fixed (the $N-w$ plane in Fig. \ref{Fig:GPGG-symmetric}b). It is fixed to a value such that in a synergistic PG ($w > 1$), the cooperation frequency is almost 1 in the long run for any group size. In this case, when the public good is discounted, group size $N$ and the discounting factor $w$ jointly determine the cooperation frequency in the long run. When the public good is discounted ($w < 1$), cooperation rates fall with larger group sizes.\\ \\
 \noindent 
-We also study introspection dynamics in general public goods game with asymmetric players. We use the same setup that we used for studying the linear public goods with three asymmetric players. The average frequency of cooperation per player is summarized in Supplementary Figures 1 and 2. First, we study two cases, one in which the public good is synergized (and players have a high average cost) and two in which public good is discounted (and players have a lower average cost). In both of these cases, players cooperate highly when they simultaneously have low cost and high benefit. The only noticebale difference between the two cases is the minimum relationship between the asymmetries $\delta_b$ and $\delta_c$ that results in high cooperation for the player with low cost and high benefit. When we observe individual cooperation frequency versus the synergy/discount factor, $w$ (Supplementary Figure 2), we find that when players are symmetric with respect to just benefits (or just costs), the one with the lowest cost (or highest benefit) cooperates with a high probability across all types of public goods, even for a high value of average cost.
+We also study introspection dynamics in general public goods game with asymmetric players. We use the same setup that we used for studying the linear public goods with three asymmetric players. The average frequency of cooperation per player is summarized in Supplementary Figures 1 and 2. First, we study two cases, one in which the public good is synergistic ($w > 1$, and players have a high average cost) and two in which public good is discounted (and players have a lower average cost). In both of these cases, players cooperate highly when they simultaneously have low cost and high benefit. The only noticebale difference between the two cases is the minimum relationship between the asymmetries $\delta_b$ and $\delta_c$ that results in high cooperation for the player with low cost and high benefit. When we observe individual cooperation frequency versus the synergy/discount factor, $w$ (Supplementary Figure 2), we find that when players are symmetric with respect to just benefits (or just costs), the one with the lowest cost (or highest benefit) cooperates with a high probability across all types of public goods, even for a high value of average cost.
 
 \section*{Application: Introspection learning in a game with cooperation and rewards}
 
@@ -500,7 +500,7 @@ Since $\beta$ is finite,the stationary distribution $\ubf = (\mathrm{u}_\abf)_{\
 \begin{align}
 \mathrm{I}_{\bbf} &:= \mathrm{I}(\bbf,\abf), \quad \mathit{iff} \quad \bbf \in \mathrm{Neb}(\abf) \\ \notag \\ 
 \label{Eq:shortcut-tau}
-\tau_{j:\abf_j} &:= \frac{1}{\displaystyle \sum_{a' \in \A_j} e^{\beta f_j(a',  \abf_j)}} 
+\tau_{j,a_j} &:= \frac{1}{\displaystyle \sum_{a' \in \A_j} e^{\beta f_j(a',  a_j)}} 
 \end{align}
 \noindent In order to show that the candidate stationary distribution, as proposed in Eq. (\ref{Eq:additive-game-stationary-distribution}) is the stationary distribution of the process, we need to show that the following are true:
 \begin{align}
@@ -511,29 +511,29 @@ Since $\beta$ is finite,the stationary distribution $\ubf = (\mathrm{u}_\abf)_{\
 \end{align} 
 Using our short-cut notation $\tau$ and the expression for our candidate stationary distribution in Eq. (\ref{Eq:additive-game-stationary-distribution}), we can express the stationary distribution as: 
 \begin{equation}
-\mathrm{u}_\abf = \prod_{j=1}^N \tau_{j:\abf_j}
+\mathrm{u}_\abf = \prod_{j=1}^N \tau_{j,a_j}
 \label{Eq:additive-stat-shortcut}
 \end{equation} \\ 
 Using this expression, the left hand side of Eq. (\ref{step-one}) can be simplified further with the steps: 
 \begin{align}
 &\mathrm{T}_{\abf,\abf} \mathrm{u}_\abf  + \sum_{\bbf \neq \abf} \mathrm{T}_{\bbf, \abf} \mathrm{u}_{\bbf}\\
-&= \left( 1 - \frac{1}{N} \sum_{\bbf \in \mathrm{Neb}(\abf)} \frac{1}{m_{\mathrm{I}_\bbf}-1} \cdot p_{\abf_{\mathrm{I}_\bbf} \to \bbf_{\mathrm{I}_\bbf}} \right) \mathrm{u}_{\abf}+ \frac{1}{N}\sum_{\bbf \in \mathrm{Neb}(\abf)}  \frac{1}{m_{\mathrm{I}_\bbf}-1} \cdot p_{\bbf_{\mathrm{I}_\bbf} \to \abf_{\mathrm{I}_\bbf}} \cdot \mathrm{u}_{\bbf}\\ \notag \\
+&= \left( 1 - \frac{1}{N} \sum_{\bbf \in \mathrm{Neb}(\abf)} \frac{1}{m_{\mathrm{I}_\bbf}-1} \cdot p_{a_{\mathrm{I}_\bbf} \to b_{\mathrm{I}_\bbf}} \right) \mathrm{u}_{\abf}+ \frac{1}{N}\sum_{\bbf \in \mathrm{Neb}(\abf)}  \frac{1}{m_{\mathrm{I}_\bbf}-1} \cdot p_{b_{\mathrm{I}_\bbf} \to a_{\mathrm{I}_\bbf}} \cdot \mathrm{u}_{\bbf}\\ \notag \\
 \label{eq:important-step}
-&= \mathrm{u}_\abf +  \frac{1}{N} \sum_{\bbf \in \mathrm{Neb}(\abf)} \left( \prod_{k \neq I_\bbf} \tau_{k:\abf_k} \right) \left( p_{\bbf_{\mathrm{I}_\bbf} \to \abf_{\mathrm{I}_\bbf}} \cdot \tau_{\mathrm{I}_\bbf: \abf_{\mathrm{I}_\bbf}} -  p_{\abf_{\mathrm{I}_\bbf} \to \bbf_{\mathrm{I}_\bbf}} \cdot \tau_{\mathrm{I}_\bbf: \bbf_{\mathrm{I}_\bbf}} \right) \cdot \left(  \frac{1}{m_{\mathrm{I}_\bbf}-1} \right)
+&= \mathrm{u}_\abf +  \frac{1}{N} \sum_{\bbf \in \mathrm{Neb}(\abf)} \left( \prod_{k \neq I_\bbf} \tau_{k,a_k} \right) \left( p_{b_{\mathrm{I}_\bbf} \to a_{\mathrm{I}_\bbf}} \cdot \tau_{\mathrm{I}_\bbf, a_{\mathrm{I}_\bbf}} -  p_{a_{\mathrm{I}_\bbf} \to b_{\mathrm{I}_\bbf}} \cdot \tau_{\mathrm{I}_\bbf, b_{\mathrm{I}_\bbf}} \right) \cdot \left(  \frac{1}{m_{\mathrm{I}_\bbf}-1} \right)
 \end{align}
-\noindent For an additive game, the expressions for $p_{\bbf_{\mathrm{I}_\bbf} \to \abf_{\mathrm{I}_\bbf}}$ and $p_{\abf_{\mathrm{I}_\bbf} \to \bbf_{\mathrm{I}_\bbf}}$ can be simply written as: 
+\noindent For an additive game, the expressions for $p_{b_{\mathrm{I}_\bbf} \to a_{\mathrm{I}_\bbf}}$ and $p_{a_{\mathrm{I}_\bbf} \to b_{\mathrm{I}_\bbf}}$ can be simply written as: 
 \begin{align}
-p_{\bbf_{\mathrm{I}_\bbf} \to \abf_{\mathrm{I}_\bbf}} &=\frac{1}{1 + \displaystyle e^{\beta f_{\mathrm{I}_\bbf}(\bbf_{\mathrm{I}_\bbf}, \abf_{\mathrm{I}_\bbf})}} \\[10pt] 
-p_{\abf_{\mathrm{I}_\bbf} \to \bbf_{\mathrm{I}_\bbf}} &= \frac{1}{1 + \displaystyle e^{\beta f_{\mathrm{I}_\bbf}(\abf_{\mathrm{I}_\bbf}, \bbf_{\mathrm{I}_\bbf})}} 
+p_{b_{\mathrm{I}_\bbf} \to a_{\mathrm{I}_\bbf}} &=\frac{1}{1 + \displaystyle e^{\beta f_{\mathrm{I}_\bbf}(b_{\mathrm{I}_\bbf}, a_{\mathrm{I}_\bbf})}} \\[10pt] 
+p_{a_{\mathrm{I}_\bbf} \to b_{\mathrm{I}_\bbf}} &= \frac{1}{1 + \displaystyle e^{\beta f_{\mathrm{I}_\bbf}(a_{\mathrm{I}_\bbf}, b_{\mathrm{I}_\bbf})}} 
 \end{align} \\
 Using the above expressions and the expression for $\tau$ in Eq. (\ref{Eq:shortcut-tau}), it can be shown that: 
 \begin{equation}
-\left( p_{\bbf_{\mathrm{I}_\bbf} \to \abf_{\mathrm{I}_\bbf}} \cdot \tau_{\mathrm{I}_\bbf: \abf_{\mathrm{I}_\bbf}} -  p_{\abf_{\mathrm{I}_\bbf} \to \bbf_{\mathrm{I}_\bbf}} \cdot \tau_{\mathrm{I}_\bbf: \bbf_{\mathrm{I}_\bbf}} \right) = 0 
+ \left( p_{b_{\mathrm{I}_\bbf} \to a_{\mathrm{I}_\bbf}} \cdot \tau_{\mathrm{I}_\bbf, a_{\mathrm{I}_\bbf}} -  p_{a_{\mathrm{I}_\bbf} \to b_{\mathrm{I}_\bbf}} \cdot \tau_{\mathrm{I}_\bbf, b_{\mathrm{I}_\bbf}} \right) = 0
 \label{important-step-is-zero}
 \end{equation}
 \\ \noindent After plugging the equality in Eq. (\ref{important-step-is-zero}) into Eq. (\ref{eq:important-step}), we see that the left hand side of Eq. (\ref{step-one}) simplifies to $\mathrm{u}_{\abf}$. Now, to complete the proof we must check if Eq. (\ref{step-two}) holds for our candidate distribution. Summing up the elements of the stationary distribution $\mathrm{u}_\abf$ for all states $\abf \in \A$: \\ 
 \begin{align}
-\sum_{\abf \in \A} \mathrm{u}_\abf &= \sum_{\abf \in \A} \prod_{k=1}^N \tau_{k:\abf_k} = \sum_{\abf \in \A} \frac{\displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})}}{\displaystyle \quad \prod_{k=1}^N \sum_{a' \in \A_k} e^{\beta \pi_k(a',\qbf_{-k})}}
+\sum_{\abf \in \A} \mathrm{u}_\abf &= \sum_{\abf \in \A} \prod_{k=1}^N \tau_{k,a_k} = \sum_{\abf \in \A} \frac{\displaystyle \prod_{k=1}^N e^{\beta \pi_k(a_k, \qbf_{-k})}}{\displaystyle \quad \prod_{k=1}^N \sum_{a' \in \A_k} e^{\beta \pi_k(a',\qbf_{-k})}}
 \end{align}
 %\\ \notag \\
 %\label{step-prod-sum-sum-prod}
@@ -542,62 +542,62 @@ Using the above expressions and the expression for $\tau$ in Eq. (\ref{Eq:shortc
 %&= 1
 \noindent \\ \\ where $\qbf_{-1}, \qbf_{-2},...,\qbf_{-N}$ are any arbitrary tuples from $\A_{-1}, \A_{-2},...,\A_{-N}$ respectively. The denominator in the above expression can be taken out completely from the first sum. That is, \\
 \begin{align}
-\sum_{\abf \in \A} \mathrm{u}_\abf = &\sum_{\abf \in \A} \frac{\displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})}}{\displaystyle \quad \prod_{k=1}^N \sum_{a' \in \A_k} e^{\beta \pi_k(a',\qbf_{-k})}} \\[15pt]
-=& \left( \displaystyle \prod_{k=1}^N \left( e^{\beta \pi_k(a_{k,1}, \qbf_{-k})}+... + e^{\beta \pi_k(a_{k,m_k}, \qbf_{-k})} \right) \right)^{-1} \cdot \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})} \right) \\
+\sum_{\abf \in \A} \mathrm{u}_\abf = &\sum_{\abf \in \A} \frac{\displaystyle \prod_{k=1}^N e^{\beta \pi_k(a_k, \qbf_{-k})}}{\displaystyle \quad \prod_{k=1}^N \sum_{a' \in \A_k} e^{\beta \pi_k(a',\qbf_{-k})}} \\[15pt]
+=& \left( \displaystyle \prod_{k=1}^N \left( e^{\beta \pi_k(a_{k,1}, \qbf_{-k})}+... + e^{\beta \pi_k(a_{k,m_k}, \qbf_{-k})} \right) \right)^{-1} \cdot \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(a_k, \qbf_{-k})} \right) \\
 \end{align} \\
 \noindent Multiplying out the sums in the denominator of the above expression, we get that:
 \begin{align}
 \label{Eq:OG_prod-of-sum}
-\sum_{\abf \in \A} \mathrm{u}_\abf =& \left( \displaystyle \prod_{k=1}^N \left( e^{\beta \pi_k(a_{k,1}, \qbf_{-k})}+... + e^{\beta \pi_k(a_{k,m_k}, \qbf_{-k})} \right) \right)^{-1} \cdot \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})} \right) \\[10pt]
+\sum_{\abf \in \A} \mathrm{u}_\abf =& \left( \displaystyle \prod_{k=1}^N \left( e^{\beta \pi_k(a_{k,1}, \qbf_{-k})}+... + e^{\beta \pi_k(a_{k,m_k}, \qbf_{-k})} \right) \right)^{-1} \cdot \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(a_k, \qbf_{-k})} \right) \\[10pt]
 \label{Eq:OG_sum-of-prod}
-=& \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})}  \right)^{-1} \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(\abf_k, \qbf_{-k})}  \right) = 1
+=& \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(a_k, \qbf_{-k})}  \right)^{-1} \left( \sum_{\abf \in \A} \displaystyle \prod_{k=1}^N e^{\beta \pi_k(a_k, \qbf_{-k})}  \right) = 1
 \end{align} \\ 
 \noindent The step from Eq. (\ref{Eq:OG_prod-of-sum}) to Eq. (\ref{Eq:OG_sum-of-prod}) involves multiplying out all the sums of exponents (where each term in the sum of exponents corresponds to payoff that player $k$ receives by playing their actions against co-player composition, $\qbf_{-k}$). Therefore, the stationary distribution sums up to 1. The candidate distribution we propose for the additive game is the unique stationary distribution of the process.\\
 \end{proof}
 
 \begin{proof}
 \textbf{Proof of Proposition} \ref{Th:additive-game-product-of-marginals} \\ \\ 
-Just like the previous proof, $\pbf_{-1}, \pbf_{-2},...,\pbf_{-N} $ are any arbitrary tuples from $\A_{-1}, \A_{-2},...,\A_{-N}$ respectively. In the steps below, we always decompose the expression $f_j(a,b)$ to $\pi_j(a,\pbf_{-j}) - \pi_j(b,\pbf_{-j})$. When $\ubf = (\mathrm{u}_\abf)_{\abf \in \A}$ is the unique stationary distribution of the $N-$player additive game under finite selection introspection dynamics, it is given by the closed form expression in Eq. (\ref{Eq:additive-game-stationary-distribution}). We use this expression to calculate the marginal distribution of actions played at a particular state $\abf$, $(\xi_{j:\abf_j})_{j \in \{1,2,...,N\}}$. 
+Just like the previous proof, $\pbf_{-1}, \pbf_{-2},...,\pbf_{-N} $ are any arbitrary tuples from $\A_{-1}, \A_{-2},...,\A_{-N}$ respectively. In the steps below, we always decompose the expression $f_j(a,b)$ to $\pi_j(a,\pbf_{-j}) - \pi_j(b,\pbf_{-j})$. When $\ubf = (\mathrm{u}_\abf)_{\abf \in \A}$ is the unique stationary distribution of the $N-$player additive game under finite selection introspection dynamics, it is given by the closed form expression in Eq. (\ref{Eq:additive-game-stationary-distribution}). We use this expression to calculate the marginal distribution of actions played at a particular state $\abf$, $(\xi_{j,a_j})_{j \in \{1,2,...,N\}}$. 
 \begin{align}
-\xi_{j:\abf_j} &= \sum_{\qbf \in \A_{-j}} \mathrm{u}_{(\abf_j,\qbf)} \\ \notag \\
-&= \sum_{\qbf \in \A_{-j}} \left( \sum_{a' \in \A_j} \displaystyle e^{\beta f_j(a',\abf_j)}\right)^{-1} \prod_{k \neq j} \left( \sum_{a' \in \A_k} \displaystyle e^{\beta f_k(a',q_k)}\right)^{-1} \\ \notag \\
-&= \left( \prod_{k=1}^N \sum_{a' \in \A_k} \displaystyle e^{\beta \pi_k (a', \pbf_{-k})}\right)^{-1} \cdot \displaystyle e^{\beta \pi_j(\abf_j, \pbf_{-j})} \cdot \left( \sum_{\qbf \in \A_{-j}} \prod_{k \neq j} e^{\beta \pi_k(q_k, l_{-k})} \right) \\ \notag \\
+\xi_{j,a_j} &= \sum_{\qbf \in \A_{-j}} \mathrm{u}_{(a_j,\qbf)} \\ \notag \\
+&= \sum_{\qbf \in \A_{-j}} \left( \sum_{a' \in \A_j} \displaystyle e^{\beta f_j(a',a_j)}\right)^{-1} \prod_{k \neq j} \left( \sum_{a' \in \A_k} \displaystyle e^{\beta f_k(a',q_k)}\right)^{-1} \\ \notag \\
+&= \left( \prod_{k=1}^N \sum_{a' \in \A_k} \displaystyle e^{\beta \pi_k (a', \pbf_{-k})}\right)^{-1} \cdot \displaystyle e^{\beta \pi_j(a_j, \pbf_{-j})} \cdot \left( \sum_{\qbf \in \A_{-j}} \prod_{k \neq j} e^{\beta \pi_k(q_k, l_{-k})} \right) \\ \notag \\
 \label{step-prod-sum}
-&= \left( \sum_{a' \in \A_j} \displaystyle e^{\beta \pi_j(a',\pbf_{-j})}\right)^{-1} \cdot \displaystyle e^{\beta \pi_j(\abf_j, \pbf_{-j})}\cdot \left( \prod_{k\neq j} \sum_{a' \in \A_k} \displaystyle e^{\beta \pi_k(a',\pbf_{-k})}\right)^{-1} \cdot \left( \sum_{\qbf \in \A_{-j}} \prod_{k \neq j} e^{\beta \pi_k(q_k,\pbf_{-k})} \right)
+&= \left( \sum_{a' \in \A_j} \displaystyle e^{\beta \pi_j(a',\pbf_{-j})}\right)^{-1} \cdot \displaystyle e^{\beta \pi_j(a_j, \pbf_{-j})}\cdot \left( \prod_{k\neq j} \sum_{a' \in \A_k} \displaystyle e^{\beta \pi_k(a',\pbf_{-k})}\right)^{-1} \cdot \left( \sum_{\qbf \in \A_{-j}} \prod_{k \neq j} e^{\beta \pi_k(q_k,\pbf_{-k})} \right)
 \end{align}
 \newpage
 \begin{align}
 \label{step-sum-prod}
-&= \left( \sum_{a' \in \A_j} \displaystyle e^{\beta \pi_j(a',\pbf_{-j})}\right)^{-1} \cdot \displaystyle e^{\beta \pi_j(\abf_j, \pbf_{-j})}\cdot \left( \sum_{\qbf \in \A_{-j}} \prod_{k\neq j}  \displaystyle e^{\beta \pi_k(q_k,\pbf_{-k})} \right)^{-1} \cdot \left( \sum_{\qbf \in \A_{-j}} \prod_{k \neq j} e^{\beta \pi_k(q_k,\pbf_{-k})}  \right)
+&= \left( \sum_{a' \in \A_j} \displaystyle e^{\beta \pi_j(a',\pbf_{-j})}\right)^{-1} \cdot \displaystyle e^{\beta \pi_j(a_j, \pbf_{-j})}\cdot \left( \sum_{\qbf \in \A_{-j}} \prod_{k\neq j}  \displaystyle e^{\beta \pi_k(q_k,\pbf_{-k})} \right)^{-1} \cdot \left( \sum_{\qbf \in \A_{-j}} \prod_{k \neq j} e^{\beta \pi_k(q_k,\pbf_{-k})}  \right)
 \end{align}
 \noindent The interchange of the sum and the product between the expressions in Eq. (\ref{step-prod-sum}) and Eq. (\ref{step-sum-prod}) can be carried out by observing that when all the sums are multiplied out, one is left with sums of terms, each of which is a exponential with power equal to sum of payoffs that co-players of $j$ (here $k$) receive when they play their respective strategies from $\qbf$ (that is $q_k$) against co-players that play $\pbf_{-k}$. This is the similar to the step between Eq. (\ref{Eq:OG_prod-of-sum}) and Eq. (\ref{Eq:OG_sum-of-prod}) in the proof of Proposition 2. 
 \begin{align}
-&= \left( \sum_{a' \in \A_j} \displaystyle e^{\beta \left( \pi_j(a',\pbf_{-j}) - \pi_j(\abf_j,\pbf_{-j})\right)} \right)^{-1}\\ \notag \\
+&= \left( \sum_{a' \in \A_j} \displaystyle e^{\beta \left( \pi_j(a',\pbf_{-j}) - \pi_j(a_j,\pbf_{-j})\right)} \right)^{-1}\\ \notag \\
 \label{final-expression}
-&= \sum_{a' \in \A_j} \displaystyle e^{\beta f_j(a',\abf_j)}
+&= \sum_{a' \in \A_j} \displaystyle e^{\beta f_j(a',a_j)}
 \end{align} \\
 \noindent Using the expression in Eq. (\ref{final-expression}), we can confirm that for additive games, the product of the marginals is the stationary distribution,  
 \begin{equation}
-\prod_{j=1}^N \xi_{j:\abf_j} = \mathrm{u}_\abf
+\prod_{j=1}^N \xi_{j,a_j} = \mathrm{u}_\abf
 \end{equation} 
 \end{proof}
 
 \begin{proof}
 \textbf{Proof of Proposition} \ref{prop:stationary-dist-lpgg} \\ \\
-Since we have demonstrated that the linear public goods game is an additive game, the proof of this theorem can be performed by directly using Proposition \ref{Th:additive-games-stationary-dist}. Here, we provide an independent proof. The idea behind this proof is identical to the proof of proof\ref{Th:additive-games-stationary-dist}. \\ \\
+Since we have demonstrated that the linear public goods game is an additive game, the proof of this theorem can be performed by directly using Proposition \ref{Th:additive-games-stationary-dist}. Here, we provide an independent proof. The idea behind this proof is identical to the proof of Proposition \ref{Th:additive-games-stationary-dist}. \\ \\
 \noindent Again, since $\beta$ is finite, the process will have a unique stationary distribution. Before continuing with the rest of the proof where we show that our candidate stationary distribution is \emph{the} unique stationary distribution, we define the following short-cut notations for the ease of the proof: 
 \begin{align}
-\bar{\abf}_j &:= \{\D,\C\} \setminus \{\abf_j\}  \\ \notag \\ 
+\bar{a}_j &:= \{\D,\C\} \setminus \{a_j\}  \\ \notag \\ 
 p_j &:= \frac{1}{1 + \displaystyle e^{\beta f_j(\D, \C)}} 
 \end{align} \\
-In addition we introduce an indicator function $\alpha(.)$ which maps the action $\C$ to 1 and the action $\D$ to 0. That is $\alpha(\C) := 1$ and $\alpha(\D) := 0$. Using these notations and Eq. (\ref{Eq:introspection-update}) and (\ref{Eq:difference-payoffs-lpgg}) and utilizing our shortcut notation from above, we can write the probability that a player $j$ updates to $\abf_j$ from $\bar{\abf}_j$ while their co-players play $\abf_{-j}$ as: \\
+In addition we introduce an indicator function $\alpha(.)$ which maps the action $\C$ to 1 and the action $\D$ to 0. That is $\alpha(\C) := 1$ and $\alpha(\D) := 0$. Using these notations and Eq. (\ref{Eq:introspection-update}) and (\ref{Eq:difference-payoffs-lpgg}) and utilizing our shortcut notation from above, we can write the probability that a player $j$ updates to $a_j$ from $\bar{a}_j$ while their co-players play $\abf_{-j}$ as: \\
 \begin{equation}
-p_{\displaystyle \bar{\abf}_j  \to \abf_j} (\abf_{-j}) = p_j \mathit{sign}(\abf_j) + \alpha(\bar{\abf}_j) 
+p_{\displaystyle \bar{a}_j  \to a_j} (\abf_{-j}) = p_j \mathit{sign}(a_j) + \alpha(\bar{a}_j) 
 \end{equation}\\
 The candidate stationary distribution $\ubf$ given in Eq. (\ref{Eq:stationary_dist_lpgg}) can be written down using our short-cut notation as: \\
 \begin{equation}
 \label{Eq:stationary-dist-shortcut}
-\mathrm{u}_\abf = \prod_{k = 1}^{N}  p_k \mathit{sign}(\abf_k) + \alpha(\bar{\abf}_k)
+\mathrm{u}_\abf = \prod_{k = 1}^{N}  p_k \mathit{sign}(a_k) + \alpha(\bar{a}_k)
 \end{equation}\\
 This stationary distribution must satisfy the following properties, which are also given in Eq  (\ref{Eq:lefteigenvector}) and (\ref{Eq:normalizationcondition}):
 \begin{align}
@@ -606,23 +606,23 @@ This stationary distribution must satisfy the following properties, which are al
 \label{Eq:normalization-in-proof}
 &\sum_{\abf \in \A} \mathrm{u}_{\abf}= 1
 \end{align}
-Where, the terms in the right hand side of Eq. \ref{Eq:transition-in-proof} can be simplified using Eq. (\ref{Eq:introspection-update}) and (\ref{Eq:transition-matrix}) as follows:
+Where, the terms in the right hand side of Eq. (\ref{Eq:transition-in-proof}) can be simplified using Eq. (\ref{Eq:introspection-update}) and (\ref{Eq:transition-matrix}) as follows:
 \begin{eqnarray}
-\mathrm{T}_{\abf,\abf} = 1 - \sum_{k=1}^{N} \mathrm{T}_{(\abf_k, \abf_{-k}), (\bar{\abf}_k,\abf_{-k})} = 1 - \frac{1}{N} \sum_{k=1}^{N} p_k \textit{sign}(\bar{\abf}_k) + \alpha(\abf_k)
+\mathrm{T}_{\abf,\abf} = 1 - \sum_{k=1}^{N} \mathrm{T}_{(a_k, \abf_{-k}), (\bar{a}_k,\abf_{-k})} = 1 - \frac{1}{N} \sum_{k=1}^{N} p_k \textit{sign}(\bar{a}_k) + \alpha(a_k)
 \label{Eq:first-term-rhs-proof}
 \end{eqnarray} 
 and additionally, using Eq. (\ref{Eq:stationary-dist-shortcut}) the second term can be simplified too:
 \begin{align}
-\sum_{\bbf \neq \abf} \mathrm{T}_{\bbf, \abf} \mathrm{u}_{\bbf} &= \sum_{k = 1}^N \mathrm{T}_{(\bar{\abf}_k,\abf_{-k}), (\abf_k, \abf_{-k})} \mathrm{u}_{(\bar{\abf}_k,\abf_{-k})} \\[10pt]
-&= \frac{1}{N} \sum_{k = 1}^N \left(p_k \textit{sign}(\abf_k) +\alpha(\bar{\abf}_k) \right) \mathrm{u}_{(\bar{\abf}_k,\abf_{-k})} \\[10pt] 
+\sum_{\bbf \neq \abf} \mathrm{T}_{\bbf, \abf} \mathrm{u}_{\bbf} &= \sum_{k = 1}^N \mathrm{T}_{(\bar{a}_k,\abf_{-k}), (a_k, \abf_{-k})} \mathrm{u}_{(\bar{a}_k,\abf_{-k})} \\[10pt]
+&= \frac{1}{N} \sum_{k = 1}^N \left(p_k \textit{sign}(a_k) +\alpha(\bar{a}_k) \right) \mathrm{u}_{(\bar{a}_k,\abf_{-k})} \\[10pt] 
 \label{Eq:second-term-rhs-proof}
-&= \frac{\mathrm{u}_\abf}{N} \sum_{k=1}^{N} p_k \textit{sign}(\bar{\abf}_k) + \alpha(\abf_k) 
+&= \frac{\mathrm{u}_\abf}{N} \sum_{k=1}^{N} p_k \textit{sign}(\bar{a}_k) + \alpha(a_k) 
 \end{align}
 Now, using Eq. (\ref{Eq:first-term-rhs-proof}) and (\ref{Eq:second-term-rhs-proof}) one can show that the right hand side of Eq. (\ref{Eq:transition-in-proof}) is the element of the stationary distribution, corresponding to the state $\abf$, $\mathrm{u}_a$.  Now, to complete the proof, we must show that Eq. (\ref{Eq:normalization-in-proof}) is also true for our candidate stationary distribution. This can be done by decomposing the sum of the elements of the stationary distribution as follows:
 \begin{align}
-\sum_{\abf \in \A} u_{\abf} =& \displaystyle \sum_{\abf \in \A} \prod_{k=1}^N p_k \mathit{sign}(\abf_k) + \alpha(\bar{\abf}_k) \\[10pt]
-=& \displaystyle \displaystyle \sum_{\abf \in \A_{-\!N}} (1-p_N)  \prod_{k=1}^{N-1} p_k \mathit{sign}(\abf_k) + \alpha(\bar{\abf}_k)  + p_N  \prod_{k=1}^{N-1} p_k \mathit{sign}(\abf_k) + \alpha(\bar{\abf}_k) \\[10pt]
-=& \displaystyle \sum_{\abf \in \A_{-\!N}} \prod_{k=1}^{N-1} p_k \mathit{sign}(\abf_k) + \alpha(\bar{\abf}_k)
+\sum_{\abf \in \A} \mathrm{u}_{\abf} =& \displaystyle \sum_{\abf \in \A} \prod_{k=1}^N p_k \mathit{sign}(a_k) + \alpha(\bar{a}_k) \\[10pt]
+=& \displaystyle \displaystyle \sum_{\abf \in \A_{-\!N}} (1-p_N)  \prod_{k=1}^{N-1} p_k \mathit{sign}(a_k) + \alpha(\bar{a}_k)  + p_N  \prod_{k=1}^{N-1} p_k \mathit{sign}(a_k) + \alpha(\bar{a}_k) \\[10pt]
+=& \displaystyle \sum_{\abf \in \A_{-\!N}} \prod_{k=1}^{N-1} p_k \mathit{sign}(a_k) + \alpha(\bar{a}_k)
 \end{align}
 When the above decomposition is perfomed $N-1$ more times, the sum of the right hand side becomes 1. This prooves that the candidate stationary distribution is also a probability distribution.\\
 \end{proof}
@@ -631,57 +631,57 @@ When the above decomposition is perfomed $N-1$ more times, the sum of the right 
 \textbf{Proof of Proposition} \ref{Prop:Symmetric-2-strategies-state} \\ \\
 By construction, the candidate stationary distribution given by Eq. (\ref{Eq:stationary-dist-symm-2-stgs-state}) and Eq. (\ref{Eq:stationary-dist-normalization-symm-2-stgs-state}) is a probability distribution since it satisfies the condition in Eq. (\ref{Eq:normalizationcondition}) and for any state $\abf$, $\mathrm{u}_{\abf}$ is between 0 and 1.  Again, since $\beta$ is finite the process will have a unique stationary distribution. Again, to show that the candidate stationary distribution is the unique stationary distribution, we need to check if Eq. (\ref{Eq:lefteigenvector}) holds. That is, the condition in Eq. (\ref{Eq:transition-in-proof}) must hold for all states $\abf$. We re-introduce some notations that we will use in this proof: 
 \begin{align}
-\bar{\abf}^j &:= \{\D,\C\} \setminus \{\abf_j\} \\[10pt]
+\bar{a}^j &:= \{\D,\C\} \setminus \{a_j\} \\[10pt]
 \alpha(a)&:= 
 \begin{cases}
 1 \quad \text{if} \quad a = \C \\[10pt]
 0 \quad \text{if} \quad a = \D 
 \end{cases}\\[10pt]
-\mathcal{C}(\abf) &= \sum_{j=1}^N \alpha(\abf_j)
+\mathcal{C}(\abf) &= \sum_{j=1}^N \alpha(a_j)
 \end{align}
 For this process, since there are only two actions, the first term in the right hand side of Eq. (\ref{Eq:transition-in-proof}) can be simplified as: 
 \begin{align}
-\mathrm{u}_{\abf} \mathrm{T}_{\abf,\abf}  &= \mathrm{u}_\abf - \mathrm{u}_{\abf} \sum_{k=1}^{N} \mathrm{T}_{(\abf_k, \abf_{-k}),(\bar{\abf}_{k}, \abf_{-k})} \\[10pt]
-&= \mathrm{u}_{\abf} - \frac{\mathrm{u}_{\abf}}{N} \sum_{k=1}^N \frac{1}{1 + \displaystyle e^{\mathit{sign}(\bar{\abf}_{k}) \beta f(N_k)}}
+\mathrm{u}_{\abf} \mathrm{T}_{\abf,\abf}  &= \mathrm{u}_\abf - \mathrm{u}_{\abf} \sum_{k=1}^{N} \mathrm{T}_{(a_k, \abf_{-k}),(\bar{a}_{k}, \abf_{-k})} \\[10pt]
+&= \mathrm{u}_{\abf} - \frac{\mathrm{u}_{\abf}}{N} \sum_{k=1}^N \frac{1}{1 + \displaystyle e^{\mathit{sign}(\bar{a}_{k}) \beta f(N_k)}}
 \label{Eq:T_aa_u_a term}
 \end{align}
 \\ \noindent Where, the function $\mathit{sign}(.)$ is  defined as in Eq. (\ref{Eq:sign-function}) and$f(j)$ is the difference in payoffs between playing $\D$ and $\C$ when there are $j$ co-players playing $\C$. The term $N_k$ represents the number of co-players of $k$ that play $\C$ in state $\abf$. That is,
 \begin{equation}
-N_k := \sum_{j \neq k} \alpha(\abf_j)
+N_k := \sum_{j \neq k} \alpha(a_j)
 \end{equation} \\
-The second term in the right hand side of Eq. \ref{Eq:transition-in-proof} can be simplified as, 
+The second term in the right hand side of Eq. (\ref{Eq:transition-in-proof}) can be simplified as, 
 \begin{align}
-\sum_{\bbf \neq \abf} \mathrm{T}_{\bbf, \abf} \mathrm{u}_{\bbf} &= \sum_{k=1}^N \mathrm{T}_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})} \mathrm{u}_{(\bar{\abf}_k, \abf_{-k})} \\[10pt]
+\sum_{\bbf \neq \abf} \mathrm{T}_{\bbf, \abf} \mathrm{u}_{\bbf} &= \sum_{k=1}^N \mathrm{T}_{(\bar{a}_k, \abf_{-k}),(a_k, \abf_{-k})} \mathrm{u}_{(\bar{a}_k, \abf_{-k})} \\[10pt]
 \label{Eq:step-single-product}
-&= \frac{1}{N \Gamma} \sum_{k=1}^N \mathrm{T}_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})} \displaystyle \prod_{j=1}^{\mathcal{C}((\bar{\abf}_k, \abf_{-k}))} e^{-\beta f(j-1)}\\[10pt]
-&=  \frac{1}{N \Gamma} \sum_{k=1}^N \mathrm{T}_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})} \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \right) \cdot e^{-\beta \alpha(\bar{\abf}_k)f(-\alpha(\abf_k)+ N_k})
+&= \frac{1}{N \Gamma} \sum_{k=1}^N \mathrm{T}_{(\bar{a}_k, \abf_{-k}),(a_k, \abf_{-k})} \displaystyle \prod_{j=1}^{\mathcal{C}((\bar{a}_k, \abf_{-k}))} e^{-\beta f(j-1)}\\[10pt]
+&=  \frac{1}{N \Gamma} \sum_{k=1}^N \mathrm{T}_{(\bar{a}_k, \abf_{-k}),(a_k, \abf_{-k})} \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \right) \cdot e^{-\beta \alpha(\bar{a}_k)f(-\alpha(a_k)+ N_k})
 \label{Eq:step-product-broken}
 \end{align}
-From Eq. (\ref{Eq:step-single-product}) to Eq. (\ref{Eq:step-product-broken}), we took out one term from the product that is present in our candidate distribution. This term accounts for the $k^{th}$ players action in the neighbouring state $(\bar{\abf}_k, \abf_{-k})$ of $\abf$. For simplicity, we replace $\mathrm{T}_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})}$ with just $\T$ in the next steps. We continue the simplification of Eq. (\ref{Eq:step-product-broken}) in the next steps by introducing terms that cancel each other. \\[10pt]
+From Eq. (\ref{Eq:step-single-product}) to Eq. (\ref{Eq:step-product-broken}), we took out one term from the product that is present in our candidate distribution. This term accounts for the $k^{th}$ players action in the neighbouring state $(\bar{a}_k, \abf_{-k})$ of $\abf$. For simplicity, we represent $\mathrm{T}_{(\bar{a}_k, \abf_{-k}),(a_k, \abf_{-k})}$ with just $\T$ in the next steps. We continue the simplification of Eq. (\ref{Eq:step-product-broken}) in the next steps by introducing terms that cancel each other. \\[10pt]
 \begin{align}
-\sum_{\bbf \neq \abf} \mathrm{T}_{\bbf, \abf} \mathrm{u}_{\bbf} &=  \frac{1}{N \Gamma} \sum_{k=1}^N \T \cdot \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \right) \cdot \frac{e^{-\beta \alpha(\bar{\abf}_k)f(-\alpha(\abf_k)+ N_k)}}{e^{-\beta \alpha(\abf_k)f(-\alpha(\bar{\abf}_k) +N_k)}} \cdot e^{-\beta \alpha(\abf_k)f(-\alpha(\bar{\abf}_k) + N_k)}
+\sum_{\bbf \neq \abf} \mathrm{T}_{\bbf, \abf} \mathrm{u}_{\bbf} &=  \frac{1}{N \Gamma} \sum_{k=1}^N \T \cdot \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \right) \cdot \frac{e^{-\beta \alpha(\bar{a}_k)f(-\alpha(a_k)+ N_k)}}{e^{-\beta \alpha(a_k)f(-\alpha(\bar{a}_k) +N_k)}} \cdot e^{-\beta \alpha(a_k)f(-\alpha(\bar{a}_k) + N_k)}
 \label{Eq:new-cancelable-term-introduced}
 \end{align}
 \\ \noindent The newly introduced term in Eq. (\ref{Eq:new-cancelable-term-introduced}) can be taken inside the product. Note that this term is 1 if the $k^{th}$ player plays $\D$ in the state $\abf$. When this term is taken inside the product bracket, products of exponent $e^{-\beta f(j-1)}$ can be performed for $j$ ranging from $1$ to the number of cooperators in state $\abf$, $\mathcal{C}(\abf)$. This product is then the candidate stationary distribution probability $\mathrm{u}_\abf$. That is, 
 \begin{align}
-\sum_{\bbf \neq \abf} \mathrm{T}_{\bbf, \abf} \mathrm{u}_{\bbf} &=  \frac{1}{N \Gamma} \sum_{k=1}^N \T \cdot \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \cdot e^{-\beta \alpha(\abf_k)f(-\alpha(\bar{\abf}_k) + N_k)} \right) \cdot \frac{e^{-\beta \alpha(\bar{\abf}_k)f(-\alpha(\abf_k)+ N_k)}}{e^{-\beta \alpha(\abf_k)f(-\alpha(\bar{\abf}_k) +N_k)}} \\[10pt]
-&= \frac{1}{N} \sum_{k=1}^N  \T \cdot \left( \frac{1}{\Gamma} \prod_{j=1}^{\mathcal{C}(\abf)} e^{-\beta f(j-1)}\right) \cdot \frac{e^{-\beta \alpha(\bar{\abf}_k)f(-\alpha(\abf_k)+ N_k)}}{e^{-\beta \alpha(\abf_k)f(-\alpha(\bar{\abf}_k) +N_k)}} \\[10pt]
-&= \frac{1}{N} \sum_{k=1}^N  \mathrm{T}_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})} \cdot \mathrm{u}_\abf \cdot \frac{e^{-\beta \alpha(\bar{\abf}_k)f(-\alpha(\abf_k)+ N_k)}}{e^{-\beta \alpha(\abf_k)f(-\alpha(\bar{\abf}_k) +N_k)}} \label{Eq: last-step-w-fraction} 
+\sum_{\bbf \neq \abf} \mathrm{T}_{\bbf, \abf} \mathrm{u}_{\bbf} &=  \frac{1}{N \Gamma} \sum_{k=1}^N \T \cdot \displaystyle \left( \prod_{j=1}^{N_k}  e^{-\beta f(j-1)} \cdot e^{-\beta \alpha(a_k)f(-\alpha(\bar{a}_k) + N_k)} \right) \cdot \frac{e^{-\beta \alpha(\bar{a}_k)f(-\alpha(a_k)+ N_k)}}{e^{-\beta \alpha(a_k)f(-\alpha(\bar{a}_k) +N_k)}} \\[10pt]
+&= \frac{1}{N} \sum_{k=1}^N  \T \cdot \left( \frac{1}{\Gamma} \prod_{j=1}^{\mathcal{C}(\abf)} e^{-\beta f(j-1)}\right) \cdot \frac{e^{-\beta \alpha(\bar{a}_k)f(-\alpha(a_k)+ N_k)}}{e^{-\beta \alpha(a_k)f(-\alpha(\bar{a}_k) +N_k)}} \\[10pt]
+&= \frac{1}{N} \sum_{k=1}^N  \mathrm{T}_{(\bar{a}_k, \abf_{-k}),(a_k, \abf_{-k})} \cdot \mathrm{u}_\abf \cdot \frac{e^{-\beta \alpha(\bar{a}_k)f(-\alpha(a_k)+ N_k)}}{e^{-\beta \alpha(a_k)f(-\alpha(\bar{a}_k) +N_k)}} \label{Eq: last-step-w-fraction} 
 \end{align}
-\\ \noindent The fraction inside the sum in  Eq. (\ref{Eq: last-step-w-fraction}) can be simplified as follows leading to further simplification of Eq. (\ref{Eq: last-step-w-fraction}):
+\\ \noindent The fraction inside the sum in  Eq. (\ref{Eq: last-step-w-fraction}) can be simplified using the $\mathit{sign}(.)$ function (in \ref{Eq:sign-function}) leading to further simplification of Eq. (\ref{Eq: last-step-w-fraction}):
 \begin{align}
-\sum_{\bbf \neq \abf} \mathrm{T}_{\bbf, \abf} \mathrm{u}_{\bbf} &= \frac{1}{N} \sum_{k=1}^N  \mathrm{T}_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})} \cdot \mathrm{u}_\abf \cdot e^{sign(\abf_k) \beta f(N_k)} 
+\sum_{\bbf \neq \abf} \mathrm{T}_{\bbf, \abf} \mathrm{u}_{\bbf} &= \frac{1}{N} \sum_{k=1}^N  \mathrm{T}_{(\bar{a}_k, \abf_{-k}),(a_k, \abf_{-k})} \cdot \mathrm{u}_\abf \cdot e^{sign(a_k) \beta f(N_k)} 
 \label{Eq:only-need-to-replace-T-now}
 \end{align}
-\\ \noindent In Eq. (\ref{Eq:only-need-to-replace-T-now}) we can replace the element of the transition matrix $\mathrm{T}_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})}$ by using the following: 
+\\ \noindent In Eq. (\ref{Eq:only-need-to-replace-T-now}) we can replace the element of the transition matrix $\mathrm{T}_{(\bar{a}_k, \abf_{-k}),(a_k, \abf_{-k})}$ with,
 \begin{equation}
-\mathrm{T}_{(\bar{\abf}_k, \abf_{-k}),(\abf_k, \abf_{-k})} = \frac{1}{1 + \displaystyle e^{\mathit{sign}(\abf_k) \beta f(N_k)}} 
+\mathrm{T}_{(\bar{a}_k, \abf_{-k}),(a_k, \abf_{-k})} = \frac{1}{1 + \displaystyle e^{\mathit{sign}(a_k) \beta f(N_k)}} 
 \label{Eq:transition-matrix-T-symm-2-stgs}
 \end{equation}
 \\ \noindent Using the expression for the transition matrix element from Eq. (\ref{Eq:transition-matrix-T-symm-2-stgs}) into Eq. (\ref{Eq:only-need-to-replace-T-now}) and by using Eq. (\ref{Eq:T_aa_u_a term}), we can simplify further: 
 \begin{align}
-\sum_{\bbf \neq \abf} \mathrm{T}_{\bbf, \abf} \mathrm{u}_{\bbf} &= \frac{\mathrm{u}_\abf}{N} \sum_{k=1}^N \frac{1}{1 + \displaystyle e^{\mathit{sign}(\abf_k) \beta f(N_k)}} \cdot  e^{sign(\abf_k) \beta f(N_k)} \\[10pt]
-&= \frac{\mathrm{u}_\abf}{N} \sum_{k=1}^N \frac{1}{1 + \displaystyle e^{\mathit{sign}(\bar{\abf}_k) \beta f(N_k)}}  \\[10pt]
+\sum_{\bbf \neq \abf} \mathrm{T}_{\bbf, \abf} \mathrm{u}_{\bbf} &= \frac{\mathrm{u}_\abf}{N} \sum_{k=1}^N \frac{1}{1 + \displaystyle e^{\mathit{sign}(a_k) \beta f(N_k)}} \cdot  e^{sign(a_k) \beta f(N_k)} \\[10pt]
+&= \frac{\mathrm{u}_\abf}{N} \sum_{k=1}^N \frac{1}{1 + \displaystyle e^{\mathit{sign}(\bar{a}_k) \beta f(N_k)}}  \\[10pt]
 &= \mathrm{u}_\abf - \mathrm{u}_\abf \mathrm{T}_{\abf,\abf}
 \end{align}
 \\ \noindent The final step in the previous simplification shows that Eq. (\ref{Eq:transition-in-proof}) holds for any $\abf \in \{\C,\D\}^N$. Therefore, the candidate distribution we propose in Eq. (\ref{Eq:stationary-dist-symm-2-stgs-state}) is the unique stationary distribution of the symmetric $N$-player game with two strategies. \\
@@ -733,7 +733,7 @@ The stationary distribution of introspection dynamics for a linear public goods 
 \centering
 \includegraphics[width =  \textwidth]{figures/figure4.eps}~\\[0.4cm]
 \caption{\onehalfspacing
-\textbf{Intropection dynamics in the linear public goods game with peer rewarding.} Here we study a game with three asymmetric players, each having 16 possible strategies. Players cooperate in a linear public goods and then reward each other in the next stage after everyone's contribution is revealed. In the first stage, players can condition their cooperation on the information they have about their co-players' rewarding strategies. For a full description of the model, please see the section on rewarding. In this example, players 1 and 2 are identical in all aspects while player 3 is asymmetric to them in only a single aspect. In here, we plot the average frequency with which players cooperate and reward cooperation after a long time (after $10^5$ time steps of a computer simulation). We consider three types of asymmetry for player 3. a) First, we consider the case where player 3 has a high cost of rewarding compared to player 1 and 2, $0.7 = \gamma_3 > \gamma_1 = 0.1$. b) Then, we consider the case where player 3 is less productive than their co-players, $1.2 = r_3 < r_1 = 2$. c) Finally, we consider the case where player 3 has less information about co-players' rewarding strategies than their peers, that is, $0.1 = \lambda_3 < \lambda_1 = 0.9$. For all plots, we consider a high value for the selection strenght, $\beta = 10$. Unless otherwise mentioned, the following parameters are maintained for all panels: $c_i = 1$ (individual cost of cooperation), $r_i = 2$ (individual productivity), $\gamma_i = 0.1$ (individual cost of rewarding), $\lambda_i = 0.9$ (individual information about co-players' strategies). In panels a and b, the reward value $\rho$ is 0.3 while for the last panel, c, the reward value $\rho = 1$.}
+\textbf{Intropection dynamics in the linear public goods game with peer rewarding.} Here we study a game with three asymmetric players, each having 16 possible strategies. Players cooperate in a linear public goods and then reward each other in the next stage after everyone's contribution is revealed. In the first stage, players can condition their cooperation on the information they have about their co-players' rewarding strategies. For a full description of the model, please see the section on rewarding. In this example, players 1 and 2 are identical in all aspects while player 3 is asymmetric to them in only a single aspect. In here, we use Eq. (\ref{Eq:explicit-stationary-dist-representation}) to plot the exact probability with which the asymmetric players cooperate and reward cooperation after a long run of introspection. We consider three types of asymmetry for player 3. a) First, we consider the case where player 3 has a high cost of rewarding compared to player 1 and 2, $0.7 = \gamma_3 > \gamma_1 = 0.1$. b) Then, we consider the case where player 3 is less productive than their co-players, $1.2 = r_3 < r_1 = 2$. c) Finally, we consider the case where player 3 has less information about co-players' rewarding strategies than their peers, that is, $0.1 = \lambda_3 < \lambda_1 = 0.9$. For all plots, we consider a high value for the selection strenght, $\beta = 10$. Unless otherwise mentioned, the following parameters are maintained for all panels: $c_i = 1$ (individual cost of cooperation), $r_i = 2$ (individual productivity), $\gamma_i = 0.1$ (individual cost of rewarding), $\lambda_i = 0.9$ (individual information about co-players' strategies). In panels a and b, the reward value $\rho$ is 0.3 while for the last panel, c, the reward value $\rho = 1$.}
 \label{Fig:SocialRewarding}
 \end{figure}
 \bibliographystyle{unsrt}
