@@ -65,18 +65,27 @@
 \newcommand{\C}{\mathrm{C}}
 \newcommand{\D}{\mathrm{D}}
 
-%\title{\sffamily \Large Supplementary Information\\[0.1cm] {\bfseries Introspection dynamics in asymmetric multiplayers games}}
+\title{\sffamily \Large Supplementary Information\\[0.1cm] {\bfseries Introspection dynamics in asymmetric multiplayers games}}
 \title{\sffamily \Large {\bfseries Introspection dynamics in asymmetric multiplayers games}}
 \date{\empty}
-\author{\parbox[c]{16cm}{\centering \onehalfspacing \fontsize{11}{12}\selectfont Marta Couto$^{1*}$ and Saptarshi Pal$^{1*}$\\[0.2cm]
+\author{\parbox[c]{16cm}{\centering \onehalfspacing \fontsize{11}{12}\selectfont Marta C. Couto$^{1*}$ and Saptarshi Pal$^{1*}$\\[0.2cm]
 $^1$Max Planck Research Group Dynamics of Social Behavior, Max Planck Institute for Evolutionary Biology, 24306~Ploen, Germany}\\ \\
 $^*$ \fontsize{11}{12}\selectfont co-first authors}
-
 
 
 \begin{document}
 \maketitle
 \onehalfspacing
+\section*{Author Information}
+\textbf{First co-author:} Marta C. Couto \\
+\noindent \textbf{Affiliation:} \\Max Planck Research Group Dynamics of Social Behavior, \\Max Planck Institute for Evolutionary Biology, 24306~Ploen, Germany \\ 
+\noindent \textbf{Email:} mccouto@evolbio.mpg.de \\
+\noindent \textbf{ORCID:} 0000-0002-2868-9685  \\ \\
+\textbf{Second co-author:} Saptarshi Pal \\
+\noindent \textbf{Affiliation:} \\Max Planck Research Group Dynamics of Social Behavior, \\Max Planck Institute for Evolutionary Biology, 24306~Ploen, Germany \\ 
+\noindent \textbf{Email:} pal@evolbio.mpg.de \\
+\noindent \textbf{ORCID:} 0000-0003-3805-1295
+\newpage 
 \section*{Abstract}
 
 % 150 to 250 words
@@ -150,7 +159,7 @@ In general, players that have a lower cost or a higher benefit of cooperation le
 
 \newpage
 
-\section*{Introduction}
+\section{Introduction}
 
 %[Multiplayer games]
 
@@ -236,7 +245,7 @@ First, we derive a formula that allows us to numerically compute the stationary 
 Second, we obtain explicit expressions of the stationary distribution for two special cases. These cases are additive games (where the payoff difference that a player gains by unilaterally switching to a different action is independent of the actions of their co-players), and symmetric multiplayer games with two strategies. 
 To illustrate our theoretical results, we analyse various multiplayer asymmetric social dilemmas, extending the framework in \cite{Hauert:JTB:2006a} to asymmetric games. Finally, we also study the asymmetric version of a public goods game with a rewarding stage \cite{Pal:NatCom:2022}.
 
-\section*{Model of introspection dynamics in multiplayer games}
+\section{Model of introspection dynamics in multiplayer games}
 We consider a normal form game with $N (\geq 2)$ players. In the game, a player, say player $i$, can play actions from their action set, $\A_i := \{a_{i,1}, a_{i,2}, ..., a_{i,m_i} \}$. The action set of player $i$ has $m_i$ actions. In this model, players only use pure strategies. Therefore, there are finitely many states of the game. More precisely, there are exactly $m_1 \times m_2 \times ... \times m_N$ states. We denote a state of the game by collecting the actions of all the players in the game in a vector, $\abf := (a_1, a_2, ..., a_N)$ where $\abf \in \A := \A_1 \times \A_2 \times ... \times \A_N$ and $a_i \in \A_i$. We also use the notation, $\abf := (a_i, \abf_{-i})$ to denote the state from the perspective of player $i$. In the state $(a_i, \abf_{-i})$, player $i$ plays the action $a_i \in \A_i$ and their co-players play the actions $\abf_{-i} \in \A_{-i}$ where $\A_{-i}$ is defined as $\A_{-i}:= \prod_{j \neq i} \A_j$. The payoff of a player depends on the state of the game. We denote the payoff of player $i$ in the state $\abf$ with $\pi_i(\abf)$ or $\pi_i(a_i, \abf_{-i})$. In this paper, we use bold font letters to denote vectors and matrices. We use the corresponding normal font letters with subscripts to denote elements of the vectors (or matrices). Since players only use pure strategies in this model, we use the terms strategies and actions interchangebly throughout the whole paper. \\ \\ 
 \noindent In this model, players update their strategies over time using introspection dynamics \cite{Couto:NJP:2022}. At every time step, one randomly chosen player can update their strategy. The randomly chosen player, say $i$, currently playing  action $a_{i,k}$, compares their current payoff to the payoff that they would obtain if they played a randomly selected action $a_{i,l} \neq a_{i,k}$ from their action set $\A_i$. This comparison is done while assuming that the co-players do not change their respective actions. When the co-players of player $i$ play $\abf_{-i}$, player $i$ changes from action $a_{i,k}$ to the new action $a_{i,l}$ in the next round with probability, \\
 \begin{equation}
@@ -312,7 +321,7 @@ where $\mathbf{U}$ is a square matrix of the same size as $\T$ with all elements
 %\sum_{k = 1}^{m_i} \xi_{a_{i,k}}= 1
 %\label{Eq:marginal-prob-dist}
 %\end{equation}
-\section*{Additive games and their properties under introspection dynamics}
+\section{Additive games and their properties under introspection dynamics}
 In this section we discuss the stationary properties of introspection dynamics when players learn to play strategies in a special class of games: additive games \cite{McAvoy:PlosCB:2015, Pena:JTB:2014}. In an additive game, the payoff difference that a player earns by making a unilateral switch in their actions is independent of what their co-players play. In other words, if none of the co-players change their current actions, the payoff difference earned by making a switch in actions is \emph{only} determined by the switch and not on the actions of the co-players'. Formally, in additive games, for any player $i$, any pair of actions $x,y \in \A_i$, and any $\qbf \in \A_{-i}$,
 \begin{equation}
 \pi_i(x, \qbf) - \pi_i(y, \qbf) =: f_i(x,y) 
@@ -351,7 +360,7 @@ Let $\ubf = (\mathrm{u}_\abf)_{\abf \in \A}$ be the unique stationary distributi
 \end{Prop}
 \noindent The above proposition states that for additive games, the stationary distribution of introspection dynamics can be factorized into its corresponding marginals. In the long run, the probability that players play the state $\abf = (a_1, a_2, ...,a_N)$ is the product of the cumulative probabilities that player 1 plays $a_1$, player 2 plays $a_2$ and so on. This property of the additive game was already shown for the simple two-player, two-action donation game in Couto et al. \cite{Couto:NJP:2022}.  Here we extend that result for any additive game with arbitrary number of players, each having an arbitrary number of strategies. In the next section we use the well-studied example of the linear public goods game (an additive game) to illustrate these results.
 
-\subsection*{Example of an additive game: linear public goods game with 2 actions}
+\subsection{Example of an additive game: linear public goods game with 2 actions}
 In the simplest version of the linear public goods game (LPGG) with $N-$players, each player has two possible actions, to contribute (action $\C$, to cooperate), or to not contribute (action $\D$, to defect) to the public good. The players may differ in their cost of cooperation and the benefit they provide by contributing to the public good. We denote the cost of cooperation for player $i$ and the benefit that they provide by $c_i$ and $b_i$ respectively. We define an indicator function $\alpha(.)$ to map the action of cooperation to 1 and the action of defection to 0. That is $\alpha(\C) = 1$ and $\alpha(\D) = 0$.  The payoff of player $i$ when the state of the game is $\abf$ is given by: \\
 \begin{equation}
 \pi_i(\abf) = \frac{1}{N}\sum_{j=1}^N \displaystyle \alpha(a_j) b_j - \alpha(a_i) c_i
@@ -389,7 +398,7 @@ When the parameters of the game are such that defection dominates cooperation ($
 \noindent 
 To study what effects might appear due to asymmetry in the LPGG, we consider the game with 3 asymmetric players. All the players can differ in their cost of cooperation and the benefit they provide to the public goods. In this setup, the reference player's (player 2) cost and benefit values are $1$ and $2$ units respectively. Player 1 and player 3 differ from the reference player in opposite directions. For player 1, the cost and benefit are $1 + \delta_c$ and $2 + \delta_b$ respectively while for player 3, the cost and benefit are $1 - \delta_c$ and $2 - \delta_b$, respectively. The terms $\delta_b$ and $\delta_c$ represents the strength of asymmetry between the three players (a higher absolute value of $\delta$ indicating a bigger asymmetry). When the players only differ in their cost of cooperation ($\delta_b = 0$ and $\delta_c = 0.5$, Fig \ref{Fig:LPGG-asymmetric}a, left), their relative cooperation in the long run reflects their relative ability to cooperate. The player with the lowest cooperation cost (player 3), cooperates with the highest probability (and \emph{vice-versa},  Fig \ref{Fig:LPGG-asymmetric}a, right). Similarly, when players only differ in their ability to produce the public good ($\delta_b = 1$ and $\delta_c = 0$, Fig \ref{Fig:LPGG-asymmetric}b left), their relative cooperation in the long run reflects the relative benefits they provide with their cooperation (Fig \ref{Fig:LPGG-asymmetric}b, right). In this example, if we consider that the reference player provides a benefit of 2 units and has a cost of 1 unit (in which case, defection always dominates cooperation for them), defection dominates cooperation for player 1 if and only if $\delta_b < 1 + 3\delta_c$ and for player 3 only when $\delta_b > 3\delta_c - 1$. These regions in the $\delta_b-\delta_c$ parameter plane that correspond to defection dominating cooperation are circumscribed by white dashed lines in Fig. \ref{Fig:LPGG-asymmetric}c. When players learn to play at high selection strength, $\beta$, their cooperation frequency in the long-run reflect the rational play (Fig. \ref{Fig:LPGG-asymmetric}c). In the long run, the average cooperation frequency of the group is low if the asymmetry in the benefit value is bounded, $3\delta_c - 1 < \delta_b < 3\delta_c + 1$. This includes the case where players are symmetric ($\delta_b = \delta_c = 0$). A relatively high cooperation is only assured if players are aligned in their asymmetries (i.e., either $\delta_b < 3\delta_c +1$ or $\delta_b > 3\delta_c - 1$). Or, in other words, if the player that has low cost of cooperation also provides a high benefit upon contribution, then cooperation is high in the long-run. 
 
-\section*{Games with two actions and their properties under introspection dynamics}
+\section{Games with two actions and their properties under introspection dynamics}
 
 In the previous section we studied the properties of additive games under introspection dynamics. In this section, we study games that are a) not necessarily additive and b) have only two actions for each player. First, we study the symmetric version of such a game. A $N$-player symmetric normal form game with two actions has the following properties:
 
@@ -449,7 +458,7 @@ where, $k$ represents the number of $\C$ players in the state and $f(j)$ is defi
 \end{Corollary}
 \noindent The above corollary follows directly from Proposition \ref{Prop:Symmetric-2-strategies-state}. The key step is to count the number of states in the state space $\mathcal{A}^N$ that corresponds to exactly $k$, $\C$ players (and therefore $N-k$, $\D$ players). This count is simply the binomal coefficient $N \choose k$. In the next section, we use the example of a non-linear public goods game to illustrate these results. 
 
-\subsection*{An example of a  game with two actions: the general public goods game}
+\subsection{An example of a  game with two actions: the general public goods game}
 
 To study general public goods game, we adopt the framework of general social dilemmas from Hauert et al. \cite{Hauert:JTB:2006a}. In the original paper, the authors propose a normal form game with symmetric players. The game's properties depend on a parameter $w$ that determines the nature of the public good. The players have two actions: cooperation, $\C$ and defection, $\D$. Here, we extend their framework to account for players with asymmetric payoffs. Before we explain the asymmetric setup, we describe the original model briefly. In the symmetric case, all $N$ players have the same cost of cooperation, $c$ and they all generate the same benefit $b$ for the public good. Unlike the linear public goods game, contributions to the public good are scaled by a factor that is determined by $w$ and the number of cooperators in the group. The payoff of a defector and a cooperator in a group with $k$ cooperators and $N-k$ defectors is given by, 
 
@@ -483,7 +492,7 @@ When selection strength is intermediate ($\beta = 5$), players sometimes play ac
 \noindent 
 We also study introspection dynamics in this game with asymmetric players. We use the same setup that we used for studying the asymmetric linear public goods. The average frequency of cooperation per player is summarized in Supplementary Figures 1 and 2. In Supplementary Figure 1, we study two cases, first in which the public good is synergistic and players have a high average cost, and second in which public good is discounted and players have a lower average cost. In both of these cases, players cooperate highly when they simultaneously have low cost and high benefit. The only noticebale difference between the two cases is the minimum relationship between the asymmetries $\delta_b$ and $\delta_c$ that results in high cooperation for the player with low cost and high benefit. When we observe individual cooperation frequency versus the synergy/discount factor, $w$ (Supplementary Figure 2), we find that when players are symmetric with respect to just benefits (or just costs), the one with the lowest cost (or highest benefit) cooperates with a high probability across all types of public goods, even for a high value of average cost.
 
-\section*{Application: Introspection learning in a game with cooperation and rewards}
+\section{Application: Introspection learning in a game with cooperation and rewards}
 
 In all the examples that we have studied so far, players can only choose between two actions (pure strategies). Introspection dynamics is particularly useful when players can use larger strategy sets. In this section, we study the stationary behavior of players in a game where each player has 16 possible pure strategies. To this end, we adopt the multiplayer cooperation and rewarding game from Pal and Hilbe \cite{Pal:NatCom:2022}. In this game, there are two stages: in stage 1, players decide whether or not they contribute to a linear public good and in stage 2, they decide whether or not they reward their peers. When a player contributes to the public good, they pay a cost $c_i$ but generate a benefit worth $r_i c_i$ that is equally shared by everyone. When a player rewards a peer, they provide them a benefit of $\rho$ while incurring the cost of rewarding, $\gamma_i$ to self. In between the stages, players get full information about the contribution of their peers. In the rewarding stage, players have four possible strategies: they can either reward all the peers who contributed (social rewarding), reward all the peers who defected (antisocial rewarding), reward all peers irrespective of contribution (always rewarding) or reward none of the peers (never rewarding). Before stage 1 commences, player $i$ knows with some probability, $\lambda_i$, the rewarding strategy of all their peers. In stage 1, players can have four possible strategies: they can either contribute or defect unconditionally or they can be conditional cooperators or conditional defectors. Conditional cooperators (or defectors) contribute (or do not contribute) when they have no information about their peers (which happens with probability $1 - \lambda_i$). When a conditional player, $i$, knows the rewarding strategy of all their peers (which happens with probability $\lambda_i$) and finds that there are $n_{\mathrm{SR}}$ social rewarders and $n_{\mathrm{AR}}$ antisocial rewarders among his peers, they cooperate if and only if the marginal gain from rewards for choosing cooperation over defection outweighs the effective cost of cooperation. That is, 
 
@@ -496,7 +505,7 @@ In all the examples that we have studied so far, players can only choose between
 \\ \\
 \noindent In the case where player 3 is asymmetric with respect to their cost of rewarding, the long-run outcome of introspection reflects a division in labour between the players in producing the public good (Fig. \ref{Fig:SocialRewarding}a). The players, to whom rewarding is less costly (player 1 and player 2), reward cooperation with a higher probability than to whom rewarding is very costly (player 3). In return, player 3 learns to respond by contributing with more probability than their co-players. With these specific parameters, one player takes up the role of providing the highest per-capita contribution while the others compensate with costly rewarding. When the asymmetric player differs only in their productivity, a different effect may appear in the long run (Fig \ref{Fig:SocialRewarding}b). In this case, the less productive player free-rides on the cooperation of their higher productive peers, but eventually reward the cooperation of their peers nonetheless. The asymmetric player free-rides but does not second-order free ride. The probability with which the less productive player rewards others in the long run is slightly higher than the probability with which the contributing individuals reward each other. Finally, we consider the case where the asymmetric individual differs from others in terms of the information players have about others' rewarding strategy (Fig \ref{Fig:SocialRewarding}c). In this case, the asymmetric player knows others' strategy with a considerably less chance than their peers. In the long run, the asymmetric player cooperates less on average than their peers. This is because the asymmetric individual faces less instances where they can opportunistically cooperate with their co-players. However, both types of player reward cooperation almost equally and just enough to sustain cooperation. 
 
-\section*{Discussion and conclusion}
+\section{Discussion and conclusion}
 
 %[Short summary]
 
@@ -542,6 +551,8 @@ Finally, we study several examples of social dilemmas. From those, we see that, 
 
 \section*{Acknowledgements}
 This work was supported by the European Research Council Starting Grant 850529 (E-DIRECT) and by the Max Planck Society. We would like to thank Christian Hilbe and the members of the Research Group Dynamics of Social Behavior for valuable feedback.
+\section*{Statements and Declarations}
+The authors declare that they have no competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 \newpage
 \section*{Appendix: Proofs}
 \label{Section:Appendix}
@@ -756,7 +767,7 @@ To show this result we count how many states are identical to a state $\abf \in 
 %--------FIGURE WITH LINEAR PGG-----
 \begin{figure}
 \centering
-\includegraphics[width =  \textwidth]{figures/figure1.eps}~\\[0.4cm]
+\includegraphics[width =  \textwidth]{figures/Fig1.eps}~\\[0.4cm]
 \caption{\onehalfspacing
 \textbf{Introspection dynamics in a symmetric linear public goods game.}
 We show the stationary distribution of the introspection dynamics for a linear public goods game with four identical players. For all the panels in this figure, we use the following parameters: $N = 4$ (group size), $b = 2$ (benefit provided to the public good upon cooperation), $c = 1$ (cost of cooperation). a) Here, we show the frequency of each state in the stationary distribution of introspection dynamics. As players are identical, each state can be defined by the number of cooperators. We use a selection strength of $\beta = 5$. For this strength of selection, states with more cooperators are less likely than states with less cooperators. b) Here, we show the frequency of each state for varying selection strength, $\beta$. We use the same color code as panel a). Comparing neutrality ($\beta = 0$) with low to intermediate $\beta$ values, we see that selection favors states other than 0 cooperators. Indeed, up to $\beta \approx 3$, state $0$ is not the most frequent state in the long run. c) Average cooperation frequency for varying dilemma strength depends on the selection strength, $\beta$. We use the marginal gain of choosing cooperation over defection, $b/N - c$, as a measure of the dilemma strength. When this quantity is negative and low, we say that the dilemma is strong. In this case, chosing cooperation is strictly disadvantageous. When this quantity is positive and high, we say that the dilemma is weak. In this case, cooperation dominates defection. Typically, a linear public goods dilemma is defined to have a negative marginal gain. Here, we show the dilemma strength varying from $-2$ to $2$. The results are shown for different values of selection strength, $\beta = 1, 5$ and $100$. For high $\beta$, stationary distribution of the introspection dynamics reflects the rational play. In the long-run players play the Nash equilibrium. When marginal gain is negative, defection is played with almost certainty (and \emph{vice-versa}). For low $\beta$, however, we see that some cooperation is possible even when the dilemma is strong. }
@@ -765,7 +776,7 @@ We show the stationary distribution of the introspection dynamics for a linear p
 \clearpage
 \begin{figure}
 \centering
-\includegraphics[width =  \textwidth]{figures/figure2.eps}~\\[0.4cm]
+\includegraphics[width =  \textwidth]{figures/Fig2.eps}~\\[0.4cm]
 \caption{\onehalfspacing
 \textbf{Introspection dynamics in an asymmetric linear public goods game.} We show the cooperation probabilities of the introspection dynamics for a linear public goods game with three asymmetric players. For each of the upper panels (a and b), we show the cost of cooperation and the benefit provided upon cooperation for the players on the left and the average cooperation frequency in the long-run on the right. %In this example, the cost of cooperation for players 1, 2 and 3 are $1 + \delta_c, 1$ and $1 - \delta_c$ respectively. The benefits that player 1, 2 and 3 provide upon cooperation are $2 + \delta_b, 2$ and $2 - \delta_b$ respectively. The cost and benefit for the reference player (player 2) are shown with black dashed lines in the left panels of a and b. In panel a, player 1 and 3 differ by 0.5 units in their cost of cooperation from the reference player. All the players provide the same benefit when they contribute (i.e., $\delta_b = 0$). Conversely, in panel b, benefit by player 1 and 3 differ from the reference player by 1 unit. The cost of cooperation is the same for all players ($c = 1$). 
 In c), we vary the asymmetry strengths between the players, $\delta_c $ and $\delta_b$, simultaneously and show both average individual cooperation frequency and the overall average cooperation frequency in the long-run. The reference player's cost and benefit are again 1 and 2 units respectively. The area within the white dashed lines represents the parameter values for which the marginal gain of choosing cooperation over defection is negative, for each single player and, in the right-most panel, for all players simultaneously. In this example, cooperation is only feasible in the long run if the asymmetries of players are aligned. That is, overall cooperation is high only when the individual with a low cost of cooperation has a high benefit value. For panels a) and b) we use a selection strength of $\beta = 2$ while for panel c), we use a selection strength of $\beta = 5$. 
@@ -775,7 +786,7 @@ In c), we vary the asymmetry strengths between the players, $\delta_c $ and $\de
 \clearpage
 \begin{figure}
 \centering
-\includegraphics[width =  0.65\textwidth, keepaspectratio]{figures/figure3.eps}~\\[0.4cm]
+\includegraphics[width =  0.65\textwidth, keepaspectratio]{figures/Fig3.eps}~\\[0.4cm]
 \caption{\onehalfspacing
 \textbf{Introspection dynamics in a symmetric general public goods game}. We study introspection dynamics in the general public goods game with 4 symmetric players, each having two possible actions - cooperation and defection. For a detailed description of the game, please see the main text. a) The frequency of each state in the stationary distribution of introspection dynamics in four types of multiplayer social dilemmas display qualitatively different results. The upper panels refer to a high cost of cooperation ($c=1$) while the bottom panels to a low cost of cooperation ($c = 0.2$); left panels refer to a discounted public good ($w = 0.5$), and the right panels refer to a synergistic public good ($w = 1.5$). Each case is tagged with a symbol that places the particular case in the contour plot in panel b). b) On the left, we show the average cooperation frequency for varying discount/synergy factor, $w$, and varying cost of cooperation, $c$. Cooperation is feasible when costs are not restrictively high and the public good is not too discounted. On the right, we show the average cooperation frequency for varying discount/synergy factor, $w$, and group size $N$. For this plot, the cost of cooperation for each player is $c = 0.4$. The feasibility of cooperation drops with larger group sizes when the public good is discounted. For all panels, $b=2$ and $\beta = 5$.} 
 \label{Fig:GPGG-symmetric}
@@ -783,7 +794,7 @@ In c), we vary the asymmetry strengths between the players, $\delta_c $ and $\de
 \clearpage
 \begin{figure}
 \centering
-\includegraphics[width =  \textwidth]{figures/figure4.eps}~\\[0.4cm]
+\includegraphics[width =  \textwidth]{figures/Fig4.eps}~\\[0.4cm]
 \caption{\onehalfspacing
 \textbf{Intropection dynamics in the linear public goods game with peer rewarding.} Here we study a game with three asymmetric players, each having 16 possible strategies. Players cooperate in a linear public goods and then reward each other in the next stage after everyone's contribution is revealed. In the first stage, players can condition their cooperation on the information they have about their co-players' rewarding strategies. For a full description of the model, please see the section on rewarding. In this example, players 1 and 2 are identical in all aspects while player 3 differs from them in only a single aspect. In here, we use Eq. (\ref{Eq:explicit-stationary-dist-representation}) to plot the exact probability with which players cooperate and reward cooperation in the long run. We consider three types of asymmetry for player 3. a) First, we consider the case where player 3 has a high cost of rewarding compared to player 1 and 2, $0.7 = \gamma_3 > \gamma_1 = 0.1$. b) Then, we consider the case where player 3 is less productive than their co-players, $1.2 = r_3 < r_1 = 2$. c) Finally, we consider the case where player 3 has less information about co-players' rewarding strategies than the others, that is, $0.1 = \lambda_3 < \lambda_1 = 0.9$. For all plots, we consider a high value for the selection strenght, $\beta = 10$. Unless otherwise mentioned, the following parameters are maintained for all panels: $c_i = 1$ (individual cost of cooperation), $r_i = 2$ (individual productivity), $\gamma_i = 0.1$ (individual cost of rewarding), $\lambda_i = 0.9$ (individual information about co-players' strategies). In panels a) and b), the reward value is $\rho=0.3$ while for panel c), the reward value $\rho = 1$.}
 \label{Fig:SocialRewarding}
